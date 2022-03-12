@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->foreignId('nationality_id')->nullable()->constrained('countries');
             $table->foreignId('residence_id')->nullable()->constrained('countries');
-            $table->foreignId('country_code_id')->nullable()->constrained('countries');
             $table->foreignId('level_id')->nullable()->constrained('user_levels');
             $table->string('phone');
             $table->string('avatar')->nullable();
