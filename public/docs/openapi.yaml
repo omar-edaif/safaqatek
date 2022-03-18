@@ -7,7 +7,7 @@ servers:
   -
     url: 'http://safaqatek.test'
 paths:
-  '/api/v1/{lang}/google/callback':
+  '/api/v1/{lang}/user/google/callback':
     get:
       summary: ''
       description: ''
@@ -26,853 +26,7 @@ paths:
           example: application/json
           schema:
             type: string
-      responses:
-        500:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Method Illuminate\Http\Response::json does not exist.'
-                  exception: BadMethodCallException
-                  file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Macroable\Traits\Macroable.php'
-                  line: 113
-                  trace:
-                    -
-                      file: 'C:\laragon\www\safaqatek\app\Http\Controllers\api\v1\AuthApiController.php'
-                      line: 44
-                      function: __call
-                      class: Illuminate\Http\Response
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
-                      line: 54
-                      function: handleProviderCallback
-                      class: App\Http\Controllers\api\v1\AuthApiController
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
-                      line: 45
-                      function: callAction
-                      class: Illuminate\Routing\Controller
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                      line: 262
-                      function: dispatch
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                      line: 205
-                      function: runController
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 721
-                      function: run
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 128
-                      function: 'Illuminate\Routing\{closure}'
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
-                      line: 50
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Routing\Middleware\SubstituteBindings
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                      line: 127
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                      line: 103
-                      function: handleRequest
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                      line: 55
-                      function: handleRequestUsingNamedLimiter
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                      line: 33
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 128
-                      function: 'Laravel\Sanctum\Http\Middleware\{closure}'
-                      class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 103
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                      line: 34
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 103
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 723
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 698
-                      function: runRouteWithinStack
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 662
-                      function: runRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 651
-                      function: dispatchToRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 167
-                      function: dispatch
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 128
-                      function: 'Illuminate\Foundation\Http\{closure}'
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                      line: 31
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                      line: 40
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                      line: 27
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                      line: 86
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\fruitcake\laravel-cors\src\HandleCors.php'
-                      line: 52
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Fruitcake\Cors\HandleCors
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                      line: 39
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Http\Middleware\TrustProxies
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 103
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 142
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 111
-                      function: sendRequestThroughRouter
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 299
-                      function: handle
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 287
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 89
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 45
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 222
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 179
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 116
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 117
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 75
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 51
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                      line: 49
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                      line: 40
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                      line: 653
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 136
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Command\Command.php'
-                      line: 298
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 121
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                      line: 1015
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                      line: 299
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                      line: 171
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Application.php'
-                      line: 94
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                      line: 129
-                      function: run
-                      class: Illuminate\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\artisan'
-                      line: 37
-                      function: handle
-                      class: Illuminate\Foundation\Console\Kernel
-                      type: '->'
-                properties:
-                  message:
-                    type: string
-                    example: 'Method Illuminate\Http\Response::json does not exist.'
-                  exception:
-                    type: string
-                    example: BadMethodCallException
-                  file:
-                    type: string
-                    example: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Macroable\Traits\Macroable.php'
-                  line:
-                    type: integer
-                    example: 113
-                  trace:
-                    type: array
-                    example:
-                      -
-                        file: 'C:\laragon\www\safaqatek\app\Http\Controllers\api\v1\AuthApiController.php'
-                        line: 44
-                        function: __call
-                        class: Illuminate\Http\Response
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
-                        line: 54
-                        function: handleProviderCallback
-                        class: App\Http\Controllers\api\v1\AuthApiController
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
-                        line: 45
-                        function: callAction
-                        class: Illuminate\Routing\Controller
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                        line: 262
-                        function: dispatch
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                        line: 205
-                        function: runController
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 721
-                        function: run
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 128
-                        function: 'Illuminate\Routing\{closure}'
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
-                        line: 50
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Routing\Middleware\SubstituteBindings
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                        line: 127
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                        line: 103
-                        function: handleRequest
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                        line: 55
-                        function: handleRequestUsingNamedLimiter
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                        line: 33
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 128
-                        function: 'Laravel\Sanctum\Http\Middleware\{closure}'
-                        class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 103
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                        line: 34
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 103
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 723
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 698
-                        function: runRouteWithinStack
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 662
-                        function: runRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 651
-                        function: dispatchToRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 167
-                        function: dispatch
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 128
-                        function: 'Illuminate\Foundation\Http\{closure}'
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                        line: 31
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                        line: 40
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                        line: 27
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                        line: 86
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\fruitcake\laravel-cors\src\HandleCors.php'
-                        line: 52
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Fruitcake\Cors\HandleCors
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                        line: 39
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Http\Middleware\TrustProxies
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 103
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 142
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 111
-                        function: sendRequestThroughRouter
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 299
-                        function: handle
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 287
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 89
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 45
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 222
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 179
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 116
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 117
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 75
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 51
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                        line: 49
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                        line: 40
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                        line: 653
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 136
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Command\Command.php'
-                        line: 298
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 121
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                        line: 1015
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                        line: 299
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                        line: 171
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Application.php'
-                        line: 94
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                        line: 129
-                        function: run
-                        class: Illuminate\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\artisan'
-                        line: 37
-                        function: handle
-                        class: Illuminate\Foundation\Console\Kernel
-                        type: '->'
-                    items:
-                      type: object
+      responses: {  }
       tags:
         - 'User management'
       security: []
@@ -881,7 +35,53 @@ paths:
         in: path
         name: lang
         description: ''
-        example: natus
+        example: necessitatibus
+        required: true
+        schema:
+          type: string
+  '/api/v1/{lang}/user/{provider}':
+    get:
+      summary: 'google apple sign up'
+      description: 'this route is called when user wont sign with their google or apple'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
+      -
+        in: path
+        name: provider
+        description: 'must be  google apple .'
+        example: google
         required: true
         schema:
           type: string
@@ -932,10 +132,19 @@ paths:
         200:
           description: 'new user'
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: '{"id": 20,"token": "20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu"}}'
+                type: object
+                example:
+                  id: 20
+                  token: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
+                properties:
+                  id:
+                    type: integer
+                    example: 20
+                  token:
+                    type: string
+                    example: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
       tags:
         - 'User management'
       requestBody:
@@ -948,39 +157,40 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: pdnmmlzqgk
+                  example: vvo
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: valentine.leffler@example.net
+                  example: aabbott@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: jarlyx
+                  example: ''
                 phone:
                   type: string
                   description: ''
-                  example: placeat
-                password_confirmation:
-                  type: string
-                  description: 'The same password that user chose'
-                  example: asperiores
+                  example: dolorem
               required:
                 - username
                 - email
                 - password
                 - phone
-                - password_confirmation
       security: []
     parameters:
       -
         in: path
         name: lang
-        description: ''
-        example: aut
+        description: 'Optional parameter. The language.'
         required: true
         schema:
           type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
   '/api/v1/{lang}/user/login':
     post:
       summary: login
@@ -1028,914 +238,39 @@ paths:
         200:
           description: login
           content:
-            text/plain:
-              schema:
-                type: string
-                example: '{"id": 20,"token": "20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu"}}'
-      tags:
-        - 'User management'
-      security: []
-    parameters:
-      -
-        in: path
-        name: lang
-        description: ''
-        example: sequi
-        required: true
-        schema:
-          type: string
-  '/api/v1/{lang}/user/{provider}':
-    get:
-      summary: 'google apple sign up'
-      description: 'this route is called when user wont sign with their google or apple'
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        500:
-          description: ''
-          content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'Driver [en] not supported.'
-                  exception: InvalidArgumentException
-                  file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Support\Manager.php'
-                  line: 109
-                  trace:
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Support\Manager.php'
-                      line: 80
-                      function: createDriver
-                      class: Illuminate\Support\Manager
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php'
-                      line: 261
-                      function: driver
-                      class: Illuminate\Support\Manager
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\app\Http\Controllers\api\v1\AuthApiController.php'
-                      line: 34
-                      function: __callStatic
-                      class: Illuminate\Support\Facades\Facade
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
-                      line: 54
-                      function: redirectToProvider
-                      class: App\Http\Controllers\api\v1\AuthApiController
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
-                      line: 45
-                      function: callAction
-                      class: Illuminate\Routing\Controller
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                      line: 262
-                      function: dispatch
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                      line: 205
-                      function: runController
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 721
-                      function: run
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 128
-                      function: 'Illuminate\Routing\{closure}'
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
-                      line: 50
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Routing\Middleware\SubstituteBindings
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                      line: 127
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                      line: 103
-                      function: handleRequest
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                      line: 55
-                      function: handleRequestUsingNamedLimiter
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Routing\Middleware\ThrottleRequests
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                      line: 33
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 128
-                      function: 'Laravel\Sanctum\Http\Middleware\{closure}'
-                      class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 103
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                      line: 34
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 103
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 723
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 698
-                      function: runRouteWithinStack
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 662
-                      function: runRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 651
-                      function: dispatchToRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 167
-                      function: dispatch
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 128
-                      function: 'Illuminate\Foundation\Http\{closure}'
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                      line: 31
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                      line: 40
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                      line: 27
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                      line: 86
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\fruitcake\laravel-cors\src\HandleCors.php'
-                      line: 52
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Fruitcake\Cors\HandleCors
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                      line: 39
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 167
-                      function: handle
-                      class: Illuminate\Http\Middleware\TrustProxies
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 103
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 142
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 111
-                      function: sendRequestThroughRouter
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 299
-                      function: handle
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 287
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 89
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 45
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 222
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 179
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 116
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 117
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 75
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 51
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                      line: 49
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                      line: 40
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                      line: 653
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 136
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Command\Command.php'
-                      line: 298
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 121
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                      line: 1015
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                      line: 299
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                      line: 171
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Application.php'
-                      line: 94
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                      line: 129
-                      function: run
-                      class: Illuminate\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\laragon\www\safaqatek\artisan'
-                      line: 37
-                      function: handle
-                      class: Illuminate\Foundation\Console\Kernel
-                      type: '->'
+                  id: 20
+                  token: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
                 properties:
-                  message:
-                    type: string
-                    example: 'Driver [en] not supported.'
-                  exception:
-                    type: string
-                    example: InvalidArgumentException
-                  file:
-                    type: string
-                    example: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Support\Manager.php'
-                  line:
+                  id:
                     type: integer
-                    example: 109
-                  trace:
-                    type: array
-                    example:
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Support\Manager.php'
-                        line: 80
-                        function: createDriver
-                        class: Illuminate\Support\Manager
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php'
-                        line: 261
-                        function: driver
-                        class: Illuminate\Support\Manager
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\app\Http\Controllers\api\v1\AuthApiController.php'
-                        line: 34
-                        function: __callStatic
-                        class: Illuminate\Support\Facades\Facade
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
-                        line: 54
-                        function: redirectToProvider
-                        class: App\Http\Controllers\api\v1\AuthApiController
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
-                        line: 45
-                        function: callAction
-                        class: Illuminate\Routing\Controller
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                        line: 262
-                        function: dispatch
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                        line: 205
-                        function: runController
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 721
-                        function: run
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 128
-                        function: 'Illuminate\Routing\{closure}'
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
-                        line: 50
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Routing\Middleware\SubstituteBindings
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                        line: 127
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                        line: 103
-                        function: handleRequest
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
-                        line: 55
-                        function: handleRequestUsingNamedLimiter
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Routing\Middleware\ThrottleRequests
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                        line: 33
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 128
-                        function: 'Laravel\Sanctum\Http\Middleware\{closure}'
-                        class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 103
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php'
-                        line: 34
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 103
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 723
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 698
-                        function: runRouteWithinStack
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 662
-                        function: runRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 651
-                        function: dispatchToRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 167
-                        function: dispatch
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 128
-                        function: 'Illuminate\Foundation\Http\{closure}'
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                        line: 31
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                        line: 40
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                        line: 27
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                        line: 86
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\fruitcake\laravel-cors\src\HandleCors.php'
-                        line: 52
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Fruitcake\Cors\HandleCors
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                        line: 39
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 167
-                        function: handle
-                        class: Illuminate\Http\Middleware\TrustProxies
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 103
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 142
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 111
-                        function: sendRequestThroughRouter
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 299
-                        function: handle
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 287
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 89
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 45
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 222
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 179
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 116
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 117
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 75
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 51
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                        line: 49
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                        line: 40
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                        line: 653
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 136
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Command\Command.php'
-                        line: 298
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 121
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                        line: 1015
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                        line: 299
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\symfony\console\Application.php'
-                        line: 171
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Console\Application.php'
-                        line: 94
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                        line: 129
-                        function: run
-                        class: Illuminate\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\laragon\www\safaqatek\artisan'
-                        line: 37
-                        function: handle
-                        class: Illuminate\Foundation\Console\Kernel
-                        type: '->'
-                    items:
-                      type: object
+                    example: 20
+                  token:
+                    type: string
+                    example: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
       tags:
         - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: ekerluke@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: quo
+              required:
+                - email
+                - password
       security: []
     parameters:
       -
@@ -1952,17 +287,71 @@ paths:
           present:
             summary: 'When the value is present'
             value: en
-      -
-        in: path
-        name: provider
-        description: 'must be  google apple .'
-        example: soluta
-        required: true
-        schema:
-          type: string
   '/api/v1/{lang}/user/logout':
     post:
       summary: logout
+      description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: logout
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '{"message": "you are logout now"}}'
+      tags:
+        - 'User management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token_id:
+                  type: The
+                  description: 'id of user token .'
+                  example: '20'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
+  '/api/v1/{lang}/user/phone':
+    post:
+      summary: 'Get phone'
       description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
       parameters:
         -
@@ -1989,17 +378,45 @@ paths:
                 example: '{"message": "you are logout now"}}'
       tags:
         - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of user  .'
+                  example: Exemple@exemple.com
+              required:
+                - email
       security: []
     parameters:
       -
         in: path
         name: lang
-        description: ''
-        example: odit
+        description: 'Optional parameter. The language.'
         required: true
         schema:
           type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
 tags:
   -
     name: 'User management'
     description: "\nAPIs for managing users"
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

@@ -5,4 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/{provider}/redirect', [AuthSocialiteController::class, 'redirectToProvider']);
-Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/', function () {
+    return redirect('/docs');
+});

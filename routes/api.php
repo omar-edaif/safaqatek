@@ -6,11 +6,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1/{lang}')->group(function () {
 
-    Route::get('/google/callback', [AuthApiController::class, 'handleProviderCallback'])->name('google.redirect');
     Route::prefix('user')->group(function () {
+        Route::get('/google/callback', [AuthApiController::class, 'handleProviderCallback'])->name('google.redirect');
+        Route::group(['middleware' => ['web']], function () {
+            Route::get('/{provider}', [AuthApiController::class, 'redirectToProvider']);
+        });
+        Route::post('/phone', [AuthApiController::class, 'phone']);
         Route::post('/register', [AuthApiController::class, 'register']);
         Route::post('/login', [AuthApiController::class, 'login']);
-        Route::get('/{provider}', [AuthApiController::class, 'redirectToProvider']);
     });
 
 

@@ -25,6 +25,11 @@
         "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
+        "files": [
+            "app/Helpers/helpers.php",
+            "app/Helpers/Exceptions.php",
+            "app/Helpers/HttpCodes.php"
+        ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
@@ -32,6 +37,7 @@
         }
     },
     "autoload-dev": {
+
         "psr-4": {
             "Tests\\": "tests/"
         }
