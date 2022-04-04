@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var baseUrl = "http://safaqatek.test";
+        var baseUrl = "https://safaqatek.com";
         var useCsrf = Boolean(1);
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -92,6 +92,9 @@
                                     <li class="tocify-item level-2" data-unique="user-management-POSTapi-v1--lang--user-phone">
                         <a href="#user-management-POSTapi-v1--lang--user-phone">Get phone</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="user-management-POSTapi-v1--lang--user-new-password">
+                        <a href="#user-management-POSTapi-v1--lang--user-new-password">set new password</a>
+                    </li>
                                                     </ul>
                             </ul>
         
@@ -104,7 +107,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 18 2022</li>
+        <li>Last updated: March 24 2022</li>
     </ul>
 </div>
 
@@ -118,10 +121,10 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://safaqatek.test</code></pre>
+<pre><code class="language-yaml">https://safaqatek.com</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
@@ -142,14 +145,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/necessitatibus/user/google/callback" \
+    --get "https://safaqatek.com/api/v1/repellendus/user/google/callback" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/necessitatibus/user/google/callback"
+    "https://safaqatek.com/api/v1/repellendus/user/google/callback"
 );
 
 const headers = {
@@ -211,7 +214,7 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-google-callback"
-               value="necessitatibus"
+               value="repellendus"
                data-component="url" hidden>
     <br>
 
@@ -231,14 +234,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/en/user/google" \
+    --get "https://safaqatek.com/api/v1/en/user/google" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/en/user/google"
+    "https://safaqatek.com/api/v1/en/user/google"
 );
 
 const headers = {
@@ -331,21 +334,21 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://safaqatek.test/api/v1/en/user/register" \
+    "https://safaqatek.com/api/v1/en/user/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"vvo\",
-    \"email\": \"aabbott@example.net\",
-    \"password\": \"\",
-    \"phone\": \"dolorem\"
+    \"username\": \"zhskuvcvza\",
+    \"email\": \"ohoeger@example.org\",
+    \"password\": \"rusrtu\",
+    \"phone\": \"et\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/en/user/register"
+    "https://safaqatek.com/api/v1/en/user/register"
 );
 
 const headers = {
@@ -354,10 +357,10 @@ const headers = {
 };
 
 let body = {
-    "username": "vvo",
-    "email": "aabbott@example.net",
-    "password": "",
-    "phone": "dolorem"
+    "username": "zhskuvcvza",
+    "email": "ohoeger@example.org",
+    "password": "rusrtu",
+    "phone": "et"
 };
 
 fetch(url, {
@@ -453,7 +456,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="vvo"
+               value="zhskuvcvza"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 15 characters.</p>
@@ -463,7 +466,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="aabbott@example.net"
+               value="ohoeger@example.org"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -473,7 +476,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value=""
+               value="rusrtu"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -483,7 +486,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="dolorem"
+               value="et"
                data-component="body" hidden>
     <br>
 
@@ -504,19 +507,19 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://safaqatek.test/api/v1/en/user/login" \
+    "https://safaqatek.com/api/v1/en/user/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"ekerluke@example.net\",
-    \"password\": \"quo\"
+    \"email\": \"marquardt.taya@example.org\",
+    \"password\": \"rem\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/en/user/login"
+    "https://safaqatek.com/api/v1/en/user/login"
 );
 
 const headers = {
@@ -525,8 +528,8 @@ const headers = {
 };
 
 let body = {
-    "email": "ekerluke@example.net",
-    "password": "quo"
+    "email": "marquardt.taya@example.org",
+    "password": "rem"
 };
 
 fetch(url, {
@@ -622,7 +625,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="ekerluke@example.net"
+               value="marquardt.taya@example.org"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -632,7 +635,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="quo"
+               value="rem"
                data-component="body" hidden>
     <br>
 
@@ -653,7 +656,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://safaqatek.test/api/v1/en/user/logout" \
+    "https://safaqatek.com/api/v1/en/user/logout" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -665,7 +668,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/en/user/logout"
+    "https://safaqatek.com/api/v1/en/user/logout"
 );
 
 const headers = {
@@ -692,7 +695,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json">{&quot;message&quot;: &quot;you are logout now&quot;}}</code>
+<code class="language-json">{
+    &quot;message&quot;: &quot;you are logout now&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-POSTapi-v1--lang--user-logout" hidden>
@@ -771,7 +776,7 @@ fetch(url, {
 <p>
 </p>
 
-<p>If  request have param ' token_id ' valid and everything is okay, you'll get a 200 OK response.</p>
+<p>If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.</p>
 
 <span id="example-requests-POSTapi-v1--lang--user-phone">
 <blockquote>Example request:</blockquote>
@@ -779,7 +784,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://safaqatek.test/api/v1/en/user/phone" \
+    "https://safaqatek.com/api/v1/en/user/phone" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -790,7 +795,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/en/user/phone"
+    "https://safaqatek.com/api/v1/en/user/phone"
 );
 
 const headers = {
@@ -816,7 +821,21 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json">{&quot;message&quot;: &quot;you are logout now&quot;}}</code>
+<code class="language-json">{
+    &quot;state&quot;: false,
+    &quot;code&quot;: &quot;403&quot;,
+    &quot;error&quot;: &quot;لا يوجد مستخدم بهذا البريد الإلكتروني&quot;,
+    &quot;execution&quot;: &quot;0.211 seconds&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200, logout):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;you are logout now&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-POSTapi-v1--lang--user-phone" hidden>
@@ -875,6 +894,143 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-phone"
+               value="Exemple@exemple.com"
+               data-component="body" hidden>
+    <br>
+<p>The email of user  .</p>
+        </p>
+        </form>
+
+            <h2 id="user-management-POSTapi-v1--lang--user-new-password">set new password</h2>
+
+<p>
+</p>
+
+<p>If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.</p>
+
+<span id="example-requests-POSTapi-v1--lang--user-new-password">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://safaqatek.com/api/v1/en/user/new/password" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"Exemple@exemple.com\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://safaqatek.com/api/v1/en/user/new/password"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "Exemple@exemple.com"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1--lang--user-new-password">
+            <blockquote>
+            <p>Example response (200, new password):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;state&quot;: true,
+    &quot;code&quot;: &quot;200&quot;,
+    &quot;message&quot;: &quot;password was changed successfully&quot;,
+    &quot;execution&quot;: &quot;0.349 seconds&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 36,
+        &quot;token&quot;: &quot;36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, new password):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;state&quot;: false,
+    &quot;code&quot;: &quot;404&quot;,
+    &quot;message&quot;: &quot;لا يوجد مستخدم بهذا البريد الإلكتروني&quot;,
+    &quot;execution&quot;: &quot;0.297 seconds&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1--lang--user-new-password" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1--lang--user-new-password"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--lang--user-new-password"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1--lang--user-new-password" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1--lang--user-new-password"></code></pre>
+</span>
+<form id="form-POSTapi-v1--lang--user-new-password" data-method="POST"
+      data-path="api/v1/{lang}/user/new/password"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--lang--user-new-password', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1--lang--user-new-password"
+                    onclick="tryItOut('POSTapi-v1--lang--user-new-password');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1--lang--user-new-password"
+                    onclick="cancelTryOut('POSTapi-v1--lang--user-new-password');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1--lang--user-new-password" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/{lang}/user/new/password</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="POSTapi-v1--lang--user-new-password"
+               value="en"
+               data-component="url" hidden>
+    <br>
+<p>The language.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-v1--lang--user-new-password"
                value="Exemple@exemple.com"
                data-component="body" hidden>
     <br>

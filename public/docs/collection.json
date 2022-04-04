@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/safaqatek.test"
+            "value": "https:\/\/safaqatek.com"
         }
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "1169a6c5-d0f2-4b3a-8aaf-8143fadeb735",
+        "_postman_id": "1e820bed-0063-4c55-8ba5-23fab8783238",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -31,7 +31,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "necessitatibus",
+                                    "value": "repellendus",
                                     "description": ""
                                 }
                             ]
@@ -127,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"vvo\",\"email\":\"aabbott@example.net\",\"password\":\"\",\"phone\":\"dolorem\"}"
+                            "raw": "{\"username\":\"zhskuvcvza\",\"email\":\"ohoeger@example.org\",\"password\":\"rusrtu\",\"phone\":\"et\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -179,7 +179,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"ekerluke@example.net\",\"password\":\"quo\"}"
+                            "raw": "{\"email\":\"marquardt.taya@example.org\",\"password\":\"rem\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -239,7 +239,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"message\": \"you are logout now\"}}",
+                            "body": "{\"message\": \"you are logout now\"}",
                             "name": "logout"
                         }
                     ]
@@ -276,7 +276,7 @@
                             "mode": "raw",
                             "raw": "{\"email\":\"Exemple@exemple.com\"}"
                         },
-                        "description": "If  request have param ' token_id ' valid and everything is okay, you'll get a 200 OK response.",
+                        "description": "If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.",
                         "auth": {
                             "type": "noauth"
                         }
@@ -285,8 +285,66 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"message\": \"you are logout now\"}}",
+                            "body": "{ \"state\": false,\"code\": \"403\",\"error\": \"\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\",\"execution\": \"0.211 seconds\" }",
                             "name": "logout"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"you are logout now\"}",
+                            "name": "logout"
+                        }
+                    ]
+                },
+                {
+                    "name": "set new password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/new\/password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/new\/password",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"Exemple@exemple.com\"}"
+                        },
+                        "description": "If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"state\":true,\"code\":\"200\",\"message\":\"password was changed successfully\",\"execution\":\"0.349 seconds\",\"data\":{\"id\":36,\"token\":\"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4\"}}",
+                            "name": "new password"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"state\": false,\"code\": \"404\",\"message\": \"\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\",\"execution\": \"0.297 seconds\"}",
+                            "name": "new password"
                         }
                     ]
                 }

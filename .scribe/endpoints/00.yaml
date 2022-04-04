@@ -20,7 +20,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: necessitatibus
+        example: repellendus
         type: string
         custom: []
     queryParameters: []
@@ -87,28 +87,28 @@ endpoints:
         name: username
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: vvo
+        example: zhskuvcvza
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: aabbott@example.net
+        example: ohoeger@example.org
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: ''
+        example: rusrtu
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: dolorem
+        example: et
         type: string
         custom: []
     responses:
@@ -152,14 +152,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: ekerluke@example.net
+        example: marquardt.taya@example.org
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: quo
+        example: rem
         type: string
         custom: []
     responses:
@@ -207,7 +207,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"message": "you are logout now"}}'
+        content: '{"message": "you are logout now"}'
         headers: []
         description: '200, logout'
     responseFields: []
@@ -217,7 +217,7 @@ endpoints:
     uri: 'api/v1/{lang}/user/phone'
     metadata:
       title: 'Get phone'
-      description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
+      description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
       authenticated: false
       custom: []
     headers:
@@ -243,7 +243,53 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"message": "you are logout now"}}'
+        content: '{ "state": false,"code": "403","error": "لا يوجد مستخدم بهذا البريد الإلكتروني","execution": "0.211 seconds" }'
         headers: []
         description: '200, logout'
+      -
+        status: 200
+        content: '{"message": "you are logout now"}'
+        headers: []
+        description: '200, logout'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/{lang}/user/new/password'
+    metadata:
+      title: 'set new password'
+      description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      lang:
+        name: lang
+        description: 'The language.'
+        required: false
+        example: en
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of user  .'
+        required: true
+        example: Exemple@exemple.com
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"state":true,"code":"200","message":"password was changed successfully","execution":"0.349 seconds","data":{"id":36,"token":"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4"}}'
+        headers: []
+        description: '200, new password'
+      -
+        status: 404
+        content: '{"state": false,"code": "404","message": "لا يوجد مستخدم بهذا البريد الإلكتروني","execution": "0.297 seconds"}'
+        headers: []
+        description: '404, new password'
     responseFields: []

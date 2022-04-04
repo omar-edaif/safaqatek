@@ -46,7 +46,7 @@ class Exceptions
 
     public function report()
     {
-        return response()->json($this->error);
+        return response()->json($this->error, $this->error['code']);
     }
 
     private function known()

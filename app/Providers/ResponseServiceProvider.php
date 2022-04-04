@@ -24,7 +24,7 @@ class ResponseServiceProvider extends ServiceProvider
     public function boot(ResponseFactory $factory)
     {
 
-        $factory->macro('data', function ($data = false, $message = '', $message_code = -1) use ($factory) {
+        $factory->macro('data', function ($data = false, $message = '') use ($factory) {
 
             $executionEndTime = microtime(true);
             $seconds = $executionEndTime - LARAVEL_START;
@@ -47,10 +47,10 @@ class ResponseServiceProvider extends ServiceProvider
                 $format['debug'] = $debug;
             }
 
-            return $factory->make($format);
+            return $factory->make($format, $format['code']);
         });
 
-        $factory->macro('message', function ($message, $message_code = -1) use ($factory) {
+        $factory->macro('message', function ($message) use ($factory) {
 
             $executionEndTime   = microtime(true);
             $seconds            = $executionEndTime - LARAVEL_START;
@@ -72,10 +72,10 @@ class ResponseServiceProvider extends ServiceProvider
             }
 
 
-            return $factory->make($format);
+            return $factory->make($format, $format['code']);
         });
 
-        $factory->macro('notFound', function ($message, $message_code = -1) use ($factory) {
+        $factory->macro('notFound', function ($message) use ($factory) {
 
             $executionEndTime = microtime(true);
             $seconds = $executionEndTime - LARAVEL_START;
@@ -99,7 +99,7 @@ class ResponseServiceProvider extends ServiceProvider
             return $factory->make($format);
         });
 
-        $factory->macro('success', function ($message = '', $data = false, $message_code = -1) use ($factory) {
+        $factory->macro('success', function ($message = '', $data = false) use ($factory) {
 
             $executionEndTime = microtime(true);
             $seconds = $executionEndTime - LARAVEL_START;
@@ -118,10 +118,10 @@ class ResponseServiceProvider extends ServiceProvider
                 $format['debug'] = $debug;
             }
 
-            return $factory->make($format);
+            return $factory->make($format, $format['code']);
         });
 
-        $factory->macro('error', function ($code, $message = '', $data = [], $message_code = -1) use ($factory) {
+        $factory->macro('error', function ($code, $message = '', $data = []) use ($factory) {
 
             $executionEndTime = microtime(true);
             $seconds = $executionEndTime - LARAVEL_START;
@@ -143,7 +143,7 @@ class ResponseServiceProvider extends ServiceProvider
                 $false['debug'] = $debug;
             }
 
-            return $factory->make($false);
+            return $factory->make($false, $false['code']);
         });
     }
 

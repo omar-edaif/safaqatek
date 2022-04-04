@@ -14,6 +14,7 @@ Route::prefix('v1/{lang}')->group(function () {
         Route::post('/phone', [AuthApiController::class, 'phone']);
         Route::post('/register', [AuthApiController::class, 'register']);
         Route::post('/login', [AuthApiController::class, 'login']);
+        Route::post('/new/password', [AuthApiController::class, 'newPassword']);
     });
 
 

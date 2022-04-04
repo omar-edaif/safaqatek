@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://safaqatek.test'
+    url: 'https://safaqatek.com'
 paths:
   '/api/v1/{lang}/user/google/callback':
     get:
@@ -35,7 +35,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: necessitatibus
+        example: repellendus
         required: true
         schema:
           type: string
@@ -157,19 +157,19 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: vvo
+                  example: zhskuvcvza
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: aabbott@example.net
+                  example: ohoeger@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: ''
+                  example: rusrtu
                 phone:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: et
               required:
                 - username
                 - email
@@ -263,11 +263,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ekerluke@example.net
+                  example: marquardt.taya@example.org
                 password:
                   type: string
                   description: ''
-                  example: quo
+                  example: rem
               required:
                 - email
                 - password
@@ -317,10 +317,15 @@ paths:
         200:
           description: logout
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: '{"message": "you are logout now"}}'
+                type: object
+                example:
+                  message: 'you are logout now'
+                properties:
+                  message:
+                    type: string
+                    example: 'you are logout now'
       tags:
         - 'User management'
       requestBody:
@@ -352,7 +357,7 @@ paths:
   '/api/v1/{lang}/user/phone':
     post:
       summary: 'Get phone'
-      description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
+      description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
       parameters:
         -
           in: header
@@ -372,10 +377,122 @@ paths:
         200:
           description: logout
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: '{"message": "you are logout now"}}'
+                type: object
+                example:
+                  message: 'you are logout now'
+                properties:
+                  message:
+                    type: string
+                    example: 'you are logout now'
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of user  .'
+                  example: Exemple@exemple.com
+              required:
+                - email
+      security: []
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
+  '/api/v1/{lang}/user/new/password':
+    post:
+      summary: 'set new password'
+      description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'new password'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  state: true
+                  code: '200'
+                  message: 'password was changed successfully'
+                  execution: '0.349 seconds'
+                  data:
+                    id: 36
+                    token: 36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4
+                properties:
+                  state:
+                    type: boolean
+                    example: true
+                  code:
+                    type: string
+                    example: '200'
+                  message:
+                    type: string
+                    example: 'password was changed successfully'
+                  execution:
+                    type: string
+                    example: '0.349 seconds'
+                  data:
+                    type: object
+                    example:
+                      id: 36
+                      token: 36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4
+        404:
+          description: 'new password'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  state: false
+                  code: '404'
+                  message: 'لا يوجد مستخدم بهذا البريد الإلكتروني'
+                  execution: '0.297 seconds'
+                properties:
+                  state:
+                    type: boolean
+                    example: false
+                  code:
+                    type: string
+                    example: '404'
+                  message:
+                    type: string
+                    example: 'لا يوجد مستخدم بهذا البريد الإلكتروني'
+                  execution:
+                    type: string
+                    example: '0.297 seconds'
       tags:
         - 'User management'
       requestBody:
