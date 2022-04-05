@@ -5,8 +5,52 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'https://safaqatek.com'
+    url: 'http://safaqatek.test'
 paths:
+  '/api/v1/{lang}/product':
+    post:
+      summary: 'get product'
+      description: 'this route is called when to get get specific quained of product'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'product management'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
   '/api/v1/{lang}/user/google/callback':
     get:
       summary: ''
@@ -35,7 +79,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: repellendus
+        example: aut
         required: true
         schema:
           type: string
@@ -85,6 +129,69 @@ paths:
         required: true
         schema:
           type: string
+  '/api/v1/{lang}/user/phone':
+    post:
+      summary: 'Get phone'
+      description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: logout
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'you are logout now'
+                properties:
+                  message:
+                    type: string
+                    example: 'you are logout now'
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of user  .'
+                  example: Exemple@exemple.com
+              required:
+                - email
+      security: []
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
   '/api/v1/{lang}/user/register':
     post:
       summary: register
@@ -157,19 +264,19 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: zhskuvcvza
+                  example: qt
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ohoeger@example.org
+                  example: zbayer@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: rusrtu
+                  example: viorld
                 phone:
                   type: string
                   description: ''
-                  example: et
+                  example: eum
               required:
                 - username
                 - email
@@ -263,144 +370,14 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: marquardt.taya@example.org
+                  example: shanahan.oral@example.org
                 password:
                   type: string
                   description: ''
-                  example: rem
+                  example: voluptas
               required:
                 - email
                 - password
-      security: []
-    parameters:
-      -
-        in: path
-        name: lang
-        description: 'Optional parameter. The language.'
-        required: true
-        schema:
-          type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: en
-  '/api/v1/{lang}/user/logout':
-    post:
-      summary: logout
-      description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: logout
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'you are logout now'
-                properties:
-                  message:
-                    type: string
-                    example: 'you are logout now'
-      tags:
-        - 'User management'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                token_id:
-                  type: The
-                  description: 'id of user token .'
-                  example: '20'
-    parameters:
-      -
-        in: path
-        name: lang
-        description: 'Optional parameter. The language.'
-        required: true
-        schema:
-          type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: en
-  '/api/v1/{lang}/user/phone':
-    post:
-      summary: 'Get phone'
-      description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: logout
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'you are logout now'
-                properties:
-                  message:
-                    type: string
-                    example: 'you are logout now'
-      tags:
-        - 'User management'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'The email of user  .'
-                  example: Exemple@exemple.com
-              required:
-                - email
       security: []
     parameters:
       -
@@ -524,7 +501,77 @@ paths:
           present:
             summary: 'When the value is present'
             value: en
+  '/api/v1/{lang}/user/logout':
+    post:
+      summary: logout
+      description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: logout
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'you are logout now'
+                properties:
+                  message:
+                    type: string
+                    example: 'you are logout now'
+      tags:
+        - 'User management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token_id:
+                  type: The
+                  description: 'id of user token .'
+                  example: '20'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
 tags:
+  -
+    name: 'product management'
+    description: "\nAPIs for managing product"
   -
     name: 'User management'
     description: "\nAPIs for managing users"

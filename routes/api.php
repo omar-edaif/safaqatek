@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\v1\AuthApiController;
+use App\Http\Controllers\api\v1\productController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,11 @@ Route::prefix('v1/{lang}')->group(function () {
         Route::prefix('user')->group(function () {
 
             Route::post('/logout', [AuthApiController::class, 'logout']);
+        });
+
+        Route::prefix('product')->group(function () {
+
+            Route::post('/', [productController::class, 'products']);
         });
     });
 });

@@ -14,10 +14,6 @@ class UserResource extends JsonResource
      */
     public function toArray($user)
     {
-        return [
-
-            'id' => $this->id,
-            'token' => $this->currentAccessToken()
-        ];
+        return [];
     }
 }

@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
         });
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_category_id')->constrained('product_categories');
             $table->string('name_en', 20);
             $table->string('name_ar', 20);
             $table->string('award_name_ar');

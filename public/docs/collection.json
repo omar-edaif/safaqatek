@@ -5,16 +5,55 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "https:\/\/safaqatek.com"
+            "value": "http:\/\/safaqatek.test"
         }
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "1e820bed-0063-4c55-8ba5-23fab8783238",
+        "_postman_id": "3f5f0214-c8c6-400c-ad82-e5a1fd54888b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "product management",
+            "description": "\nAPIs for managing product",
+            "item": [
+                {
+                    "name": "get product",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/product",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "this route is called when to get get specific quained of product"
+                    },
+                    "response": []
+                }
+            ]
+        },
         {
             "name": "User management",
             "description": "\nAPIs for managing users",
@@ -31,7 +70,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "repellendus",
+                                    "value": "aut",
                                     "description": ""
                                 }
                             ]
@@ -98,153 +137,6 @@
                     "response": []
                 },
                 {
-                    "name": "register",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/user\/register",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/register",
-                            "variable": [
-                                {
-                                    "id": "lang",
-                                    "key": "lang",
-                                    "value": "en",
-                                    "description": "The language."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"username\":\"zhskuvcvza\",\"email\":\"ohoeger@example.org\",\"password\":\"rusrtu\",\"phone\":\"et\"}"
-                        },
-                        "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\"message\": \"The given data was invalid.\", \"errors\": {\"username\": [\"The username field is required.\"],\"email\": [\"The email field is required.\"]}}",
-                            "name": "validation error"
-                        },
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"id\": 20,\"token\": \"20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu\"}",
-                            "name": "new user"
-                        }
-                    ]
-                },
-                {
-                    "name": "login",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/user\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/login",
-                            "variable": [
-                                {
-                                    "id": "lang",
-                                    "key": "lang",
-                                    "value": "en",
-                                    "description": "The language."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"marquardt.taya@example.org\",\"password\":\"rem\"}"
-                        },
-                        "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\"message\": \"The given data was invalid.\", \"errors\": {\"message\": \"The given data was invalid.\",\"errors\": {\"data\": [\"The provided credentials are incorrect.\"]}}}",
-                            "name": "validation error"
-                        },
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"id\": 20,\"token\": \"20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu\"}",
-                            "name": "login"
-                        }
-                    ]
-                },
-                {
-                    "name": "logout",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/user\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/logout",
-                            "variable": [
-                                {
-                                    "id": "lang",
-                                    "key": "lang",
-                                    "value": "en",
-                                    "description": "The language."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"token_id\":\"20\"}"
-                        },
-                        "description": "If  request have param ' token_id ' valid and everything is okay, you'll get a 200 OK response."
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"message\": \"you are logout now\"}",
-                            "name": "logout"
-                        }
-                    ]
-                },
-                {
                     "name": "Get phone",
                     "request": {
                         "url": {
@@ -297,6 +189,110 @@
                     ]
                 },
                 {
+                    "name": "register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/register",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"qt\",\"email\":\"zbayer@example.org\",\"password\":\"viorld\",\"phone\":\"eum\"}"
+                        },
+                        "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\": \"The given data was invalid.\", \"errors\": {\"username\": [\"The username field is required.\"],\"email\": [\"The email field is required.\"]}}",
+                            "name": "validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\": 20,\"token\": \"20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu\"}",
+                            "name": "new user"
+                        }
+                    ]
+                },
+                {
+                    "name": "login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/login",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"shanahan.oral@example.org\",\"password\":\"voluptas\"}"
+                        },
+                        "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\": \"The given data was invalid.\", \"errors\": {\"message\": \"The given data was invalid.\",\"errors\": {\"data\": [\"The provided credentials are incorrect.\"]}}}",
+                            "name": "validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\": 20,\"token\": \"20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu\"}",
+                            "name": "login"
+                        }
+                    ]
+                },
+                {
                     "name": "set new password",
                     "request": {
                         "url": {
@@ -345,6 +341,49 @@
                             "code": 404,
                             "body": "{\"state\": false,\"code\": \"404\",\"message\": \"\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\",\"execution\": \"0.297 seconds\"}",
                             "name": "new password"
+                        }
+                    ]
+                },
+                {
+                    "name": "logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/logout",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"token_id\":\"20\"}"
+                        },
+                        "description": "If  request have param ' token_id ' valid and everything is okay, you'll get a 200 OK response."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"you are logout now\"}",
+                            "name": "logout"
                         }
                     ]
                 }
