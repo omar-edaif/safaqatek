@@ -70,12 +70,12 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="product-management">
-                    <a href="#product-management">product management</a>
+                <li class="tocify-item level-1" data-unique="slider-management">
+                    <a href="#slider-management">slider management</a>
                 </li>
-                                    <ul id="tocify-subheader-product-management" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="product-management-POSTapi-v1--lang--product">
-                        <a href="#product-management-POSTapi-v1--lang--product">get product</a>
+                                    <ul id="tocify-subheader-slider-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="slider-management-POSTapi-v1--lang--slider">
+                        <a href="#slider-management-POSTapi-v1--lang--slider">get sliders</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -107,6 +107,16 @@
                     </li>
                                                     </ul>
                             </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="product-management">
+                    <a href="#product-management">product management</a>
+                </li>
+                                    <ul id="tocify-subheader-product-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="product-management-POSTapi-v1--lang--product">
+                        <a href="#product-management-POSTapi-v1--lang--product">get product</a>
+                    </li>
+                                                    </ul>
+                            </ul>
         
                         
             </div>
@@ -117,7 +127,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 5 2022</li>
+        <li>Last updated: April 6 2022</li>
     </ul>
 </div>
 
@@ -138,25 +148,25 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
-        <h1 id="product-management">product management</h1>
+        <h1 id="slider-management">slider management</h1>
 
-    <p>APIs for managing product</p>
+    <p>APIs for managing sliders</p>
 
-            <h2 id="product-management-POSTapi-v1--lang--product">get product</h2>
+            <h2 id="slider-management-POSTapi-v1--lang--slider">get sliders</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>this route is called when to get get specific quained of product</p>
+<p>this route is called when to get sliders</p>
 
-<span id="example-requests-POSTapi-v1--lang--product">
+<span id="example-requests-POSTapi-v1--lang--slider">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://safaqatek.test/api/v1/en/product" \
+    "http://safaqatek.test/api/v1/en/slider" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -164,7 +174,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/en/product"
+    "http://safaqatek.test/api/v1/en/slider"
 );
 
 const headers = {
@@ -180,53 +190,53 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-v1--lang--product">
+<span id="example-responses-POSTapi-v1--lang--slider">
 </span>
-<span id="execution-results-POSTapi-v1--lang--product" hidden>
+<span id="execution-results-POSTapi-v1--lang--slider" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1--lang--product"></span>:
+                id="execution-response-status-POSTapi-v1--lang--slider"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1--lang--product"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--lang--slider"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1--lang--product" hidden>
+<span id="execution-error-POSTapi-v1--lang--slider" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1--lang--product"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-v1--lang--slider"></code></pre>
 </span>
-<form id="form-POSTapi-v1--lang--product" data-method="POST"
-      data-path="api/v1/{lang}/product"
+<form id="form-POSTapi-v1--lang--slider" data-method="POST"
+      data-path="api/v1/{lang}/slider"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--lang--product', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--lang--slider', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1--lang--product"
-                    onclick="tryItOut('POSTapi-v1--lang--product');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1--lang--slider"
+                    onclick="tryItOut('POSTapi-v1--lang--slider');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1--lang--product"
-                    onclick="cancelTryOut('POSTapi-v1--lang--product');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1--lang--slider"
+                    onclick="cancelTryOut('POSTapi-v1--lang--slider');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1--lang--product" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-v1--lang--slider" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/v1/{lang}/product</code></b>
+            <b><code>api/v1/{lang}/slider</code></b>
         </p>
                 <p>
-            <label id="auth-POSTapi-v1--lang--product" hidden>Authorization header:
+            <label id="auth-POSTapi-v1--lang--slider" hidden>Authorization header:
                 <b><code>Bearer </code></b><input type="text"
                                                                 name="Authorization"
                                                                 data-prefix="Bearer "
-                                                                data-endpoint="POSTapi-v1--lang--product"
+                                                                data-endpoint="POSTapi-v1--lang--slider"
                                                                 data-component="header"></label>
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
@@ -234,7 +244,7 @@ fetch(url, {
                 <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="lang"
-               data-endpoint="POSTapi-v1--lang--product"
+               data-endpoint="POSTapi-v1--lang--slider"
                value="en"
                data-component="url" hidden>
     <br>
@@ -259,14 +269,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/aut/user/google/callback" \
+    --get "http://safaqatek.test/api/v1/dolore/user/google/callback" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/aut/user/google/callback"
+    "http://safaqatek.test/api/v1/dolore/user/google/callback"
 );
 
 const headers = {
@@ -328,7 +338,7 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-google-callback"
-               value="aut"
+               value="dolore"
                data-component="url" hidden>
     <br>
 
@@ -582,10 +592,10 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"qt\",
-    \"email\": \"zbayer@example.org\",
-    \"password\": \"viorld\",
-    \"phone\": \"eum\"
+    \"username\": \"a\",
+    \"email\": \"dhermiston@example.org\",
+    \"password\": \"\",
+    \"phone\": \"nisi\"
 }"
 </code></pre></div>
 
@@ -601,10 +611,10 @@ const headers = {
 };
 
 let body = {
-    "username": "qt",
-    "email": "zbayer@example.org",
-    "password": "viorld",
-    "phone": "eum"
+    "username": "a",
+    "email": "dhermiston@example.org",
+    "password": "",
+    "phone": "nisi"
 };
 
 fetch(url, {
@@ -700,7 +710,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="qt"
+               value="a"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 15 characters.</p>
@@ -710,7 +720,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="zbayer@example.org"
+               value="dhermiston@example.org"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -720,7 +730,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="viorld"
+               value=""
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -730,7 +740,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="eum"
+               value="nisi"
                data-component="body" hidden>
     <br>
 
@@ -755,8 +765,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"shanahan.oral@example.org\",
-    \"password\": \"voluptas\"
+    \"email\": \"rippin.joan@example.com\",
+    \"password\": \"repudiandae\"
 }"
 </code></pre></div>
 
@@ -772,8 +782,8 @@ const headers = {
 };
 
 let body = {
-    "email": "shanahan.oral@example.org",
-    "password": "voluptas"
+    "email": "rippin.joan@example.com",
+    "password": "repudiandae"
 };
 
 fetch(url, {
@@ -869,7 +879,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="shanahan.oral@example.org"
+               value="rippin.joan@example.com"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -879,7 +889,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="voluptas"
+               value="repudiandae"
                data-component="body" hidden>
     <br>
 
@@ -1151,6 +1161,110 @@ fetch(url, {
 <p>id of user token .</p>
         </p>
         </form>
+
+        <h1 id="product-management">product management</h1>
+
+    <p>APIs for managing product</p>
+
+            <h2 id="product-management-POSTapi-v1--lang--product">get product</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>this route is called when to get get specific quained of product</p>
+
+<span id="example-requests-POSTapi-v1--lang--product">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://safaqatek.test/api/v1/en/product" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://safaqatek.test/api/v1/en/product"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1--lang--product">
+</span>
+<span id="execution-results-POSTapi-v1--lang--product" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1--lang--product"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--lang--product"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1--lang--product" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1--lang--product"></code></pre>
+</span>
+<form id="form-POSTapi-v1--lang--product" data-method="POST"
+      data-path="api/v1/{lang}/product"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--lang--product', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1--lang--product"
+                    onclick="tryItOut('POSTapi-v1--lang--product');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1--lang--product"
+                    onclick="cancelTryOut('POSTapi-v1--lang--product');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1--lang--product" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/{lang}/product</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1--lang--product" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1--lang--product"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="POSTapi-v1--lang--product"
+               value="en"
+               data-component="url" hidden>
+    <br>
+<p>The language.</p>
+            </p>
+                    </form>
 
     
 

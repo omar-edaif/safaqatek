@@ -19,11 +19,12 @@ class ProductFactory extends Factory
             'name_ar' => 'الاسم ',
             'award_name_en' => $this->faker->word(3),
             'award_name_ar' => 'أسم الجائزة بالعربي',
-            'image' => 'images/product/product_0' . rand(0, 1) . '.jpg',
-            'award_image' => 'images/product/product_0' . rand(0, 1) . '.jpg',
-            'description_ar' => $this->faker->text(),
-            'description_en' => $this->faker->text(),
+            'image' => '/images/product/product_0' . rand(0, 1) . '.jpg',
+            'award_image' => '/images/product/product_0' . rand(0, 1) . '.jpg',
+            'description_ar' => $this->faker->text(40),
+            'description_en' => $this->faker->text(40),
             'sold_number' => rand(100, 400),
+            'is_donate' => rand(0, 1),
             'closing_at' => now()->addDay(rand(10, 50)),
         ];
     }

@@ -21,14 +21,14 @@ class ProductResource extends JsonResource
             "name_ar" => $this->name_ar,
             "award_name_ar" => $this->award_name_ar,
             "award_name_en" => $this->award_name_en,
-            "image" => url($this->image),
-            "award_image" => url($this->award_image),
+            "image" => url('public' . $this->image),
+            "award_image" => url('public' . $this->award_image),
             "description_ar" => $this->description_ar,
             "description_en" => $this->description_en,
+            "quantity" => $this->sold_number + rand(0, 600),
             "sold_number" => $this->sold_number,
             "closing_at" => $this->closing_at,
             "created_at" => $this->created_at,
-
 
         ];
     }

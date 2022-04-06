@@ -7,10 +7,10 @@ servers:
   -
     url: 'http://safaqatek.test'
 paths:
-  '/api/v1/{lang}/product':
+  '/api/v1/{lang}/slider':
     post:
-      summary: 'get product'
-      description: 'this route is called when to get get specific quained of product'
+      summary: 'get sliders'
+      description: 'this route is called when to get sliders'
       parameters:
         -
           in: header
@@ -35,7 +35,7 @@ paths:
             type: string
       responses: {  }
       tags:
-        - 'product management'
+        - 'slider management'
     parameters:
       -
         in: path
@@ -79,7 +79,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: aut
+        example: dolore
         required: true
         schema:
           type: string
@@ -264,19 +264,19 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: qt
+                  example: a
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: zbayer@example.org
+                  example: dhermiston@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: viorld
+                  example: ''
                 phone:
                   type: string
                   description: ''
-                  example: eum
+                  example: nisi
               required:
                 - username
                 - email
@@ -370,11 +370,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: shanahan.oral@example.org
+                  example: rippin.joan@example.com
                 password:
                   type: string
                   description: ''
-                  example: voluptas
+                  example: repudiandae
               required:
                 - email
                 - password
@@ -568,13 +568,60 @@ paths:
           present:
             summary: 'When the value is present'
             value: en
+  '/api/v1/{lang}/product':
+    post:
+      summary: 'get product'
+      description: 'this route is called when to get get specific quained of product'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'product management'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
 tags:
   -
-    name: 'product management'
-    description: "\nAPIs for managing product"
+    name: 'slider management'
+    description: "\nAPIs for managing sliders"
   -
     name: 'User management'
     description: "\nAPIs for managing users"
+  -
+    name: 'product management'
+    description: "\nAPIs for managing product"
 components:
   securitySchemes:
     default:

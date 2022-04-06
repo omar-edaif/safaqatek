@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\v1\AuthApiController;
 use App\Http\Controllers\api\v1\productController;
+use App\Http\Controllers\api\v1\SliderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,9 +27,17 @@ Route::prefix('v1/{lang}')->group(function () {
             Route::post('/logout', [AuthApiController::class, 'logout']);
         });
 
+        /*  Product */
         Route::prefix('product')->group(function () {
 
             Route::post('/', [productController::class, 'products']);
+        });
+
+        /*  Slider */
+
+        Route::prefix('slider')->group(function () {
+
+            Route::post('/', [SliderController::class, 'sliders']);
         });
     });
 });

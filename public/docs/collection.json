@@ -10,23 +10,23 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "3f5f0214-c8c6-400c-ad82-e5a1fd54888b",
+        "_postman_id": "c5cd1f92-20c5-4152-ab25-d27337ac18fa",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "product management",
-            "description": "\nAPIs for managing product",
+            "name": "slider management",
+            "description": "\nAPIs for managing sliders",
             "item": [
                 {
-                    "name": "get product",
+                    "name": "get sliders",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/product",
+                            "path": "api\/v1\/:lang\/slider",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/slider",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -48,7 +48,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "this route is called when to get get specific quained of product"
+                        "description": "this route is called when to get sliders"
                     },
                     "response": []
                 }
@@ -70,7 +70,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "aut",
+                                    "value": "dolore",
                                     "description": ""
                                 }
                             ]
@@ -218,7 +218,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"qt\",\"email\":\"zbayer@example.org\",\"password\":\"viorld\",\"phone\":\"eum\"}"
+                            "raw": "{\"username\":\"a\",\"email\":\"dhermiston@example.org\",\"password\":\"\",\"phone\":\"nisi\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -270,7 +270,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"shanahan.oral@example.org\",\"password\":\"voluptas\"}"
+                            "raw": "{\"email\":\"rippin.joan@example.com\",\"password\":\"repudiandae\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -386,6 +386,45 @@
                             "name": "logout"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "product management",
+            "description": "\nAPIs for managing product",
+            "item": [
+                {
+                    "name": "get product",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/product",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "this route is called when to get get specific quained of product"
+                    },
+                    "response": []
                 }
             ]
         }

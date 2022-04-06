@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->string('description_ar')->nullable();
             $table->string('description_en')->nullable();
             $table->bigInteger('sold_number');
+            $table->boolean('is_donate')->default(1);
             $table->timestamp('closing_at');
             $table->timestamps();
         });

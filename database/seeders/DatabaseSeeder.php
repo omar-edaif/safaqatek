@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         \App\Models\ProductCategories::create(['name_en' => 'motors', 'name_ar' => 'محركات']);
         \App\Models\Product::factory(30)->create();
+        \App\Models\slider::factory(3)->create();
     }
 }
