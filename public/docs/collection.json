@@ -10,23 +10,23 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "c5cd1f92-20c5-4152-ab25-d27337ac18fa",
+        "_postman_id": "c1fdda73-3b1b-4884-b3e5-44526bd9c499",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "slider management",
-            "description": "\nAPIs for managing sliders",
+            "name": "User management",
+            "description": "\nAPIs for managing users",
             "item": [
                 {
-                    "name": "get sliders",
+                    "name": "login",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/slider",
+                            "path": "api\/v1\/:lang\/user\/login",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/slider",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/login",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -47,17 +47,125 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "this route is called when to get sliders"
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"camron95@example.com\",\"password\":\"accusantium\"}"
+                        },
+                        "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
-                    "response": []
-                }
-            ]
-        },
-        {
-            "name": "User management",
-            "description": "\nAPIs for managing users",
-            "item": [
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\": \"The given data was invalid.\", \"errors\": {\"message\": \"The given data was invalid.\",\"errors\": {\"data\": [\"The provided credentials are incorrect.\"]}}}",
+                            "name": "validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\": 20,\"token\": \"20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu\"}",
+                            "name": "login"
+                        }
+                    ]
+                },
+                {
+                    "name": "set new password",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/new\/password",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/new\/password",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"Exemple@exemple.com\",\"password\":\"Exemple1233\"}"
+                        },
+                        "description": "If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"state\":true,\"code\":\"200\",\"message\":\"password was changed successfully\",\"execution\":\"0.349 seconds\",\"data\":{\"id\":36,\"token\":\"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4\"}}",
+                            "name": "new password"
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"state\": false,\"code\": \"404\",\"message\": \"\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\",\"execution\": \"0.297 seconds\"}",
+                            "name": "new password"
+                        }
+                    ]
+                },
+                {
+                    "name": "logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/logout",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"token_id\":\"20\"}"
+                        },
+                        "description": "If  request have param ' token_id ' valid and everything is okay, you'll get a 200 OK response."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"you are logout now\"}",
+                            "name": "logout"
+                        }
+                    ]
+                },
                 {
                     "name": "api\/v1\/{lang}\/user\/google\/callback",
                     "request": {
@@ -70,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "dolore",
+                                    "value": "vero",
                                     "description": ""
                                 }
                             ]
@@ -88,48 +196,6 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "google apple sign up",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/user\/:provider",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/:provider",
-                            "variable": [
-                                {
-                                    "id": "lang",
-                                    "key": "lang",
-                                    "value": "en",
-                                    "description": "The language."
-                                },
-                                {
-                                    "id": "provider",
-                                    "key": "provider",
-                                    "value": "google",
-                                    "description": "must be  google apple ."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "this route is called when user wont sign with their google or apple",
                         "auth": {
                             "type": "noauth"
                         }
@@ -218,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"a\",\"email\":\"dhermiston@example.org\",\"password\":\"\",\"phone\":\"nisi\"}"
+                            "raw": "{\"username\":\"yfdzahrhfxotfjx\",\"email\":\"beier.quinten@example.com\",\"password\":\"tktmsq\",\"phone\":\"nihil\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -241,13 +307,13 @@
                     ]
                 },
                 {
-                    "name": "login",
+                    "name": "user profile",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/user\/login",
+                            "path": "api\/v1\/:lang\/user\/profile",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/login",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/profile",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -257,7 +323,7 @@
                                 }
                             ]
                         },
-                        "method": "POST",
+                        "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -268,90 +334,26 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"rippin.joan@example.com\",\"password\":\"repudiandae\"}"
-                        },
-                        "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\"message\": \"The given data was invalid.\", \"errors\": {\"message\": \"The given data was invalid.\",\"errors\": {\"data\": [\"The provided credentials are incorrect.\"]}}}",
-                            "name": "validation error"
-                        },
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\"id\": 20,\"token\": \"20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu\"}",
-                            "name": "login"
-                        }
-                    ]
-                },
-                {
-                    "name": "set new password",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/user\/new\/password",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/new\/password",
-                            "variable": [
-                                {
-                                    "id": "lang",
-                                    "key": "lang",
-                                    "value": "en",
-                                    "description": "The language."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"Exemple@exemple.com\"}"
-                        },
-                        "description": "If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "body": null,
+                        "description": "If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
                             "body": "{\"state\":true,\"code\":\"200\",\"message\":\"password was changed successfully\",\"execution\":\"0.349 seconds\",\"data\":{\"id\":36,\"token\":\"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4\"}}",
-                            "name": "new password"
-                        },
-                        {
-                            "header": [],
-                            "code": 404,
-                            "body": "{\"state\": false,\"code\": \"404\",\"message\": \"\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0633\u062a\u062e\u062f\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\",\"execution\": \"0.297 seconds\"}",
-                            "name": "new password"
+                            "name": "profile"
                         }
                     ]
                 },
                 {
-                    "name": "logout",
+                    "name": "user purchase",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/user\/logout",
+                            "path": "api\/v1\/:lang\/user\/purchase",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/logout",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/purchase",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -374,16 +376,16 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token_id\":\"20\"}"
+                            "raw": "{\"amount\":\"itaque\",\"payment_method_id\":\"exercitationem\",\"cart\":\"[\\\"explicabo\\\",\\\"dolore\\\"]\"}"
                         },
-                        "description": "If  request have param ' token_id ' valid and everything is okay, you'll get a 200 OK response."
+                        "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 200 OK response."
                     },
                     "response": [
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"message\": \"you are logout now\"}",
-                            "name": "logout"
+                            "body": "",
+                            "name": "purchase"
                         }
                     ]
                 }
@@ -423,6 +425,84 @@
                         ],
                         "body": null,
                         "description": "this route is called when to get get specific quained of product"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "setting management",
+            "description": "\nAPIs for managing settings",
+            "item": [
+                {
+                    "name": "get settings",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/settings",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/settings",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "this route is called when to get all settings"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "slider management",
+            "description": "\nAPIs for managing sliders",
+            "item": [
+                {
+                    "name": "get sliders",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/slider",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/slider",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "this route is called when to get sliders"
                     },
                     "response": []
                 }

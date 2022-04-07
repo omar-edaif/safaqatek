@@ -7,10 +7,218 @@ servers:
   -
     url: 'http://safaqatek.test'
 paths:
-  '/api/v1/{lang}/slider':
+  '/api/v1/{lang}/user/login':
     post:
-      summary: 'get sliders'
-      description: 'this route is called when to get sliders'
+      summary: login
+      description: "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  ."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        422:
+          description: 'validation error'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors:
+                    message: 'The given data was invalid.'
+                    errors:
+                      data:
+                        - 'The provided credentials are incorrect.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+                  errors:
+                    type: object
+                    example:
+                      message: 'The given data was invalid.'
+                      errors:
+                        data:
+                          - 'The provided credentials are incorrect.'
+        200:
+          description: login
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 20
+                  token: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
+                properties:
+                  id:
+                    type: integer
+                    example: 20
+                  token:
+                    type: string
+                    example: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: camron95@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: accusantium
+              required:
+                - email
+                - password
+      security: []
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
+  '/api/v1/{lang}/user/new/password':
+    post:
+      summary: 'set new password'
+      description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'new password'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  state: true
+                  code: '200'
+                  message: 'password was changed successfully'
+                  execution: '0.349 seconds'
+                  data:
+                    id: 36
+                    token: 36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4
+                properties:
+                  state:
+                    type: boolean
+                    example: true
+                  code:
+                    type: string
+                    example: '200'
+                  message:
+                    type: string
+                    example: 'password was changed successfully'
+                  execution:
+                    type: string
+                    example: '0.349 seconds'
+                  data:
+                    type: object
+                    example:
+                      id: 36
+                      token: 36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4
+        404:
+          description: 'new password'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  state: false
+                  code: '404'
+                  message: 'لا يوجد مستخدم بهذا البريد الإلكتروني'
+                  execution: '0.297 seconds'
+                properties:
+                  state:
+                    type: boolean
+                    example: false
+                  code:
+                    type: string
+                    example: '404'
+                  message:
+                    type: string
+                    example: 'لا يوجد مستخدم بهذا البريد الإلكتروني'
+                  execution:
+                    type: string
+                    example: '0.297 seconds'
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of user  .'
+                  example: Exemple@exemple.com
+                password:
+                  type: string
+                  description: 'The new password of user  .'
+                  example: Exemple1233
+              required:
+                - email
+                - password
+      security: []
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
+  '/api/v1/{lang}/user/logout':
+    post:
+      summary: logout
+      description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
       parameters:
         -
           in: header
@@ -33,9 +241,32 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: logout
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'you are logout now'
+                properties:
+                  message:
+                    type: string
+                    example: 'you are logout now'
       tags:
-        - 'slider management'
+        - 'User management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token_id:
+                  type: The
+                  description: 'id of user token .'
+                  example: '20'
     parameters:
       -
         in: path
@@ -79,53 +310,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: dolore
-        required: true
-        schema:
-          type: string
-  '/api/v1/{lang}/user/{provider}':
-    get:
-      summary: 'google apple sign up'
-      description: 'this route is called when user wont sign with their google or apple'
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'User management'
-      security: []
-    parameters:
-      -
-        in: path
-        name: lang
-        description: 'Optional parameter. The language.'
-        required: true
-        schema:
-          type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: en
-      -
-        in: path
-        name: provider
-        description: 'must be  google apple .'
-        example: google
+        example: vero
         required: true
         schema:
           type: string
@@ -264,19 +449,19 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: a
+                  example: yfdzahrhfxotfjx
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: dhermiston@example.org
+                  example: beier.quinten@example.com
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: ''
+                  example: tktmsq
                 phone:
                   type: string
                   description: ''
-                  example: nisi
+                  example: nihil
               required:
                 - username
                 - email
@@ -298,109 +483,20 @@ paths:
           present:
             summary: 'When the value is present'
             value: en
-  '/api/v1/{lang}/user/login':
-    post:
-      summary: login
-      description: "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  ."
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        422:
-          description: 'validation error'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'The given data was invalid.'
-                  errors:
-                    message: 'The given data was invalid.'
-                    errors:
-                      data:
-                        - 'The provided credentials are incorrect.'
-                properties:
-                  message:
-                    type: string
-                    example: 'The given data was invalid.'
-                  errors:
-                    type: object
-                    example:
-                      message: 'The given data was invalid.'
-                      errors:
-                        data:
-                          - 'The provided credentials are incorrect.'
-        200:
-          description: login
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  id: 20
-                  token: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
-                properties:
-                  id:
-                    type: integer
-                    example: 20
-                  token:
-                    type: string
-                    example: 20|zojdQE05gbfH8S08Pg6gvOqn7cZjzeJisRSR5Sxu
-      tags:
-        - 'User management'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: rippin.joan@example.com
-                password:
-                  type: string
-                  description: ''
-                  example: repudiandae
-              required:
-                - email
-                - password
-      security: []
-    parameters:
-      -
-        in: path
-        name: lang
-        description: 'Optional parameter. The language.'
-        required: true
-        schema:
-          type: string
-        examples:
-          omitted:
-            summary: 'When the value is omitted'
-            value: ''
-          present:
-            summary: 'When the value is present'
-            value: en
-  '/api/v1/{lang}/user/new/password':
-    post:
-      summary: 'set new password'
+  '/api/v1/{lang}/user/profile':
+    get:
+      summary: 'user profile'
       description: 'If  request have param '' email '' exist and everything is okay, you''ll get a 200 OK response.'
       parameters:
         -
           in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -415,7 +511,7 @@ paths:
             type: string
       responses:
         200:
-          description: 'new password'
+          description: profile
           content:
             application/json:
               schema:
@@ -446,46 +542,8 @@ paths:
                     example:
                       id: 36
                       token: 36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4
-        404:
-          description: 'new password'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  state: false
-                  code: '404'
-                  message: 'لا يوجد مستخدم بهذا البريد الإلكتروني'
-                  execution: '0.297 seconds'
-                properties:
-                  state:
-                    type: boolean
-                    example: false
-                  code:
-                    type: string
-                    example: '404'
-                  message:
-                    type: string
-                    example: 'لا يوجد مستخدم بهذا البريد الإلكتروني'
-                  execution:
-                    type: string
-                    example: '0.297 seconds'
       tags:
         - 'User management'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  description: 'The email of user  .'
-                  example: Exemple@exemple.com
-              required:
-                - email
-      security: []
     parameters:
       -
         in: path
@@ -501,10 +559,10 @@ paths:
           present:
             summary: 'When the value is present'
             value: en
-  '/api/v1/{lang}/user/logout':
+  '/api/v1/{lang}/user/purchase':
     post:
-      summary: logout
-      description: 'If  request have param '' token_id '' valid and everything is okay, you''ll get a 200 OK response.'
+      summary: 'user purchase'
+      description: 'If  request have param '' cart and payment_id and amount '' exist and everything is okay, you''ll get a 200 OK response.'
       parameters:
         -
           in: header
@@ -529,30 +587,37 @@ paths:
             type: string
       responses:
         200:
-          description: logout
+          description: purchase
           content:
-            application/json:
+            text/plain:
               schema:
-                type: object
-                example:
-                  message: 'you are logout now'
-                properties:
-                  message:
-                    type: string
-                    example: 'you are logout now'
+                type: string
+                example: ''
       tags:
         - 'User management'
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
               type: object
               properties:
-                token_id:
-                  type: The
-                  description: 'id of user token .'
-                  example: '20'
+                amount:
+                  type: string
+                  description: ''
+                  example: itaque
+                payment_method_id:
+                  type: string
+                  description: ''
+                  example: exercitationem
+                cart:
+                  type: string
+                  description: 'Must be a valid JSON string.'
+                  example: '["explicabo","dolore"]'
+              required:
+                - amount
+                - payment_method_id
+                - cart
     parameters:
       -
         in: path
@@ -612,16 +677,107 @@ paths:
           present:
             summary: 'When the value is present'
             value: en
+  '/api/v1/{lang}/settings':
+    get:
+      summary: 'get settings'
+      description: 'this route is called when to get all settings'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'setting management'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
+  '/api/v1/{lang}/slider':
+    post:
+      summary: 'get sliders'
+      description: 'this route is called when to get sliders'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'slider management'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
 tags:
-  -
-    name: 'slider management'
-    description: "\nAPIs for managing sliders"
   -
     name: 'User management'
     description: "\nAPIs for managing users"
   -
     name: 'product management'
     description: "\nAPIs for managing product"
+  -
+    name: 'setting management'
+    description: "\nAPIs for managing settings"
+  -
+    name: 'slider management'
+    description: "\nAPIs for managing sliders"
 components:
   securitySchemes:
     default:

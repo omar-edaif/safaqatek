@@ -15,8 +15,8 @@ class Product extends Model
     protected $dates = ['closing_at'];
 
     protected $casts = [
-        'closing_at' => 'datetime:Y-m-d H:00',
-        'created_at' => 'datetime:Y-m-d H:00',
+        'closing_at' => 'date:mm-dd-yyyy',
+        'created_at' => 'date:mm-dd-yyyy',
     ];
     /**
      * Get the category of Product

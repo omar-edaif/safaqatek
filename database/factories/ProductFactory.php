@@ -23,8 +23,8 @@ class ProductFactory extends Factory
             'award_image' => '/images/product/product_0' . rand(0, 1) . '.jpg',
             'description_ar' => $this->faker->text(40),
             'description_en' => $this->faker->text(40),
-            'sold_number' => rand(100, 400),
-            'is_donate' => rand(0, 1),
+            'quantity' => rand(100, 400),
+            'copon_per_unit' => rand(1, 3),
             'closing_at' => now()->addDay(rand(10, 50)),
         ];
     }

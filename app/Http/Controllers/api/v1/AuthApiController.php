@@ -5,8 +5,10 @@ namespace App\Http\Controllers\api\v1;
 use App\Helpers\HttpCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\user\LoginUserRequest;
+use App\Http\Requests\user\PurchaseRequest;
 use App\Http\Requests\user\RegisterUserRequest;
 use App\Http\Resources\api\UserResource;
+use App\Models\Product;
 use App\Models\User;
 use Facade\FlareClient\Http\Exceptions\NotFound;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -178,6 +180,8 @@ class AuthApiController extends Controller
      *
      */
 
+
+
     public function phone(Request $request)
     {
         $phone = User::select('phone')->where('email', $request->email)->first();
@@ -195,6 +199,7 @@ class AuthApiController extends Controller
      * @response 404 scenario="new password" {"state": false,"code": "404","message": "لا يوجد مستخدم بهذا البريد الإلكتروني","execution": "0.297 seconds"}
      * @urlParam lang The language. Example: en
      * @bodyParam email string required The email of user  . Example: Exemple@exemple.com
+     * @bodyParam password string required The new password of user  . Example: Exemple1233
      *
      */
 
@@ -208,5 +213,86 @@ class AuthApiController extends Controller
         $token = $user->createToken('app_token');
 
         return response()->data(['id' => $token->accessToken->id, 'token' => $token->plainTextToken], __('password was changed successfully'));
+    }
+    /**
+     * user profile
+     *
+     *  If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.
+     *
+     *
+     * @response 200 scenario="profile" {"state":true,"code":"200","message":"password was changed successfully","execution":"0.349 seconds","data":{"id":36,"token":"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4"}}
+     *
+     * @urlParam lang The language. Example: en
+     *
+     * @authenticated
+     *
+     *
+     *
+     */
+    public function profile()
+    {
+        $user   =   User::findOrFail(auth()->id());
+
+        return new UserResource($user);
+    }
+
+    /**
+     * user purchase
+     *
+     *  If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 200 OK response.
+     *
+     *
+     * @response 200 scenario="purchase"
+     *
+     * @urlParam lang The language. Example: en
+     *
+     *
+     * @authenticated
+     *
+     */
+
+
+    public function purchase(PurchaseRequest $request)
+    {
+
+        try {
+
+            $payment = auth()->user()->charge(
+                $request->input('amount'),
+                $request->input('payment_method_id'),
+                ['currency' => auth()->user()->currency ?? 'AED']
+            );
+
+            $payment = $payment->asStripePaymentIntent();
+
+            $order = auth()->user()->orders()
+                ->create([
+                    'transaction_id' =>  $payment->charges->data[0]->id,
+                    'amount' => $payment->charges->data[0]->amount,
+                    'lng'    => $request->input('lng'),
+                    'lat'    => $request->input('lat'),
+                    'currency'    => $request->input('currency') ?? 'AED',
+                    'is_donate'   => $request->input('is_donate') ?? false
+                ]);
+
+            foreach (json_decode($request->input('cart'), true) as $item) {
+                $order->products()
+                    ->attach($item['id'], ['quantity' => $item['quantity']]);
+                $copon_per_unit = Product::whereId($item['id'])->pluck('copon_per_unit')->first();
+
+                auth()->user()->coupons()
+                    ->create([
+                        'product_id' => $item['id'],
+                        'order_id' => $order->id,
+                        'key' => generateKey(),
+                        'participate_with' =>  $item['quantity'] * $copon_per_unit
+                    ]);
+            }
+
+            $order->load('products', 'coupons');
+            return $order;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 }

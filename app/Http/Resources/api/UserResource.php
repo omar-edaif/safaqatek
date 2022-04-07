@@ -9,11 +9,22 @@ class UserResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
-    public function toArray($user)
+    public function toArray($request)
     {
-        return [];
+        return [
+            'username' => $this->username,
+            'email' => $this->email,
+            'nationality' => $this->nationality,
+            'residence' => $this->residence,
+            'currency' => $this->currency,
+            'level' => 1,
+            'phone' => $this->phone,
+            'avatar' => $this->avatar,
+            'lang' => $this->lang,
+            'sex' => $this->sex,
+        ];
     }
 }

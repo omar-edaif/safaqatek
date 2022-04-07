@@ -30,8 +30,8 @@ class CreateProductsTable extends Migration
             $table->string('award_image')->nullable();
             $table->string('description_ar')->nullable();
             $table->string('description_en')->nullable();
-            $table->bigInteger('sold_number');
-            $table->boolean('is_donate')->default(1);
+            $table->integer('copon_per_unit')->default(1);
+            $table->integer('quantity');
             $table->timestamp('closing_at');
             $table->timestamps();
         });
