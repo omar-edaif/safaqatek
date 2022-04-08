@@ -32,14 +32,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: camron95@example.com
+        example: kuvalis.delilah@example.org
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: accusantium
+        example: reiciendis
         type: string
         custom: []
     responses:
@@ -156,7 +156,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: vero
+        example: rerum
         type: string
         custom: []
     queryParameters: []
@@ -233,28 +233,28 @@ endpoints:
         name: username
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: yfdzahrhfxotfjx
+        example: bii
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: beier.quinten@example.com
+        example: kuhic.sibyl@example.org
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: tktmsq
+        example: gbn
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: nihil
+        example: autem
         type: string
         custom: []
     responses:
@@ -326,21 +326,45 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: itaque
+        example: pariatur
         type: string
         custom: []
-      payment_method_id:
-        name: payment_method_id
+      payment_id:
+        name: payment_id
         description: ''
         required: true
-        example: exercitationem
+        example: repellat
         type: string
         custom: []
       cart:
         name: cart
-        description: 'Must be a valid JSON string.'
+        description: 'The Customer purchases  exempele [{"id":1,"quantity":2}] .'
         required: true
-        example: '["explicabo","dolore"]'
+        example:
+          -
+            id: 1
+            quantity: 2
+        type: object
+        custom: []
+      is_donate:
+        name: is_donate
+        description: 'if user choise to donate.'
+        required: false
+        example: false
+        type: boolean
+        custom: []
+      lat:
+        name: lat
+        description: 'The location lat .'
+        required: false
+        example: vel
+        type: string
+        custom: []
+      lng:
+        name: lng
+        description: 'The location long .'
+        required: false
+        example: tempora
         type: string
         custom: []
     responses:
@@ -349,4 +373,34 @@ endpoints:
         content: ''
         headers: []
         description: '200, purchase'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/{lang}/user/coupons'
+    metadata:
+      title: 'user coupons'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      lang:
+        name: lang
+        description: ''
+        required: true
+        example: qui
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data": [{"key": "H-427379-12334-4","participate_with": 6,"created_at": "04/08/2022 12:04:44","product": {"name_ar": "الاسم ","name_en": "ut","image": "http://safaqatek.test/images/product/product_00.jpg",  "closing_at": "05/24/2022 09:05:39","price": 201,"currency": "aed"}}]}'
+        headers: []
+        description: '200, coupons are exist'
     responseFields: []

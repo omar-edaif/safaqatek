@@ -25,9 +25,10 @@ Route::prefix('v1/{lang}')->group(function () {
 
         Route::prefix('user')->group(function () {
 
-            Route::post('/logout', [AuthApiController::class, 'logout']);
             Route::get('/profile', [AuthApiController::class, 'profile']);
+            Route::get('/coupons', [AuthApiController::class, 'coupons']);
             Route::post('/purchase', [AuthApiController::class, 'purchase']);
+            Route::post('/logout', [AuthApiController::class, 'logout']);
         });
 
         /*  Product */

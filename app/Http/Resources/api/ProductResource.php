@@ -28,8 +28,10 @@ class ProductResource extends JsonResource
             "quantity" => $this->quantity,
             "sold_number" =>  +rand(0, $this->quantity - 1),
             'copon_per_unit' => $this->copon_per_unit,
-            "closing_at" => $this->closing_at,
-            "created_at" => $this->created_at,
+            'price' => $this->price,
+            'currency' => auth()->user()->currency ?? 'aed',
+            "closing_at" => $this->closing_at->format('m/d/Y '),
+            "created_at" => $this->created_at->format('m/d/Y'),
 
         ];
     }

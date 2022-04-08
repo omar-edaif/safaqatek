@@ -24,6 +24,7 @@ class ProductFactory extends Factory
             'description_ar' => $this->faker->text(40),
             'description_en' => $this->faker->text(40),
             'quantity' => rand(100, 400),
+            'price' => rand(100, 400),
             'copon_per_unit' => rand(1, 3),
             'closing_at' => now()->addDay(rand(10, 50)),
         ];

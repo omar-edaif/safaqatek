@@ -16,12 +16,9 @@ if (!function_exists('generateKey')) {
 
     function generateKey()
     {
-
-
-
         $current_date_time = Carbon::now()->toDateTimeString();
         $current_date_time = str_replace([' ', ':', '-'], '', $current_date_time);
-        $current_date_time = substr($current_date_time, 2, 6) . "-" . substr($current_date_time, 7, 5) . "-" . substr($current_date_time, 13, 20);
+        $current_date_time = rand(100000, 999999) . "-" . substr($current_date_time, 8, 5) . "-" . substr($current_date_time, 13, 2);
 
         return  \Str::upper(\Str::random(1)) . '-' . $current_date_time;
     }

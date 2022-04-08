@@ -32,6 +32,7 @@ class CreateProductsTable extends Migration
             $table->string('description_en')->nullable();
             $table->integer('copon_per_unit')->default(1);
             $table->integer('quantity');
+            $table->double('price');
             $table->timestamp('closing_at');
             $table->timestamps();
         });

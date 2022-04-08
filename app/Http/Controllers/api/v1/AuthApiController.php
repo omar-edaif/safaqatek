@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\user\LoginUserRequest;
 use App\Http\Requests\user\PurchaseRequest;
 use App\Http\Requests\user\RegisterUserRequest;
+use App\Http\Resources\api\CouponResource;
+use App\Http\Resources\api\OrderResource;
 use App\Http\Resources\api\UserResource;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\User;
 use Facade\FlareClient\Http\Exceptions\NotFound;
@@ -249,6 +252,10 @@ class AuthApiController extends Controller
      *
      * @authenticated
      *
+     * @bodyParam cart object required The Customer purchases  exempele [{"id":1,"quantity":2}] . Example: [{"id":1,"quantity":2}]
+     * @bodyParam is_donate boolean if user choise to donate. Example: false
+     * @bodyParam lat string The location lat .
+     * @bodyParam lng string The location long .
      */
 
 
@@ -259,7 +266,7 @@ class AuthApiController extends Controller
 
             $payment = auth()->user()->charge(
                 $request->input('amount'),
-                $request->input('payment_method_id'),
+                $request->input('payment_id'),
                 ['currency' => auth()->user()->currency ?? 'AED']
             );
 
@@ -271,7 +278,7 @@ class AuthApiController extends Controller
                     'amount' => $payment->charges->data[0]->amount,
                     'lng'    => $request->input('lng'),
                     'lat'    => $request->input('lat'),
-                    'currency'    => $request->input('currency') ?? 'AED',
+                    'currency'    => auth()->user()->currency ?? 'AED',
                     'is_donate'   => $request->input('is_donate') ?? false
                 ]);
 
@@ -289,10 +296,28 @@ class AuthApiController extends Controller
                     ]);
             }
 
-            $order->load('products', 'coupons');
-            return $order;
+            $order->load('products:id,name_en,name_ar,price', 'coupons', 'coupons.product:id,name_en,name_ar,image,price,closing_at');
+            return new OrderResource($order);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);
         }
+    }
+
+    /**
+     * user coupons
+     *
+     * @response 200 scenario="coupons are exist" {"data": [{"key": "H-427379-12334-4","participate_with": 6,"created_at": "04/08/2022 12:04:44","product": {"name_ar": "الاسم ","name_en": "ut","image": "http://safaqatek.test/images/product/product_00.jpg",  "closing_at": "05/24/2022 09:05:39","price": 201,"currency": "aed"}}]}
+     * @authenticated
+     *
+
+     */
+
+
+    public function coupons()
+    {
+
+        $coupon = Coupon::whereUserId(auth()->id())->with('product:id,name_en,name_ar,image,price,closing_at')->latest()->get();
+
+        return CouponResource::collection($coupon);
     }
 }

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "c1fdda73-3b1b-4884-b3e5-44526bd9c499",
+        "_postman_id": "72262a13-0afe-41a2-8382-25838d934478",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"camron95@example.com\",\"password\":\"accusantium\"}"
+                            "raw": "{\"email\":\"kuvalis.delilah@example.org\",\"password\":\"reiciendis\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -178,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "vero",
+                                    "value": "rerum",
                                     "description": ""
                                 }
                             ]
@@ -284,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"yfdzahrhfxotfjx\",\"email\":\"beier.quinten@example.com\",\"password\":\"tktmsq\",\"phone\":\"nihil\"}"
+                            "raw": "{\"username\":\"bii\",\"email\":\"kuhic.sibyl@example.org\",\"password\":\"gbn\",\"phone\":\"autem\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -376,7 +376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"amount\":\"itaque\",\"payment_method_id\":\"exercitationem\",\"cart\":\"[\\\"explicabo\\\",\\\"dolore\\\"]\"}"
+                            "raw": "{\"amount\":\"pariatur\",\"payment_id\":\"repellat\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"vel\",\"lng\":\"tempora\"}"
                         },
                         "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 200 OK response."
                     },
@@ -386,6 +386,46 @@
                             "code": 200,
                             "body": "",
                             "name": "purchase"
+                        }
+                    ]
+                },
+                {
+                    "name": "user coupons",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/coupons",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/coupons",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "qui",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\": [{\"key\": \"H-427379-12334-4\",\"participate_with\": 6,\"created_at\": \"04\/08\/2022 12:04:44\",\"product\": {\"name_ar\": \"\u0627\u0644\u0627\u0633\u0645 \",\"name_en\": \"ut\",\"image\": \"http:\/\/safaqatek.test\/images\/product\/product_00.jpg\",  \"closing_at\": \"05\/24\/2022 09:05:39\",\"price\": 201,\"currency\": \"aed\"}}]}",
+                            "name": "coupons are exist"
                         }
                     ]
                 }

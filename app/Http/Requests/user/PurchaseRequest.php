@@ -4,6 +4,7 @@ namespace App\Http\Requests\user;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class PurchaseRequest extends FormRequest
 {
     /**
@@ -21,11 +22,13 @@ class PurchaseRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
+
         return [
             'amount' => 'required',
-            'payment_method_id' => 'required',
+            'payment_id' => 'required',
             'cart' => 'required||json',
 
         ];
