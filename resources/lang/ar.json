@@ -1,5 +1,7 @@
 {
     "The provided credentials are incorrect.": "المعلومات المقدمة غير صحيحة.",
     "There is no user with this email": "لا يوجد مستخدم بهذا البريد الإلكتروني",
-    "password was changed successfully": "كلمة السر تم تغييرها بنجاح"
+    "password was changed successfully": "كلمة السر تم تغييرها بنجاح",
+    "The product has been added to the wishlist ": "تمت إضافة المنتج إلى قائمة الرغبات",
+    "The product has been deleted from the wishlist": "تم حذف المنتج من قائمة الرغبات"
 }

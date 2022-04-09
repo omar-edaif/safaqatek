@@ -34,14 +34,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: kuvalis.delilah@example.org
+        example: viola.beer@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: reiciendis
+        example: numquam
         type: string
         custom: []
     responses:
@@ -158,7 +158,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: rerum
+        example: cupiditate
         type: string
         custom: []
     queryParameters: []
@@ -235,28 +235,28 @@ endpoints:
         name: username
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: bii
+        example: ''
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: kuhic.sibyl@example.org
+        example: omari80@example.net
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: gbn
+        example: tvoufb
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: autem
+        example: et
         type: string
         custom: []
     responses:
@@ -307,7 +307,7 @@ endpoints:
     uri: 'api/v1/{lang}/user/purchase'
     metadata:
       title: 'user purchase'
-      description: 'If  request have param '' cart and payment_id and amount '' exist and everything is okay, you''ll get a 200 OK response.'
+      description: 'If  request have param '' cart and payment_id and amount '' exist and everything is okay, you''ll get a 201 OK response.'
       authenticated: true
       custom: []
     headers:
@@ -328,14 +328,14 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: pariatur
+        example: suscipit
         type: string
         custom: []
       payment_id:
         name: payment_id
         description: ''
         required: true
-        example: repellat
+        example: iure
         type: string
         custom: []
       cart:
@@ -359,22 +359,22 @@ endpoints:
         name: lat
         description: 'The location lat .'
         required: false
-        example: vel
+        example: nam
         type: string
         custom: []
       lng:
         name: lng
         description: 'The location long .'
         required: false
-        example: tempora
+        example: qui
         type: string
         custom: []
     responses:
       -
-        status: 200
-        content: ''
+        status: 201
+        content: '{"data":{"transaction_id":"ch_3KmcRyHBm3O5wniB0TUIofgp","amount":500,"currency":"AED","created_at":"04/09/2022","cart":[{"name_en":"enim","name_ar":"الاسم ","price":235,"currency":"aed","quantity":2}],"coupons":[{"key":"U-443372-11273-1","participate_with":6,"created_at":"04/09/2022 11:04:31","product":{"name_ar":"الاسم ","name_en":"enim","image":"http://safaqatek.test/images/product/product_00.jpg","closing_at":"05/05/2022 09:05:47","price":235,"currency":"aed"}}]}}'
         headers: []
-        description: '200, purchase'
+        description: '201, purchase'
     responseFields: []
   -
     httpMethods:
@@ -394,7 +394,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: qui
+        example: veniam
         type: string
         custom: []
     queryParameters: []
@@ -405,4 +405,41 @@ endpoints:
         content: '{"data": [{"key": "H-427379-12334-4","participate_with": 6,"created_at": "04/08/2022 12:04:44","product": {"name_ar": "الاسم ","name_en": "ut","image": "http://safaqatek.test/images/product/product_00.jpg",  "closing_at": "05/24/2022 09:05:39","price": 201,"currency": "aed"}}]}'
         headers: []
         description: '200, coupons are exist'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/{lang}/user/wishlists'
+    metadata:
+      title: 'user wishlist'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      lang:
+        name: lang
+        description: ''
+        required: true
+        example: dignissimos
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the p'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"name_en":"enim","name_ar":"الاسم ","award_name_ar":"أسم الجائزة بالعربي","award_name_en":"numquam","price":235,"currency":null,"image":"http://safaqatek.test/images/product/product_00.jpg","quantity":200,"sold_out":133}]}'
+        headers: []
+        description: '200, wishlists are exist'
     responseFields: []

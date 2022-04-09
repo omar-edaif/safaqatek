@@ -27,6 +27,7 @@ Route::prefix('v1/{lang}')->group(function () {
 
             Route::get('/profile', [AuthApiController::class, 'profile']);
             Route::get('/coupons', [AuthApiController::class, 'coupons']);
+            Route::get('/wishlists', [AuthApiController::class, 'wishLists']);
             Route::post('/purchase', [AuthApiController::class, 'purchase']);
             Route::post('/logout', [AuthApiController::class, 'logout']);
         });
@@ -35,6 +36,8 @@ Route::prefix('v1/{lang}')->group(function () {
         Route::prefix('product')->group(function () {
 
             Route::post('/', [productController::class, 'products']);
+            Route::get('/wishlist/add/{id}', [productController::class, 'addToWishlist']);
+            Route::get('/wishlist/delete/{id}', [productController::class, 'deleteFromWishlist']);
         });
 
         /*  Slider */

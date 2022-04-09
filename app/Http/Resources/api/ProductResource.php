@@ -26,7 +26,7 @@ class ProductResource extends JsonResource
             "description_ar" => $this->description_ar,
             "description_en" => $this->description_en,
             "quantity" => $this->quantity,
-            "sold_number" =>  +rand(0, $this->quantity - 1),
+            "sold_out" =>  intval($this->in_orders_sum_quantity) ?: 0,
             'copon_per_unit' => $this->copon_per_unit,
             'price' => $this->price,
             'currency' => auth()->user()->currency ?? 'aed',

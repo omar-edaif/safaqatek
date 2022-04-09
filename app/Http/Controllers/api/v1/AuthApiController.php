@@ -10,9 +10,11 @@ use App\Http\Requests\user\RegisterUserRequest;
 use App\Http\Resources\api\CouponResource;
 use App\Http\Resources\api\OrderResource;
 use App\Http\Resources\api\UserResource;
+use App\Http\Resources\WishlisResource;
 use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\UserWishlist;
 use Facade\FlareClient\Http\Exceptions\NotFound;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -242,10 +244,10 @@ class AuthApiController extends Controller
     /**
      * user purchase
      *
-     *  If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 200 OK response.
+     *  If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response.
      *
      *
-     * @response 200 scenario="purchase"
+     * @response 201 scenario="purchase" {"data":{"transaction_id":"ch_3KmcRyHBm3O5wniB0TUIofgp","amount":500,"currency":"AED","created_at":"04/09/2022","cart":[{"name_en":"enim","name_ar":"الاسم ","price":235,"currency":"aed","quantity":2}],"coupons":[{"key":"U-443372-11273-1","participate_with":6,"created_at":"04/09/2022 11:04:31","product":{"name_ar":"الاسم ","name_en":"enim","image":"http://safaqatek.test/images/product/product_00.jpg","closing_at":"05/05/2022 09:05:47","price":235,"currency":"aed"}}]}}
      *
      * @urlParam lang The language. Example: en
      *
@@ -319,5 +321,22 @@ class AuthApiController extends Controller
         $coupon = Coupon::whereUserId(auth()->id())->with('product:id,name_en,name_ar,image,price,closing_at')->latest()->get();
 
         return CouponResource::collection($coupon);
+    }
+
+    /**
+     * user wishlist
+     *
+     * @response 200 scenario="wishlists are exist" {"data":[{"id":1,"name_en":"enim","name_ar":"الاسم ","award_name_ar":"أسم الجائزة بالعربي","award_name_en":"numquam","price":235,"currency":null,"image":"http://safaqatek.test/images/product/product_00.jpg","quantity":200,"sold_out":133}]}
+     * @authenticated
+     *
+     */
+
+    public function wishLists()
+    {
+        $userWishlist    =    User::select('id')->whereId(auth()->id())
+            ->with('wishlists:id,name_en,name_ar,image,quantity,award_name_ar,award_name_en,price', 'wishlists.inOrders')
+            ->first();
+
+        return WishlisResource::collection($userWishlist->wishlists);
     }
 }

@@ -101,6 +101,9 @@
                                     <li class="tocify-item level-2" data-unique="user-management-GETapi-v1--lang--user-coupons">
                         <a href="#user-management-GETapi-v1--lang--user-coupons">user coupons</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="user-management-GETapi-v1--lang--user-wishlists">
+                        <a href="#user-management-GETapi-v1--lang--user-wishlists">user wishlist</a>
+                    </li>
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-3" class="tocify-header">
@@ -110,6 +113,12 @@
                                     <ul id="tocify-subheader-product-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="product-management-POSTapi-v1--lang--product">
                         <a href="#product-management-POSTapi-v1--lang--product">get product</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-wishlist-add--id-">
+                        <a href="#product-management-GETapi-v1--lang--product-wishlist-add--id-">add product to wishlist</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-wishlist-delete--id-">
+                        <a href="#product-management-GETapi-v1--lang--product-wishlist-delete--id-">add product to wishlist</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -143,7 +152,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 8 2022</li>
+        <li>Last updated: April 9 2022</li>
     </ul>
 </div>
 
@@ -160,7 +169,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://safaqatek.test</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
@@ -186,8 +195,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"kuvalis.delilah@example.org\",
-    \"password\": \"reiciendis\"
+    \"email\": \"viola.beer@example.net\",
+    \"password\": \"numquam\"
 }"
 </code></pre></div>
 
@@ -203,8 +212,8 @@ const headers = {
 };
 
 let body = {
-    "email": "kuvalis.delilah@example.org",
-    "password": "reiciendis"
+    "email": "viola.beer@example.net",
+    "password": "numquam"
 };
 
 fetch(url, {
@@ -300,7 +309,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="kuvalis.delilah@example.org"
+               value="viola.beer@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -310,7 +319,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="reiciendis"
+               value="numquam"
                data-component="body" hidden>
     <br>
 
@@ -608,14 +617,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/rerum/user/google/callback" \
+    --get "http://safaqatek.test/api/v1/cupiditate/user/google/callback" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/rerum/user/google/callback"
+    "http://safaqatek.test/api/v1/cupiditate/user/google/callback"
 );
 
 const headers = {
@@ -677,7 +686,7 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-google-callback"
-               value="rerum"
+               value="cupiditate"
                data-component="url" hidden>
     <br>
 
@@ -832,10 +841,10 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"bii\",
-    \"email\": \"kuhic.sibyl@example.org\",
-    \"password\": \"gbn\",
-    \"phone\": \"autem\"
+    \"username\": \"\",
+    \"email\": \"omari80@example.net\",
+    \"password\": \"tvoufb\",
+    \"phone\": \"et\"
 }"
 </code></pre></div>
 
@@ -851,10 +860,10 @@ const headers = {
 };
 
 let body = {
-    "username": "bii",
-    "email": "kuhic.sibyl@example.org",
-    "password": "gbn",
-    "phone": "autem"
+    "username": "",
+    "email": "omari80@example.net",
+    "password": "tvoufb",
+    "phone": "et"
 };
 
 fetch(url, {
@@ -950,7 +959,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="bii"
+               value=""
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 15 characters.</p>
@@ -960,7 +969,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="kuhic.sibyl@example.org"
+               value="omari80@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -970,7 +979,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="gbn"
+               value="tvoufb"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -980,7 +989,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="autem"
+               value="et"
                data-component="body" hidden>
     <br>
 
@@ -1109,7 +1118,7 @@ fetch(url, {
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 200 OK response.</p>
+<p>If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response.</p>
 
 <span id="example-requests-POSTapi-v1--lang--user-purchase">
 <blockquote>Example request:</blockquote>
@@ -1122,8 +1131,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"amount\": \"pariatur\",
-    \"payment_id\": \"repellat\",
+    \"amount\": \"suscipit\",
+    \"payment_id\": \"iure\",
     \"cart\": [
         {
             \"id\": 1,
@@ -1131,8 +1140,8 @@ fetch(url, {
         }
     ],
     \"is_donate\": false,
-    \"lat\": \"vel\",
-    \"lng\": \"tempora\"
+    \"lat\": \"nam\",
+    \"lng\": \"qui\"
 }"
 </code></pre></div>
 
@@ -1149,8 +1158,8 @@ const headers = {
 };
 
 let body = {
-    "amount": "pariatur",
-    "payment_id": "repellat",
+    "amount": "suscipit",
+    "payment_id": "iure",
     "cart": [
         {
             "id": 1,
@@ -1158,8 +1167,8 @@ let body = {
         }
     ],
     "is_donate": false,
-    "lat": "vel",
-    "lng": "tempora"
+    "lat": "nam",
+    "lng": "qui"
 };
 
 fetch(url, {
@@ -1172,11 +1181,42 @@ fetch(url, {
 
 <span id="example-responses-POSTapi-v1--lang--user-purchase">
             <blockquote>
-            <p>Example response (200, purchase):</p>
+            <p>Example response (201, purchase):</p>
         </blockquote>
                 <pre>
 
-<code class="language-json"></code>
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;transaction_id&quot;: &quot;ch_3KmcRyHBm3O5wniB0TUIofgp&quot;,
+        &quot;amount&quot;: 500,
+        &quot;currency&quot;: &quot;AED&quot;,
+        &quot;created_at&quot;: &quot;04/09/2022&quot;,
+        &quot;cart&quot;: [
+            {
+                &quot;name_en&quot;: &quot;enim&quot;,
+                &quot;name_ar&quot;: &quot;الاسم &quot;,
+                &quot;price&quot;: 235,
+                &quot;currency&quot;: &quot;aed&quot;,
+                &quot;quantity&quot;: 2
+            }
+        ],
+        &quot;coupons&quot;: [
+            {
+                &quot;key&quot;: &quot;U-443372-11273-1&quot;,
+                &quot;participate_with&quot;: 6,
+                &quot;created_at&quot;: &quot;04/09/2022 11:04:31&quot;,
+                &quot;product&quot;: {
+                    &quot;name_ar&quot;: &quot;الاسم &quot;,
+                    &quot;name_en&quot;: &quot;enim&quot;,
+                    &quot;image&quot;: &quot;http://safaqatek.test/images/product/product_00.jpg&quot;,
+                    &quot;closing_at&quot;: &quot;05/05/2022 09:05:47&quot;,
+                    &quot;price&quot;: 235,
+                    &quot;currency&quot;: &quot;aed&quot;
+                }
+            }
+        ]
+    }
+}</code>
  </pre>
     </span>
 <span id="execution-results-POSTapi-v1--lang--user-purchase" hidden>
@@ -1243,7 +1283,7 @@ fetch(url, {
                 <input type="text"
                name="amount"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="pariatur"
+               value="suscipit"
                data-component="body" hidden>
     <br>
 
@@ -1253,7 +1293,7 @@ fetch(url, {
                 <input type="text"
                name="payment_id"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="repellat"
+               value="iure"
                data-component="body" hidden>
     <br>
 
@@ -1294,7 +1334,7 @@ fetch(url, {
                 <input type="text"
                name="lat"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="vel"
+               value="nam"
                data-component="body" hidden>
     <br>
 <p>The location lat .</p>
@@ -1304,7 +1344,7 @@ fetch(url, {
                 <input type="text"
                name="lng"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="tempora"
+               value="qui"
                data-component="body" hidden>
     <br>
 <p>The location long .</p>
@@ -1325,7 +1365,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/qui/user/coupons" \
+    --get "http://safaqatek.test/api/v1/veniam/user/coupons" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1333,7 +1373,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/qui/user/coupons"
+    "http://safaqatek.test/api/v1/veniam/user/coupons"
 );
 
 const headers = {
@@ -1427,10 +1467,142 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-coupons"
-               value="qui"
+               value="veniam"
                data-component="url" hidden>
     <br>
 
+            </p>
+                    </form>
+
+            <h2 id="user-management-GETapi-v1--lang--user-wishlists">user wishlist</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1--lang--user-wishlists">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://safaqatek.test/api/v1/dignissimos/user/wishlists" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://safaqatek.test/api/v1/dignissimos/user/wishlists"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1--lang--user-wishlists">
+            <blockquote>
+            <p>Example response (200, wishlists are exist):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name_en&quot;: &quot;enim&quot;,
+            &quot;name_ar&quot;: &quot;الاسم &quot;,
+            &quot;award_name_ar&quot;: &quot;أسم الجائزة بالعربي&quot;,
+            &quot;award_name_en&quot;: &quot;numquam&quot;,
+            &quot;price&quot;: 235,
+            &quot;currency&quot;: null,
+            &quot;image&quot;: &quot;http://safaqatek.test/images/product/product_00.jpg&quot;,
+            &quot;quantity&quot;: 200,
+            &quot;sold_out&quot;: 133
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1--lang--user-wishlists" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1--lang--user-wishlists"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1--lang--user-wishlists"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1--lang--user-wishlists" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1--lang--user-wishlists"></code></pre>
+</span>
+<form id="form-GETapi-v1--lang--user-wishlists" data-method="GET"
+      data-path="api/v1/{lang}/user/wishlists"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1--lang--user-wishlists', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1--lang--user-wishlists"
+                    onclick="tryItOut('GETapi-v1--lang--user-wishlists');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1--lang--user-wishlists"
+                    onclick="cancelTryOut('GETapi-v1--lang--user-wishlists');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1--lang--user-wishlists" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/{lang}/user/wishlists</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1--lang--user-wishlists" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1--lang--user-wishlists"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="GETapi-v1--lang--user-wishlists"
+               value="dignissimos"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-v1--lang--user-wishlists"
+               value="2"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the p</p>
             </p>
                     </form>
 
@@ -1527,7 +1699,7 @@ fetch(url, {
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
                 <input type="text"
                name="lang"
                data-endpoint="POSTapi-v1--lang--product"
@@ -1535,6 +1707,226 @@ fetch(url, {
                data-component="url" hidden>
     <br>
 <p>The language.</p>
+            </p>
+                    </form>
+
+            <h2 id="product-management-GETapi-v1--lang--product-wishlist-add--id-">add product to wishlist</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>this route is called when the user wants to add a product to the Wish List</p>
+
+<span id="example-requests-GETapi-v1--lang--product-wishlist-add--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://safaqatek.test/api/v1/en/product/wishlist/add/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://safaqatek.test/api/v1/en/product/wishlist/add/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1--lang--product-wishlist-add--id-">
+    </span>
+<span id="execution-results-GETapi-v1--lang--product-wishlist-add--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1--lang--product-wishlist-add--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1--lang--product-wishlist-add--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1--lang--product-wishlist-add--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1--lang--product-wishlist-add--id-"></code></pre>
+</span>
+<form id="form-GETapi-v1--lang--product-wishlist-add--id-" data-method="GET"
+      data-path="api/v1/{lang}/product/wishlist/add/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1--lang--product-wishlist-add--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1--lang--product-wishlist-add--id-"
+                    onclick="tryItOut('GETapi-v1--lang--product-wishlist-add--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1--lang--product-wishlist-add--id-"
+                    onclick="cancelTryOut('GETapi-v1--lang--product-wishlist-add--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1--lang--product-wishlist-add--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/{lang}/product/wishlist/add/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1--lang--product-wishlist-add--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1--lang--product-wishlist-add--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="GETapi-v1--lang--product-wishlist-add--id-"
+               value="en"
+               data-component="url" hidden>
+    <br>
+<p>The language.</p>
+            </p>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-v1--lang--product-wishlist-add--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product .</p>
+            </p>
+                    </form>
+
+            <h2 id="product-management-GETapi-v1--lang--product-wishlist-delete--id-">add product to wishlist</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>this route is called when the user wants to delete a product to the Wish List</p>
+
+<span id="example-requests-GETapi-v1--lang--product-wishlist-delete--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://safaqatek.test/api/v1/en/product/wishlist/delete/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://safaqatek.test/api/v1/en/product/wishlist/delete/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1--lang--product-wishlist-delete--id-">
+    </span>
+<span id="execution-results-GETapi-v1--lang--product-wishlist-delete--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1--lang--product-wishlist-delete--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1--lang--product-wishlist-delete--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1--lang--product-wishlist-delete--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1--lang--product-wishlist-delete--id-"></code></pre>
+</span>
+<form id="form-GETapi-v1--lang--product-wishlist-delete--id-" data-method="GET"
+      data-path="api/v1/{lang}/product/wishlist/delete/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1--lang--product-wishlist-delete--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1--lang--product-wishlist-delete--id-"
+                    onclick="tryItOut('GETapi-v1--lang--product-wishlist-delete--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1--lang--product-wishlist-delete--id-"
+                    onclick="cancelTryOut('GETapi-v1--lang--product-wishlist-delete--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1--lang--product-wishlist-delete--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/{lang}/product/wishlist/delete/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1--lang--product-wishlist-delete--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1--lang--product-wishlist-delete--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="GETapi-v1--lang--product-wishlist-delete--id-"
+               value="en"
+               data-component="url" hidden>
+    <br>
+<p>The language.</p>
+            </p>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-v1--lang--product-wishlist-delete--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the product .</p>
             </p>
                     </form>
 
