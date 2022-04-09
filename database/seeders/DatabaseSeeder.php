@@ -15,7 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::create(
+            [
+                'username' => 'jaafar',
+                'phone' => '+9630936950834',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('admin123'),
+                'remember_token' => \Str::random(10),
+            ]
+        );
         \App\Models\ProductCategories::create(['name_en' => 'motors', 'name_ar' => 'محركات']);
         \App\Models\Product::factory(10)->create();
         \App\Models\Slider::factory(3)->create();
