@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthSocialiteController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -8,3 +9,5 @@ Route::get('/{provider}/redirect', [AuthSocialiteController::class, 'redirectToP
 Route::get('/', function () {
     return redirect('/docs');
 });
+
+Auth::routes();

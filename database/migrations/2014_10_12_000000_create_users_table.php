@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -26,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('device_token')->nullable();
             $table->string('lang', 4)->default('en');
             $table->enum('sex', ['male', 'female']);
+            $table->string('role', 10)->default(User::CUSTOMER);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
