@@ -15,9 +15,9 @@ class ProductFactory extends Factory
     {
         return [
             'product_category_id' => 1,
-            'name_en' => $this->faker->word(),
+            'name_en' => $this->faker->title(),
             'name_ar' => 'الاسم ',
-            'award_name_en' => $this->faker->word(3),
+            'award_name_en' => $this->faker->title(),
             'award_name_ar' => 'أسم الجائزة بالعربي',
             'image' => '/images/product/product_0' . rand(0, 1) . '.jpg',
             'award_image' => '/images/product/product_0' . rand(0, 1) . '.jpg',

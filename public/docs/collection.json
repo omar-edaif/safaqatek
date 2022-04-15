@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "9ba2819e-e163-44fa-8944-90a7233dbfdc",
+        "_postman_id": "d42ed7fb-2add-4900-8dff-6a2be3e8c71b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"viola.beer@example.net\",\"password\":\"numquam\"}"
+                            "raw": "{\"email\":\"xhill@example.com\",\"password\":\"est\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -178,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "cupiditate",
+                                    "value": "delectus",
                                     "description": ""
                                 }
                             ]
@@ -284,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"\",\"email\":\"omari80@example.net\",\"password\":\"tvoufb\",\"phone\":\"et\"}"
+                            "raw": "{\"username\":\"dsamvdnipol\",\"email\":\"maud.langworth@example.org\",\"password\":\"mfqwudk\",\"phone\":\"et\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -376,7 +376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"amount\":\"suscipit\",\"payment_id\":\"iure\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"nam\",\"lng\":\"qui\"}"
+                            "raw": "{\"amount\":\"repellat\",\"payment_id\":\"est\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"repellat\",\"lng\":\"qui\"}"
                         },
                         "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response."
                     },
@@ -401,7 +401,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "veniam",
+                                    "value": "repellendus",
                                     "description": ""
                                 }
                             ]
@@ -441,14 +441,8 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "dignissimos",
+                                    "value": "assumenda",
                                     "description": ""
-                                },
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "2",
-                                    "description": "The ID of the p"
                                 }
                             ]
                         },
@@ -554,7 +548,7 @@
                     "response": []
                 },
                 {
-                    "name": "add product to wishlist",
+                    "name": "delete product from wishlist",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -591,6 +585,46 @@
                         "description": "this route is called when the user wants to delete a product to the Wish List"
                     },
                     "response": []
+                },
+                {
+                    "name": "product winners",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/product\/winners",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product\/winners",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "ipsam",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"username\":\"jaafar\",\"url\":\"https:\/\/www.youtube.com\/watch?v=iWwY6K5Vjyo\",\"award_name_en\":\"Mr.\",\"award_name_ar\":\"\u0623\u0633\u0645 \u0627\u0644\u062c\u0627\u0626\u0632\u0629 \u0628\u0627\u0644\u0639\u0631\u0628\u064a\",\"announced_on\":\"April 14, 2022\",\"is_current_user\":false},{\"username\":\"jaafar\",\"url\":\"https:\/\/www.youtube.com\/watch?v=iWwY6K5Vjyo\",\"award_name_en\":\"Ms.\",\"award_name_ar\":\"\u0623\u0633\u0645 \u0627\u0644\u062c\u0627\u0626\u0632\u0629 \u0628\u0627\u0644\u0639\u0631\u0628\u064a\",\"announced_on\":\"April 14, 2022\",\"is_current_user\":false},{\"username\":\"jaafar\",\"url\":\"https:\/\/www.youtube.com\/watch?v=iWwY6K5Vjyo\",\"award_name_en\":\"Mr.\",\"award_name_ar\":\"\u0623\u0633\u0645 \u0627\u0644\u062c\u0627\u0626\u0632\u0629 \u0628\u0627\u0644\u0639\u0631\u0628\u064a\",\"announced_on\":\"April 14, 2022\",\"is_current_user\":false}],\"links\":{\"first\":\"http:\/\/safaqatek.test\/api\/v1\/aut\/product\/winners?page=1\",\"last\":\"http:\/\/safaqatek.test\/api\/v1\/aut\/product\/winners?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\/\/safaqatek.test\/api\/v1\/aut\/product\/winners?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\/\/safaqatek.test\/api\/v1\/aut\/product\/winners\",\"per_page\":20,\"to\":3,\"total\":3}}",
+                            "name": "winners"
+                        }
+                    ]
                 }
             ]
         },
@@ -627,7 +661,43 @@
                             }
                         ],
                         "body": null,
-                        "description": "this route is called when to get all settings"
+                        "description": "this route is called to get all settings"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "save Queries",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/settings\/contuct",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/settings\/contuct",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"ea\",\"email\":\"brenden.pacocha@example.net\",\"Inquiry_message\":\"assumenda\"}"
+                        },
+                        "description": "this route is called to save users Queries"
                     },
                     "response": []
                 }

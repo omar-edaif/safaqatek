@@ -79,11 +79,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: viola.beer@example.net
+                  example: xhill@example.com
                 password:
                   type: string
                   description: ''
-                  example: numquam
+                  example: est
               required:
                 - email
                 - password
@@ -310,7 +310,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: cupiditate
+        example: delectus
         required: true
         schema:
           type: string
@@ -449,15 +449,15 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: ''
+                  example: dsamvdnipol
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: omari80@example.net
+                  example: maud.langworth@example.org
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: tvoufb
+                  example: mfqwudk
                 phone:
                   type: string
                   description: ''
@@ -656,11 +656,11 @@ paths:
                 amount:
                   type: string
                   description: ''
-                  example: suscipit
+                  example: repellat
                 payment_id:
                   type: string
                   description: ''
-                  example: iure
+                  example: est
                 cart:
                   type: object
                   description: 'The Customer purchases  exempele [{"id":1,"quantity":2}] .'
@@ -676,7 +676,7 @@ paths:
                 lat:
                   type: string
                   description: 'The location lat .'
-                  example: nam
+                  example: repellat
                 lng:
                   type: string
                   description: 'The location long .'
@@ -770,7 +770,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: veniam
+        example: repellendus
         required: true
         schema:
           type: string
@@ -844,18 +844,10 @@ paths:
         in: path
         name: lang
         description: ''
-        example: dignissimos
+        example: assumenda
         required: true
         schema:
           type: string
-      -
-        in: path
-        name: id
-        description: 'The ID of the p'
-        example: 2
-        required: true
-        schema:
-          type: integer
   '/api/v1/{lang}/product':
     post:
       summary: 'get product'
@@ -942,7 +934,7 @@ paths:
           type: integer
   '/api/v1/{lang}/product/wishlist/delete/{id}':
     get:
-      summary: 'add product to wishlist'
+      summary: 'delete product from wishlist'
       description: 'this route is called when the user wants to delete a product to the Wish List'
       parameters:
         -
@@ -986,10 +978,160 @@ paths:
         required: true
         schema:
           type: integer
+  '/api/v1/{lang}/product/winners':
+    get:
+      summary: 'product winners'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: winners
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      username: jaafar
+                      url: 'https://www.youtube.com/watch?v=iWwY6K5Vjyo'
+                      award_name_en: Mr.
+                      award_name_ar: 'أسم الجائزة بالعربي'
+                      announced_on: 'April 14, 2022'
+                      is_current_user: false
+                    -
+                      username: jaafar
+                      url: 'https://www.youtube.com/watch?v=iWwY6K5Vjyo'
+                      award_name_en: Ms.
+                      award_name_ar: 'أسم الجائزة بالعربي'
+                      announced_on: 'April 14, 2022'
+                      is_current_user: false
+                    -
+                      username: jaafar
+                      url: 'https://www.youtube.com/watch?v=iWwY6K5Vjyo'
+                      award_name_en: Mr.
+                      award_name_ar: 'أسم الجائزة بالعربي'
+                      announced_on: 'April 14, 2022'
+                      is_current_user: false
+                  links:
+                    first: 'http://safaqatek.test/api/v1/aut/product/winners?page=1'
+                    last: 'http://safaqatek.test/api/v1/aut/product/winners?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://safaqatek.test/api/v1/aut/product/winners?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://safaqatek.test/api/v1/aut/product/winners'
+                    per_page: 20
+                    to: 3
+                    total: 3
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        username: jaafar
+                        url: 'https://www.youtube.com/watch?v=iWwY6K5Vjyo'
+                        award_name_en: Mr.
+                        award_name_ar: 'أسم الجائزة بالعربي'
+                        announced_on: 'April 14, 2022'
+                        is_current_user: false
+                      -
+                        username: jaafar
+                        url: 'https://www.youtube.com/watch?v=iWwY6K5Vjyo'
+                        award_name_en: Ms.
+                        award_name_ar: 'أسم الجائزة بالعربي'
+                        announced_on: 'April 14, 2022'
+                        is_current_user: false
+                      -
+                        username: jaafar
+                        url: 'https://www.youtube.com/watch?v=iWwY6K5Vjyo'
+                        award_name_en: Mr.
+                        award_name_ar: 'أسم الجائزة بالعربي'
+                        announced_on: 'April 14, 2022'
+                        is_current_user: false
+                    items:
+                      type: object
+                  links:
+                    type: object
+                    example:
+                      first: 'http://safaqatek.test/api/v1/aut/product/winners?page=1'
+                      last: 'http://safaqatek.test/api/v1/aut/product/winners?page=1'
+                      prev: null
+                      next: null
+                  meta:
+                    type: object
+                    example:
+                      current_page: 1
+                      from: 1
+                      last_page: 1
+                      links:
+                        -
+                          url: null
+                          label: '&laquo; Previous'
+                          active: false
+                        -
+                          url: 'http://safaqatek.test/api/v1/aut/product/winners?page=1'
+                          label: '1'
+                          active: true
+                        -
+                          url: null
+                          label: 'Next &raquo;'
+                          active: false
+                      path: 'http://safaqatek.test/api/v1/aut/product/winners'
+                      per_page: 20
+                      to: 3
+                      total: 3
+      tags:
+        - 'product management'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: ''
+        example: ipsam
+        required: true
+        schema:
+          type: string
   '/api/v1/{lang}/settings':
     get:
       summary: 'get settings'
-      description: 'this route is called when to get all settings'
+      description: 'this route is called to get all settings'
       parameters:
         -
           in: header
@@ -1015,6 +1157,73 @@ paths:
       responses: {  }
       tags:
         - 'setting management'
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
+  '/api/v1/{lang}/settings/contuct':
+    post:
+      summary: 'save Queries'
+      description: 'this route is called to save users Queries'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'setting management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: ea
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: brenden.pacocha@example.net
+                Inquiry_message:
+                  type: string
+                  description: ''
+                  example: assumenda
+              required:
+                - name
+                - email
+                - Inquiry_message
     parameters:
       -
         in: path

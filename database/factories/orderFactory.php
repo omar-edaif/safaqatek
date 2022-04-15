@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserWishlistFactory extends Factory
+class orderFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +14,11 @@ class UserWishlistFactory extends Factory
     public function definition()
     {
         return [
-            'product_id' => rand(1, 10),
-            'user_id' => 1
+            'user_id' => rand(1, 5),
+            'amount' => rand(300, 8000),
+            'currency' => 'aed',
+            'transaction_id' => 'pk_' . \Str::random(15),
+            'is_donate' => rand(0, 1)
         ];
     }
 }

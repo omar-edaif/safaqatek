@@ -118,7 +118,10 @@
                         <a href="#product-management-GETapi-v1--lang--product-wishlist-add--id-">add product to wishlist</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-wishlist-delete--id-">
-                        <a href="#product-management-GETapi-v1--lang--product-wishlist-delete--id-">add product to wishlist</a>
+                        <a href="#product-management-GETapi-v1--lang--product-wishlist-delete--id-">delete product from wishlist</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-winners">
+                        <a href="#product-management-GETapi-v1--lang--product-winners">product winners</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -129,6 +132,9 @@
                                     <ul id="tocify-subheader-setting-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="setting-management-GETapi-v1--lang--settings">
                         <a href="#setting-management-GETapi-v1--lang--settings">get settings</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="setting-management-POSTapi-v1--lang--settings-contuct">
+                        <a href="#setting-management-POSTapi-v1--lang--settings-contuct">save Queries</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -152,7 +158,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 9 2022</li>
+        <li>Last updated: April 14 2022</li>
     </ul>
 </div>
 
@@ -169,7 +175,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://safaqatek.test</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
@@ -195,8 +201,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"viola.beer@example.net\",
-    \"password\": \"numquam\"
+    \"email\": \"xhill@example.com\",
+    \"password\": \"est\"
 }"
 </code></pre></div>
 
@@ -212,8 +218,8 @@ const headers = {
 };
 
 let body = {
-    "email": "viola.beer@example.net",
-    "password": "numquam"
+    "email": "xhill@example.com",
+    "password": "est"
 };
 
 fetch(url, {
@@ -309,7 +315,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="viola.beer@example.net"
+               value="xhill@example.com"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -319,7 +325,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="numquam"
+               value="est"
                data-component="body" hidden>
     <br>
 
@@ -617,14 +623,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/cupiditate/user/google/callback" \
+    --get "http://safaqatek.test/api/v1/delectus/user/google/callback" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/cupiditate/user/google/callback"
+    "http://safaqatek.test/api/v1/delectus/user/google/callback"
 );
 
 const headers = {
@@ -686,7 +692,7 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-google-callback"
-               value="cupiditate"
+               value="delectus"
                data-component="url" hidden>
     <br>
 
@@ -841,9 +847,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"\",
-    \"email\": \"omari80@example.net\",
-    \"password\": \"tvoufb\",
+    \"username\": \"dsamvdnipol\",
+    \"email\": \"maud.langworth@example.org\",
+    \"password\": \"mfqwudk\",
     \"phone\": \"et\"
 }"
 </code></pre></div>
@@ -860,9 +866,9 @@ const headers = {
 };
 
 let body = {
-    "username": "",
-    "email": "omari80@example.net",
-    "password": "tvoufb",
+    "username": "dsamvdnipol",
+    "email": "maud.langworth@example.org",
+    "password": "mfqwudk",
     "phone": "et"
 };
 
@@ -959,7 +965,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value=""
+               value="dsamvdnipol"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 15 characters.</p>
@@ -969,7 +975,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="omari80@example.net"
+               value="maud.langworth@example.org"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -979,7 +985,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="tvoufb"
+               value="mfqwudk"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -1131,8 +1137,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"amount\": \"suscipit\",
-    \"payment_id\": \"iure\",
+    \"amount\": \"repellat\",
+    \"payment_id\": \"est\",
     \"cart\": [
         {
             \"id\": 1,
@@ -1140,7 +1146,7 @@ fetch(url, {
         }
     ],
     \"is_donate\": false,
-    \"lat\": \"nam\",
+    \"lat\": \"repellat\",
     \"lng\": \"qui\"
 }"
 </code></pre></div>
@@ -1158,8 +1164,8 @@ const headers = {
 };
 
 let body = {
-    "amount": "suscipit",
-    "payment_id": "iure",
+    "amount": "repellat",
+    "payment_id": "est",
     "cart": [
         {
             "id": 1,
@@ -1167,7 +1173,7 @@ let body = {
         }
     ],
     "is_donate": false,
-    "lat": "nam",
+    "lat": "repellat",
     "lng": "qui"
 };
 
@@ -1283,7 +1289,7 @@ fetch(url, {
                 <input type="text"
                name="amount"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="suscipit"
+               value="repellat"
                data-component="body" hidden>
     <br>
 
@@ -1293,7 +1299,7 @@ fetch(url, {
                 <input type="text"
                name="payment_id"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="iure"
+               value="est"
                data-component="body" hidden>
     <br>
 
@@ -1334,7 +1340,7 @@ fetch(url, {
                 <input type="text"
                name="lat"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="nam"
+               value="repellat"
                data-component="body" hidden>
     <br>
 <p>The location lat .</p>
@@ -1365,7 +1371,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/veniam/user/coupons" \
+    --get "http://safaqatek.test/api/v1/repellendus/user/coupons" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1373,7 +1379,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/veniam/user/coupons"
+    "http://safaqatek.test/api/v1/repellendus/user/coupons"
 );
 
 const headers = {
@@ -1467,7 +1473,7 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-coupons"
-               value="veniam"
+               value="repellendus"
                data-component="url" hidden>
     <br>
 
@@ -1488,7 +1494,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/dignissimos/user/wishlists" \
+    --get "http://safaqatek.test/api/v1/assumenda/user/wishlists" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1496,7 +1502,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/dignissimos/user/wishlists"
+    "http://safaqatek.test/api/v1/assumenda/user/wishlists"
 );
 
 const headers = {
@@ -1589,20 +1595,10 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-wishlists"
-               value="dignissimos"
+               value="assumenda"
                data-component="url" hidden>
     <br>
 
-            </p>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="GETapi-v1--lang--user-wishlists"
-               value="2"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the p</p>
             </p>
                     </form>
 
@@ -1820,7 +1816,7 @@ fetch(url, {
             </p>
                     </form>
 
-            <h2 id="product-management-GETapi-v1--lang--product-wishlist-delete--id-">add product to wishlist</h2>
+            <h2 id="product-management-GETapi-v1--lang--product-wishlist-delete--id-">delete product from wishlist</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1930,6 +1926,172 @@ fetch(url, {
             </p>
                     </form>
 
+            <h2 id="product-management-GETapi-v1--lang--product-winners">product winners</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1--lang--product-winners">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://safaqatek.test/api/v1/ipsam/product/winners" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://safaqatek.test/api/v1/ipsam/product/winners"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1--lang--product-winners">
+            <blockquote>
+            <p>Example response (200, winners):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;username&quot;: &quot;jaafar&quot;,
+            &quot;url&quot;: &quot;https://www.youtube.com/watch?v=iWwY6K5Vjyo&quot;,
+            &quot;award_name_en&quot;: &quot;Mr.&quot;,
+            &quot;award_name_ar&quot;: &quot;أسم الجائزة بالعربي&quot;,
+            &quot;announced_on&quot;: &quot;April 14, 2022&quot;,
+            &quot;is_current_user&quot;: false
+        },
+        {
+            &quot;username&quot;: &quot;jaafar&quot;,
+            &quot;url&quot;: &quot;https://www.youtube.com/watch?v=iWwY6K5Vjyo&quot;,
+            &quot;award_name_en&quot;: &quot;Ms.&quot;,
+            &quot;award_name_ar&quot;: &quot;أسم الجائزة بالعربي&quot;,
+            &quot;announced_on&quot;: &quot;April 14, 2022&quot;,
+            &quot;is_current_user&quot;: false
+        },
+        {
+            &quot;username&quot;: &quot;jaafar&quot;,
+            &quot;url&quot;: &quot;https://www.youtube.com/watch?v=iWwY6K5Vjyo&quot;,
+            &quot;award_name_en&quot;: &quot;Mr.&quot;,
+            &quot;award_name_ar&quot;: &quot;أسم الجائزة بالعربي&quot;,
+            &quot;announced_on&quot;: &quot;April 14, 2022&quot;,
+            &quot;is_current_user&quot;: false
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://safaqatek.test/api/v1/aut/product/winners?page=1&quot;,
+        &quot;last&quot;: &quot;http://safaqatek.test/api/v1/aut/product/winners?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://safaqatek.test/api/v1/aut/product/winners?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://safaqatek.test/api/v1/aut/product/winners&quot;,
+        &quot;per_page&quot;: 20,
+        &quot;to&quot;: 3,
+        &quot;total&quot;: 3
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1--lang--product-winners" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1--lang--product-winners"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1--lang--product-winners"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1--lang--product-winners" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1--lang--product-winners"></code></pre>
+</span>
+<form id="form-GETapi-v1--lang--product-winners" data-method="GET"
+      data-path="api/v1/{lang}/product/winners"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1--lang--product-winners', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1--lang--product-winners"
+                    onclick="tryItOut('GETapi-v1--lang--product-winners');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1--lang--product-winners"
+                    onclick="cancelTryOut('GETapi-v1--lang--product-winners');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1--lang--product-winners" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/{lang}/product/winners</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1--lang--product-winners" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1--lang--product-winners"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="GETapi-v1--lang--product-winners"
+               value="ipsam"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
         <h1 id="setting-management">setting management</h1>
 
     <p>APIs for managing settings</p>
@@ -1940,7 +2102,7 @@ fetch(url, {
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>this route is called when to get all settings</p>
+<p>this route is called to get all settings</p>
 
 <span id="example-requests-GETapi-v1--lang--settings">
 <blockquote>Example request:</blockquote>
@@ -2033,6 +2195,150 @@ fetch(url, {
 <p>The language.</p>
             </p>
                     </form>
+
+            <h2 id="setting-management-POSTapi-v1--lang--settings-contuct">save Queries</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>this route is called to save users Queries</p>
+
+<span id="example-requests-POSTapi-v1--lang--settings-contuct">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://safaqatek.test/api/v1/en/settings/contuct" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"ea\",
+    \"email\": \"brenden.pacocha@example.net\",
+    \"Inquiry_message\": \"assumenda\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://safaqatek.test/api/v1/en/settings/contuct"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "ea",
+    "email": "brenden.pacocha@example.net",
+    "Inquiry_message": "assumenda"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1--lang--settings-contuct">
+</span>
+<span id="execution-results-POSTapi-v1--lang--settings-contuct" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1--lang--settings-contuct"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--lang--settings-contuct"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1--lang--settings-contuct" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1--lang--settings-contuct"></code></pre>
+</span>
+<form id="form-POSTapi-v1--lang--settings-contuct" data-method="POST"
+      data-path="api/v1/{lang}/settings/contuct"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--lang--settings-contuct', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1--lang--settings-contuct"
+                    onclick="tryItOut('POSTapi-v1--lang--settings-contuct');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1--lang--settings-contuct"
+                    onclick="cancelTryOut('POSTapi-v1--lang--settings-contuct');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1--lang--settings-contuct" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/{lang}/settings/contuct</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1--lang--settings-contuct" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1--lang--settings-contuct"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="POSTapi-v1--lang--settings-contuct"
+               value="en"
+               data-component="url" hidden>
+    <br>
+<p>The language.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-v1--lang--settings-contuct"
+               value="ea"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-v1--lang--settings-contuct"
+               value="brenden.pacocha@example.net"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>Inquiry_message</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="Inquiry_message"
+               data-endpoint="POSTapi-v1--lang--settings-contuct"
+               value="assumenda"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
 
         <h1 id="slider-management">slider management</h1>
 

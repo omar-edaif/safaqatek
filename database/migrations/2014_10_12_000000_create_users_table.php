@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('nationality')->nullable();
             $table->string('residence')->nullable();
-            $table->foreignId('level_id')->nullable()->constrained('user_levels');
             $table->string('phone');
             $table->string('avatar')->nullable();
             $table->string('password');

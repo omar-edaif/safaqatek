@@ -38,6 +38,7 @@ Route::prefix('v1/{lang}')->group(function () {
             Route::post('/', [productController::class, 'products']);
             Route::get('/wishlist/add/{id}', [productController::class, 'addToWishlist']);
             Route::get('/wishlist/delete/{id}', [productController::class, 'deleteFromWishlist']);
+            Route::get('/winners', [productController::class, 'winners']);
         });
 
         /*  Slider */
@@ -47,7 +48,10 @@ Route::prefix('v1/{lang}')->group(function () {
             Route::post('/', [SliderController::class, 'sliders']);
         });
         /*  config && settings  */
+        Route::prefix('settings')->group(function () {
 
-        Route::get('/settings', [SettingController::class, 'index']);
+            Route::get('/', [SettingController::class, 'index']);
+            Route::post('/contuct', [SettingController::class, 'contuctUs']);
+        });
     });
 });

@@ -34,14 +34,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: viola.beer@example.net
+        example: xhill@example.com
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: numquam
+        example: est
         type: string
         custom: []
     responses:
@@ -158,7 +158,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: cupiditate
+        example: delectus
         type: string
         custom: []
     queryParameters: []
@@ -235,21 +235,21 @@ endpoints:
         name: username
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: ''
+        example: dsamvdnipol
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: omari80@example.net
+        example: maud.langworth@example.org
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: tvoufb
+        example: mfqwudk
         type: string
         custom: []
       phone:
@@ -328,14 +328,14 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: suscipit
+        example: repellat
         type: string
         custom: []
       payment_id:
         name: payment_id
         description: ''
         required: true
-        example: iure
+        example: est
         type: string
         custom: []
       cart:
@@ -359,7 +359,7 @@ endpoints:
         name: lat
         description: 'The location lat .'
         required: false
-        example: nam
+        example: repellat
         type: string
         custom: []
       lng:
@@ -394,7 +394,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: veniam
+        example: repellendus
         type: string
         custom: []
     queryParameters: []
@@ -424,15 +424,8 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: dignissimos
+        example: assumenda
         type: string
-        custom: []
-      id:
-        name: id
-        description: 'The ID of the p'
-        required: true
-        example: 2
-        type: integer
         custom: []
     queryParameters: []
     bodyParameters: []

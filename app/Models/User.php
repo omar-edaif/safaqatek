@@ -12,9 +12,17 @@ use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Billable, Roles;
+    use HasApiTokens, HasFactory, Notifiable, Billable;
+    // Roles
+    /**
+     * @var string
+     */
+    const ADMIN = 'admin';
 
-
+    /**
+     * @var string
+     */
+    const CUSTOMER = 'customer';
 
 
     /**

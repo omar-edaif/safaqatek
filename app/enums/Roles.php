@@ -3,7 +3,7 @@
 namespace App\Enums;
 
 
-trait  Roles
+class  Roles
 {
     /**
      * @var string

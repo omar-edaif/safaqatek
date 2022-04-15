@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ContuctUsRequest;
 use App\Models\ProductCategories;
+use App\Models\Queries;
 use Illuminate\Http\Request;
 
 /**
@@ -17,7 +19,7 @@ class SettingController extends Controller
     /**
      * get settings
      *
-     * this route is called when to get all settings
+     * this route is called to get all settings
      *
      * @authenticated
      * @urlParam lang The language. Example: en
@@ -34,5 +36,24 @@ class SettingController extends Controller
         ];
 
         return response()->data($setting);
+    }
+    /**
+     * save Queries
+     *
+     * this route is called to save users Queries
+     *
+     * @authenticated
+     * @urlParam lang The language. Example: en
+     *
+     */
+    public function contuctUs(ContuctUsRequest $request)
+    {
+        Queries::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'Inquiry_message' => $request->Inquiry_message,
+        ]);
+
+        return response()->message(__('Your inquiry has been registered successfully. We will reply to you as soon as we see it'));
     }
 }
