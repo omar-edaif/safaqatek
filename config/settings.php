@@ -38,6 +38,12 @@ return
                 'key' => 'support_message',
                 'value_en' => 'سنكون أكثر من يسعدنا مساعدتك',
                 'value_ar' => 'WE WOULD BE MORE THAN HAPPY TO ASSIST YOU!'
-            ]
+            ],
+            [
+                'key' => 'donate_option',
+                'value_en' => '0',
+                'value_ar' => ''
+            ],
+
         ]
     ];

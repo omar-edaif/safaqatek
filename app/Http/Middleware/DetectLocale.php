@@ -18,7 +18,7 @@ class DetectLocale
     public function handle(Request $request, Closure $next)
     {
 
-        app()->setLocale($request->route('lang') ?? 'en');
+        app()->setLocale(in_array($request->route('lang'), ['ar', 'en']) ? $request->route('lang') : 'en');
 
         return $next($request);
     }

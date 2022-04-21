@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LevelsSeeder::class,
             SettingsSeeder::class,
+            CurrenciesSeeder::class,
+            CountriesSeeder::class
         ]);
         \App\Models\Slider::factory(3)->create();
 
@@ -38,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Product::factory(10)->create();
 
-        $orders = \App\Models\order::factory(10)->create();
+        $orders = \App\Models\Order::factory(10)->create();
         $orders->take(3)->map(function ($order) {
             $order->products()->attach(rand(1, 10), ['quantity' => rand(1, 3)]);
             \App\Models\Coupon::factory(10)->create(['order_id' => $order->id]);

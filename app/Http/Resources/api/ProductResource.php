@@ -17,20 +17,18 @@ class ProductResource extends JsonResource
 
         return [
             "id" => $this->id,
-            "name_en" => $this->name_en,
-            "name_ar" => $this->name_ar,
-            "award_name_ar" => $this->award_name_ar,
-            "award_name_en" => $this->award_name_en,
-            "image" => url('public/' . $this->image),
-            "award_image" => url('public/' . $this->award_image),
-            "description_ar" => $this->description_ar,
-            "description_en" => $this->description_en,
+            "name" => $this["name_" . app()->getLocale()],
+            "award_name" => $this["award_name_" . app()->getLocale()],
+            "image" => url('public' . $this->image),
+            "award_image" => url('public' . $this->award_image),
+            "description" => $this["description_" . app()->getLocale()],
             "quantity" => $this->quantity,
             "sold_out" =>  intval($this->in_orders_sum_quantity) ?: 0,
             'copon_per_unit' => $this->copon_per_unit,
             'price' => $this->price,
             'currency' => auth()->user()->currency ?? 'aed',
-            "closing_at" => $this->closing_at->format('m/d/Y '),
+            'isFavorite' => boolval($this->isFavorite),
+            "closing_at" => $this->closing_at->format('m/d/Y'),
             "created_at" => $this->created_at->format('m/d/Y'),
 
         ];

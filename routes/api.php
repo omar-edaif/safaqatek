@@ -19,6 +19,10 @@ Route::prefix('v1/{lang}')->group(function () {
         Route::post('/login', [AuthApiController::class, 'login']);
         Route::post('/new/password', [AuthApiController::class, 'newPassword']);
     });
+    /*  Product */
+    Route::prefix('product')->group(function () {
+        Route::get('/', [productController::class, 'products']);
+    });
 
 
     Route::middleware('auth:sanctum')->group(function () {
@@ -34,8 +38,6 @@ Route::prefix('v1/{lang}')->group(function () {
 
         /*  Product */
         Route::prefix('product')->group(function () {
-
-            Route::post('/', [productController::class, 'products']);
             Route::get('/wishlist/add/{id}', [productController::class, 'addToWishlist']);
             Route::get('/wishlist/delete/{id}', [productController::class, 'deleteFromWishlist']);
             Route::get('/winners', [productController::class, 'winners']);

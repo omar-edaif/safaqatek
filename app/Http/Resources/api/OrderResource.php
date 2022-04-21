@@ -21,8 +21,7 @@ class OrderResource extends JsonResource
             'currency' => $this->currency,
             'created_at' => $this->created_at->format('m/d/Y'),
             'cart' => $this->products->map(fn ($product) => [
-                'name_en'   => $product->name_en,
-                'name_ar'   => $product->name_ar,
+                'name'   => $product["name_" . app()->getLocale()],
                 'price'     => $product->price,
                 'currency'  => $currency,
                 'quantity'  => $product->pivot->quantity

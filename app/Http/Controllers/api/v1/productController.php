@@ -31,7 +31,7 @@ class productController extends Controller
      */
     public function products()
     {
-        $data = Product::withSum('inOrders', 'quantity')->orderBy('closing_at')->paginate();
+        $data = Product::withSum('inOrders', 'quantity')->with('isFavorite')->orderBy('closing_at')->paginate();
         return  ProductResource::collection($data);
     }
     /**

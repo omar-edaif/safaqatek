@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class Product extends Model
 {
@@ -51,5 +52,15 @@ class Product extends Model
     public function winner(): HasOne
     {
         return $this->hasOne(Winner::class);
+    }
+
+    /**
+     * Get if user  add the Product to wish list
+     *
+     *
+     */
+    public function isFavorite()
+    {
+        return $this->hasOne(UserWishlist::class)->whereUserId(auth()->id());
     }
 }

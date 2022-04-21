@@ -20,8 +20,7 @@ class CouponResource extends JsonResource
             "participate_with" => $this->participate_with,
             "created_at" => $this->created_at->format('m/d/Y h:m:s'),
             'product' => [
-                "name_ar" => $this->product->name_ar,
-                "name_en" => $this->product->name_en,
+                "name" => $this->product["name_" . app()->getLocale()],
                 "image" => asset($this->product->image),
                 'closing_at' => $this->product->closing_at->format('m/d/Y h:m:s'),
                 'price' => $this->product->price,

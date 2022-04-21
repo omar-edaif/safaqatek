@@ -4,9 +4,14 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContuctUsRequest;
+use App\Http\Resources\api\settingsresource;
+use App\Models\Country;
 use App\Models\ProductCategories;
 use App\Models\Queries;
+use App\Models\UserLevels;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Fluent;
 
 /**
  * @group setting management
@@ -27,15 +32,27 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting = [
-            'product_catgories' => ProductCategories::all(),
+        $allsettins  =   DB::table('settings')->get();
+        return response()->json(['data' => [
+            'levels' => UserLevels::all(),
 
-            'stripe_key' => env('STRIPE_KEY'),
-            // is possible to donate products
-            'donate_option' => true
-        ];
+            //'countries' => Country::whereActive(true)->get(),
 
-        return response()->data($setting);
+            'setting' =>   $allsettins
+                ->except('support_phone', 'donate_option')
+                ->mapWithKeys(function ($item, $key) {
+                    return [$item->key => ['en' => $item->value_en, 'ar' => $item->value_ar]];
+                })
+                ->put('support_phone', $allsettins->where("key", "support_phone")->first()->value_en)
+                // Product donation is allowed
+                ->put('donate_option', boolval($allsettins->where("key", "donate_option")->first()->value_en)),
+
+
+
+            'prouduct_categories' => (object)ProductCategories::all(),
+
+            'currencies' => ['aed', 'sar', 'kwd', 'qar', 'omr']
+        ]]);
     }
     /**
      * save Queries
