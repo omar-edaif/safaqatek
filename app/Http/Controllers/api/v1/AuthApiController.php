@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Helpers\HttpCodes;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\api\UserUpdateRequest;
 use App\Http\Requests\user\LoginUserRequest;
 use App\Http\Requests\user\PurchaseRequest;
 use App\Http\Requests\user\RegisterUserRequest;
@@ -220,7 +221,7 @@ class AuthApiController extends Controller
      *  If  request have param ' email ' exist and everything is okay, you'll get a 200 OK response.
      *
      *
-     * @response 200 scenario="profile" {"state":true,"code":"200","message":"password was changed successfully","execution":"0.349 seconds","data":{"id":36,"token":"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4"}}
+     * @response 200 scenario="profile" {"data":{"username":"jaafar","email":"admin@gmail.com","nationality":"Kingdom of Saudi Arabia","residence":"Sultanate of Oman","currency":"aed","addresse":"","phone":"+9630936950834","avatar":null,"lang":"en","sex":"male","purchases":5}}
      *
      * @urlParam lang The language. Example: en
      *
@@ -235,6 +236,40 @@ class AuthApiController extends Controller
 
         return new UserResource($user);
     }
+    /**
+     * user profile update
+     *
+     *  send the field user wont update
+     *
+     *
+     * @response 200 scenario="profile updated" {"state":true,"code":"200","message":"user profile successfly updated","execution":"0.264 seconds","data":[]}
+     *
+     * @urlParam lang The language. Example: en
+     *
+     *
+     * @authenticated
+     */
+
+    public function update(UserUpdateRequest $request)
+    {
+        $user = User::findOrFail(auth()->id());
+
+        $request->input('nationality_id')   ?       $user->nationality_id   =   $request->input('nationality_id') :   false;
+        $request->input('username')         ?       $user->username     =   $request->input('username') :   false;
+        $request->input('email')            ?       $user->email        =   $request->input('email')   :   false;
+        $request->input('residence_id')     ?       $user->residence_id =   $request->input('residence_id') :   false;
+        $request->input('addresse')         ?       $user->addresse     =   $request->input('addresse') :   false;
+        $request->input('currency')         ?       $user->currency     =   $request->input('currency') :   false;
+        $request->input('phone')            ?       $user->phone        =   $request->input('phone')   :   false;
+        $request->input('avatar')           ?       $user->avatar       =   $request->input('avatar') :   false;
+        $request->input('lang')             ?       $user->lang         =   $request->input('lang') :   false;
+        $request->input('sex')              ?       $user->sex          =   $request->input('sex')   :   false;
+
+        $user->save();
+
+        return response()->message(__('user profile successfly updated'));
+    }
+
 
     /**
      * user purchase

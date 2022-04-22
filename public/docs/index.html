@@ -104,6 +104,9 @@
                                     <li class="tocify-item level-2" data-unique="user-management-GETapi-v1--lang--user-wishlists">
                         <a href="#user-management-GETapi-v1--lang--user-wishlists">user wishlist</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="user-management-POSTapi-v1--lang--user-profile-update">
+                        <a href="#user-management-POSTapi-v1--lang--user-profile-update">user profile update</a>
+                    </li>
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-3" class="tocify-header">
@@ -111,10 +114,7 @@
                     <a href="#product-management">product management</a>
                 </li>
                                     <ul id="tocify-subheader-product-management" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="product-management-POSTapi-v1--lang--product">
-                        <a href="#product-management-POSTapi-v1--lang--product">get product</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-wishlist-add--id-">
+                                                    <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-wishlist-add--id-">
                         <a href="#product-management-GETapi-v1--lang--product-wishlist-add--id-">add product to wishlist</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-wishlist-delete--id-">
@@ -122,6 +122,9 @@
                     </li>
                                     <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product-winners">
                         <a href="#product-management-GETapi-v1--lang--product-winners">product winners</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="product-management-GETapi-v1--lang--product">
+                        <a href="#product-management-GETapi-v1--lang--product">get product</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -158,7 +161,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 14 2022</li>
+        <li>Last updated: April 21 2022</li>
     </ul>
 </div>
 
@@ -201,8 +204,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"xhill@example.com\",
-    \"password\": \"est\"
+    \"email\": \"dare.diana@example.com\",
+    \"password\": \"dolorem\"
 }"
 </code></pre></div>
 
@@ -218,8 +221,8 @@ const headers = {
 };
 
 let body = {
-    "email": "xhill@example.com",
-    "password": "est"
+    "email": "dare.diana@example.com",
+    "password": "dolorem"
 };
 
 fetch(url, {
@@ -315,7 +318,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="xhill@example.com"
+               value="dare.diana@example.com"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -325,7 +328,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-login"
-               value="est"
+               value="dolorem"
                data-component="body" hidden>
     <br>
 
@@ -623,14 +626,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/delectus/user/google/callback" \
+    --get "http://safaqatek.test/api/v1/possimus/user/google/callback" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/delectus/user/google/callback"
+    "http://safaqatek.test/api/v1/possimus/user/google/callback"
 );
 
 const headers = {
@@ -692,7 +695,7 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-google-callback"
-               value="delectus"
+               value="possimus"
                data-component="url" hidden>
     <br>
 
@@ -847,10 +850,10 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"dsamvdnipol\",
-    \"email\": \"maud.langworth@example.org\",
-    \"password\": \"mfqwudk\",
-    \"phone\": \"et\"
+    \"username\": \"eatgaf\",
+    \"email\": \"eryn.hagenes@example.net\",
+    \"password\": \"xxalmybt\",
+    \"phone\": \"quia\"
 }"
 </code></pre></div>
 
@@ -866,10 +869,10 @@ const headers = {
 };
 
 let body = {
-    "username": "dsamvdnipol",
-    "email": "maud.langworth@example.org",
-    "password": "mfqwudk",
-    "phone": "et"
+    "username": "eatgaf",
+    "email": "eryn.hagenes@example.net",
+    "password": "xxalmybt",
+    "phone": "quia"
 };
 
 fetch(url, {
@@ -965,7 +968,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="dsamvdnipol"
+               value="eatgaf"
                data-component="body" hidden>
     <br>
 <p>Must not be greater than 15 characters.</p>
@@ -975,7 +978,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="maud.langworth@example.org"
+               value="eryn.hagenes@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -985,7 +988,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="mfqwudk"
+               value="xxalmybt"
                data-component="body" hidden>
     <br>
 <p>Must be at least 8 characters.</p>
@@ -995,7 +998,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-v1--lang--user-register"
-               value="et"
+               value="quia"
                data-component="body" hidden>
     <br>
 
@@ -1047,13 +1050,18 @@ fetch(url, {
                 <pre>
 
 <code class="language-json">{
-    &quot;state&quot;: true,
-    &quot;code&quot;: &quot;200&quot;,
-    &quot;message&quot;: &quot;password was changed successfully&quot;,
-    &quot;execution&quot;: &quot;0.349 seconds&quot;,
     &quot;data&quot;: {
-        &quot;id&quot;: 36,
-        &quot;token&quot;: &quot;36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4&quot;
+        &quot;username&quot;: &quot;jaafar&quot;,
+        &quot;email&quot;: &quot;admin@gmail.com&quot;,
+        &quot;nationality&quot;: &quot;Kingdom of Saudi Arabia&quot;,
+        &quot;residence&quot;: &quot;Sultanate of Oman&quot;,
+        &quot;currency&quot;: &quot;aed&quot;,
+        &quot;addresse&quot;: &quot;&quot;,
+        &quot;phone&quot;: &quot;+9630936950834&quot;,
+        &quot;avatar&quot;: null,
+        &quot;lang&quot;: &quot;en&quot;,
+        &quot;sex&quot;: &quot;male&quot;,
+        &quot;purchases&quot;: 5
     }
 }</code>
  </pre>
@@ -1137,8 +1145,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"amount\": \"repellat\",
-    \"payment_id\": \"est\",
+    \"amount\": \"mollitia\",
+    \"payment_id\": \"ut\",
     \"cart\": [
         {
             \"id\": 1,
@@ -1146,8 +1154,8 @@ fetch(url, {
         }
     ],
     \"is_donate\": false,
-    \"lat\": \"repellat\",
-    \"lng\": \"qui\"
+    \"lat\": \"et\",
+    \"lng\": \"perferendis\"
 }"
 </code></pre></div>
 
@@ -1164,8 +1172,8 @@ const headers = {
 };
 
 let body = {
-    "amount": "repellat",
-    "payment_id": "est",
+    "amount": "mollitia",
+    "payment_id": "ut",
     "cart": [
         {
             "id": 1,
@@ -1173,8 +1181,8 @@ let body = {
         }
     ],
     "is_donate": false,
-    "lat": "repellat",
-    "lng": "qui"
+    "lat": "et",
+    "lng": "perferendis"
 };
 
 fetch(url, {
@@ -1289,7 +1297,7 @@ fetch(url, {
                 <input type="text"
                name="amount"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="repellat"
+               value="mollitia"
                data-component="body" hidden>
     <br>
 
@@ -1299,7 +1307,7 @@ fetch(url, {
                 <input type="text"
                name="payment_id"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="est"
+               value="ut"
                data-component="body" hidden>
     <br>
 
@@ -1340,7 +1348,7 @@ fetch(url, {
                 <input type="text"
                name="lat"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="repellat"
+               value="et"
                data-component="body" hidden>
     <br>
 <p>The location lat .</p>
@@ -1350,7 +1358,7 @@ fetch(url, {
                 <input type="text"
                name="lng"
                data-endpoint="POSTapi-v1--lang--user-purchase"
-               value="qui"
+               value="perferendis"
                data-component="body" hidden>
     <br>
 <p>The location long .</p>
@@ -1371,7 +1379,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/repellendus/user/coupons" \
+    --get "http://safaqatek.test/api/v1/modi/user/coupons" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1379,7 +1387,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/repellendus/user/coupons"
+    "http://safaqatek.test/api/v1/modi/user/coupons"
 );
 
 const headers = {
@@ -1473,7 +1481,7 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-coupons"
-               value="repellendus"
+               value="modi"
                data-component="url" hidden>
     <br>
 
@@ -1494,7 +1502,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/assumenda/user/wishlists" \
+    --get "http://safaqatek.test/api/v1/sint/user/wishlists" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1502,7 +1510,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/assumenda/user/wishlists"
+    "http://safaqatek.test/api/v1/sint/user/wishlists"
 );
 
 const headers = {
@@ -1595,40 +1603,47 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--user-wishlists"
-               value="assumenda"
+               value="sint"
                data-component="url" hidden>
     <br>
 
             </p>
                     </form>
 
-        <h1 id="product-management">product management</h1>
-
-    <p>APIs for managing product</p>
-
-            <h2 id="product-management-POSTapi-v1--lang--product">get product</h2>
+            <h2 id="user-management-POSTapi-v1--lang--user-profile-update">user profile update</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>this route is called when to get get specific quained of product</p>
+<p>send the field user wont update</p>
 
-<span id="example-requests-POSTapi-v1--lang--product">
+<span id="example-requests-POSTapi-v1--lang--user-profile-update">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://safaqatek.test/api/v1/en/product" \
+    "http://safaqatek.test/api/v1/en/user/profile/update" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"username\": \"sit\",
+    \"email\": \"marjolaine.barrows@example.net\",
+    \"currency\": \"qar\",
+    \"nationality_id\": 12,
+    \"residence_id\": 7,
+    \"addresse\": \"nulla\",
+    \"lang\": \"en\",
+    \"sex\": \"male\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/en/product"
+    "http://safaqatek.test/api/v1/en/user/profile/update"
 );
 
 const headers = {
@@ -1637,74 +1652,194 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "username": "sit",
+    "email": "marjolaine.barrows@example.net",
+    "currency": "qar",
+    "nationality_id": 12,
+    "residence_id": 7,
+    "addresse": "nulla",
+    "lang": "en",
+    "sex": "male"
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-v1--lang--product">
-</span>
-<span id="execution-results-POSTapi-v1--lang--product" hidden>
+<span id="example-responses-POSTapi-v1--lang--user-profile-update">
+            <blockquote>
+            <p>Example response (200, profile updated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;state&quot;: true,
+    &quot;code&quot;: &quot;200&quot;,
+    &quot;message&quot;: &quot;user profile successfly updated&quot;,
+    &quot;execution&quot;: &quot;0.264 seconds&quot;,
+    &quot;data&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1--lang--user-profile-update" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1--lang--product"></span>:
+                id="execution-response-status-POSTapi-v1--lang--user-profile-update"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1--lang--product"></code></pre>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1--lang--user-profile-update"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1--lang--product" hidden>
+<span id="execution-error-POSTapi-v1--lang--user-profile-update" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1--lang--product"></code></pre>
+    <pre><code id="execution-error-message-POSTapi-v1--lang--user-profile-update"></code></pre>
 </span>
-<form id="form-POSTapi-v1--lang--product" data-method="POST"
-      data-path="api/v1/{lang}/product"
+<form id="form-POSTapi-v1--lang--user-profile-update" data-method="POST"
+      data-path="api/v1/{lang}/user/profile/update"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--lang--product', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1--lang--user-profile-update', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1--lang--product"
-                    onclick="tryItOut('POSTapi-v1--lang--product');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1--lang--user-profile-update"
+                    onclick="tryItOut('POSTapi-v1--lang--user-profile-update');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1--lang--product"
-                    onclick="cancelTryOut('POSTapi-v1--lang--product');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1--lang--user-profile-update"
+                    onclick="cancelTryOut('POSTapi-v1--lang--user-profile-update');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1--lang--product" hidden>Send Request 💥
+                    id="btn-executetryout-POSTapi-v1--lang--user-profile-update" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/v1/{lang}/product</code></b>
+            <b><code>api/v1/{lang}/user/profile/update</code></b>
         </p>
                 <p>
-            <label id="auth-POSTapi-v1--lang--product" hidden>Authorization header:
+            <label id="auth-POSTapi-v1--lang--user-profile-update" hidden>Authorization header:
                 <b><code>Bearer </code></b><input type="text"
                                                                 name="Authorization"
                                                                 data-prefix="Bearer "
-                                                                data-endpoint="POSTapi-v1--lang--product"
+                                                                data-endpoint="POSTapi-v1--lang--user-profile-update"
                                                                 data-component="header"></label>
         </p>
                 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <p>
-                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="lang"
-               data-endpoint="POSTapi-v1--lang--product"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
                value="en"
                data-component="url" hidden>
     <br>
 <p>The language.</p>
             </p>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>username</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="sit"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="marjolaine.barrows@example.net"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>currency</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="currency"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="qar"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.</p>
+        </p>
+                <p>
+            <b><code>nationality_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="nationality_id"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="12"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>residence_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="residence_id"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="7"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>addresse</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="addresse"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="nulla"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>avatar</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="avatar"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="en"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>en</code> or <code>ar</code>.</p>
+        </p>
+                <p>
+            <b><code>sex</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="sex"
+               data-endpoint="POSTapi-v1--lang--user-profile-update"
+               value="male"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>male</code> or <code>female</code>.</p>
+        </p>
+        </form>
+
+        <h1 id="product-management">product management</h1>
+
+    <p>APIs for managing product</p>
 
             <h2 id="product-management-GETapi-v1--lang--product-wishlist-add--id-">add product to wishlist</h2>
 
@@ -1940,7 +2075,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://safaqatek.test/api/v1/ipsam/product/winners" \
+    --get "http://safaqatek.test/api/v1/eum/product/winners" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1948,7 +2083,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://safaqatek.test/api/v1/ipsam/product/winners"
+    "http://safaqatek.test/api/v1/eum/product/winners"
 );
 
 const headers = {
@@ -2085,10 +2220,99 @@ fetch(url, {
                 <input type="text"
                name="lang"
                data-endpoint="GETapi-v1--lang--product-winners"
-               value="ipsam"
+               value="eum"
                data-component="url" hidden>
     <br>
 
+            </p>
+                    </form>
+
+            <h2 id="product-management-GETapi-v1--lang--product">get product</h2>
+
+<p>
+</p>
+
+<p>this route is called when to get get specific quained of product</p>
+
+<span id="example-requests-GETapi-v1--lang--product">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://safaqatek.test/api/v1/en/product" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://safaqatek.test/api/v1/en/product"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1--lang--product">
+    </span>
+<span id="execution-results-GETapi-v1--lang--product" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1--lang--product"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1--lang--product"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1--lang--product" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1--lang--product"></code></pre>
+</span>
+<form id="form-GETapi-v1--lang--product" data-method="GET"
+      data-path="api/v1/{lang}/product"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1--lang--product', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1--lang--product"
+                    onclick="tryItOut('GETapi-v1--lang--product');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1--lang--product"
+                    onclick="cancelTryOut('GETapi-v1--lang--product');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1--lang--product" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/{lang}/product</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>lang</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="lang"
+               data-endpoint="GETapi-v1--lang--product"
+               value="en"
+               data-component="url" hidden>
+    <br>
+<p>The language.</p>
             </p>
                     </form>
 
@@ -2215,9 +2439,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"ea\",
-    \"email\": \"brenden.pacocha@example.net\",
-    \"Inquiry_message\": \"assumenda\"
+    \"name\": \"architecto\",
+    \"email\": \"npredovic@example.net\",
+    \"Inquiry_message\": \"quibusdam\"
 }"
 </code></pre></div>
 
@@ -2234,9 +2458,9 @@ const headers = {
 };
 
 let body = {
-    "name": "ea",
-    "email": "brenden.pacocha@example.net",
-    "Inquiry_message": "assumenda"
+    "name": "architecto",
+    "email": "npredovic@example.net",
+    "Inquiry_message": "quibusdam"
 };
 
 fetch(url, {
@@ -2313,7 +2537,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-v1--lang--settings-contuct"
-               value="ea"
+               value="architecto"
                data-component="body" hidden>
     <br>
 
@@ -2323,7 +2547,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-v1--lang--settings-contuct"
-               value="brenden.pacocha@example.net"
+               value="npredovic@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -2333,7 +2557,7 @@ fetch(url, {
                 <input type="text"
                name="Inquiry_message"
                data-endpoint="POSTapi-v1--lang--settings-contuct"
-               value="assumenda"
+               value="quibusdam"
                data-component="body" hidden>
     <br>
 

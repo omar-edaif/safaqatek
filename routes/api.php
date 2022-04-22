@@ -30,6 +30,7 @@ Route::prefix('v1/{lang}')->group(function () {
         Route::prefix('user')->group(function () {
 
             Route::get('/profile', [AuthApiController::class, 'profile']);
+            Route::post('/profile/update', [AuthApiController::class, 'update']);
             Route::get('/coupons', [AuthApiController::class, 'coupons']);
             Route::get('/wishlists', [AuthApiController::class, 'wishLists']);
             Route::post('/purchase', [AuthApiController::class, 'purchase']);

@@ -79,11 +79,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: xhill@example.com
+                  example: dare.diana@example.com
                 password:
                   type: string
                   description: ''
-                  example: est
+                  example: dolorem
               required:
                 - email
                 - password
@@ -310,7 +310,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: delectus
+        example: possimus
         required: true
         schema:
           type: string
@@ -449,19 +449,19 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: dsamvdnipol
+                  example: eatgaf
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: maud.langworth@example.org
+                  example: eryn.hagenes@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: mfqwudk
+                  example: xxalmybt
                 phone:
                   type: string
                   description: ''
-                  example: et
+                  example: quia
               required:
                 - username
                 - email
@@ -517,31 +517,33 @@ paths:
               schema:
                 type: object
                 example:
-                  state: true
-                  code: '200'
-                  message: 'password was changed successfully'
-                  execution: '0.349 seconds'
                   data:
-                    id: 36
-                    token: 36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4
+                    username: jaafar
+                    email: admin@gmail.com
+                    nationality: 'Kingdom of Saudi Arabia'
+                    residence: 'Sultanate of Oman'
+                    currency: aed
+                    addresse: ''
+                    phone: '+9630936950834'
+                    avatar: null
+                    lang: en
+                    sex: male
+                    purchases: 5
                 properties:
-                  state:
-                    type: boolean
-                    example: true
-                  code:
-                    type: string
-                    example: '200'
-                  message:
-                    type: string
-                    example: 'password was changed successfully'
-                  execution:
-                    type: string
-                    example: '0.349 seconds'
                   data:
                     type: object
                     example:
-                      id: 36
-                      token: 36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4
+                      username: jaafar
+                      email: admin@gmail.com
+                      nationality: 'Kingdom of Saudi Arabia'
+                      residence: 'Sultanate of Oman'
+                      currency: aed
+                      addresse: ''
+                      phone: '+9630936950834'
+                      avatar: null
+                      lang: en
+                      sex: male
+                      purchases: 5
       tags:
         - 'User management'
     parameters:
@@ -656,11 +658,11 @@ paths:
                 amount:
                   type: string
                   description: ''
-                  example: repellat
+                  example: mollitia
                 payment_id:
                   type: string
                   description: ''
-                  example: est
+                  example: ut
                 cart:
                   type: object
                   description: 'The Customer purchases  exempele [{"id":1,"quantity":2}] .'
@@ -676,11 +678,11 @@ paths:
                 lat:
                   type: string
                   description: 'The location lat .'
-                  example: repellat
+                  example: et
                 lng:
                   type: string
                   description: 'The location long .'
-                  example: qui
+                  example: perferendis
               required:
                 - amount
                 - payment_id
@@ -770,7 +772,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: repellendus
+        example: modi
         required: true
         schema:
           type: string
@@ -844,14 +846,14 @@ paths:
         in: path
         name: lang
         description: ''
-        example: assumenda
+        example: sint
         required: true
         schema:
           type: string
-  '/api/v1/{lang}/product':
+  '/api/v1/{lang}/user/profile/update':
     post:
-      summary: 'get product'
-      description: 'this route is called when to get get specific quained of product'
+      summary: 'user profile update'
+      description: 'send the field user wont update'
       parameters:
         -
           in: header
@@ -874,18 +876,95 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: 'profile updated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  state: true
+                  code: '200'
+                  message: 'user profile successfly updated'
+                  execution: '0.264 seconds'
+                  data: []
+                properties:
+                  state:
+                    type: boolean
+                    example: true
+                  code:
+                    type: string
+                    example: '200'
+                  message:
+                    type: string
+                    example: 'user profile successfly updated'
+                  execution:
+                    type: string
+                    example: '0.264 seconds'
+                  data:
+                    type: array
+                    example: []
       tags:
-        - 'product management'
+        - 'User management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ''
+                  example: sit
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: marjolaine.barrows@example.net
+                currency:
+                  type: string
+                  description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
+                  example: qar
+                nationality_id:
+                  type: integer
+                  description: ''
+                  example: 12
+                residence_id:
+                  type: integer
+                  description: ''
+                  example: 7
+                addresse:
+                  type: string
+                  description: ''
+                  example: nulla
+                avatar:
+                  type: string
+                  description: ''
+                  example: null
+                lang:
+                  type: string
+                  description: 'Must be one of <code>en</code> or <code>ar</code>.'
+                  example: en
+                sex:
+                  type: string
+                  description: 'Must be one of <code>male</code> or <code>female</code>.'
+                  example: male
     parameters:
       -
         in: path
         name: lang
-        description: 'The language.'
-        example: en
+        description: 'Optional parameter. The language.'
         required: true
         schema:
           type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
   '/api/v1/{lang}/product/wishlist/add/{id}':
     get:
       summary: 'add product to wishlist'
@@ -1124,7 +1203,39 @@ paths:
         in: path
         name: lang
         description: ''
-        example: ipsam
+        example: eum
+        required: true
+        schema:
+          type: string
+  '/api/v1/{lang}/product':
+    get:
+      summary: 'get product'
+      description: 'this route is called when to get get specific quained of product'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'product management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'The language.'
+        example: en
         required: true
         schema:
           type: string
@@ -1211,15 +1322,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: ea
+                  example: architecto
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: brenden.pacocha@example.net
+                  example: npredovic@example.net
                 Inquiry_message:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: quibusdam
               required:
                 - name
                 - email

@@ -34,14 +34,14 @@ class SettingController extends Controller
     {
         $allsettins  =   DB::table('settings')->get();
         return response()->json(['data' => [
-            'levels' => UserLevels::all(),
+            'levels' => UserLevels::all(["name_" . app()->getLocale() . ' as name', 'purchase_number']),
 
-            //'countries' => Country::whereActive(true)->get(),
+            'countries' => Country::whereActive(true)->get(['id', "name_" . app()->getLocale() . ' as name']),
 
             'setting' =>   $allsettins
                 ->except('support_phone', 'donate_option')
                 ->mapWithKeys(function ($item, $key) {
-                    return [$item->key => ['en' => $item->value_en, 'ar' => $item->value_ar]];
+                    return [$item->key =>   $item->{'value_' . app()->getLocale()}];
                 })
                 ->put('support_phone', $allsettins->where("key", "support_phone")->first()->value_en)
                 // Product donation is allowed
@@ -49,7 +49,7 @@ class SettingController extends Controller
 
 
 
-            'prouduct_categories' => (object)ProductCategories::all(),
+            'prouduct_categories' => ProductCategories::all(['id', "name_" . app()->getLocale() . ' as name', 'image']),
 
             'currencies' => ['aed', 'sar', 'kwd', 'qar', 'omr']
         ]]);

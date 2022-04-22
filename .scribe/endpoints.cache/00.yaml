@@ -34,14 +34,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: xhill@example.com
+        example: dare.diana@example.com
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: est
+        example: dolorem
         type: string
         custom: []
     responses:
@@ -158,7 +158,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: delectus
+        example: possimus
         type: string
         custom: []
     queryParameters: []
@@ -235,28 +235,28 @@ endpoints:
         name: username
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: dsamvdnipol
+        example: eatgaf
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: maud.langworth@example.org
+        example: eryn.hagenes@example.net
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: mfqwudk
+        example: xxalmybt
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: et
+        example: quia
         type: string
         custom: []
     responses:
@@ -297,7 +297,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"state":true,"code":"200","message":"password was changed successfully","execution":"0.349 seconds","data":{"id":36,"token":"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4"}}'
+        content: '{"data":{"username":"jaafar","email":"admin@gmail.com","nationality":"Kingdom of Saudi Arabia","residence":"Sultanate of Oman","currency":"aed","addresse":"","phone":"+9630936950834","avatar":null,"lang":"en","sex":"male","purchases":5}}'
         headers: []
         description: '200, profile'
     responseFields: []
@@ -328,14 +328,14 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: repellat
+        example: mollitia
         type: string
         custom: []
       payment_id:
         name: payment_id
         description: ''
         required: true
-        example: est
+        example: ut
         type: string
         custom: []
       cart:
@@ -359,14 +359,14 @@ endpoints:
         name: lat
         description: 'The location lat .'
         required: false
-        example: repellat
+        example: et
         type: string
         custom: []
       lng:
         name: lng
         description: 'The location long .'
         required: false
-        example: qui
+        example: perferendis
         type: string
         custom: []
     responses:
@@ -394,7 +394,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: repellendus
+        example: modi
         type: string
         custom: []
     queryParameters: []
@@ -424,7 +424,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: assumenda
+        example: sint
         type: string
         custom: []
     queryParameters: []
@@ -435,4 +435,97 @@ endpoints:
         content: '{"data":[{"id":1,"name_en":"enim","name_ar":"الاسم ","award_name_ar":"أسم الجائزة بالعربي","award_name_en":"numquam","price":235,"currency":null,"image":"http://safaqatek.test/images/product/product_00.jpg","quantity":200,"sold_out":133}]}'
         headers: []
         description: '200, wishlists are exist'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/{lang}/user/profile/update'
+    metadata:
+      title: 'user profile update'
+      description: 'send the field user wont update'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      lang:
+        name: lang
+        description: 'The language.'
+        required: false
+        example: en
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: ''
+        required: false
+        example: sit
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: false
+        example: marjolaine.barrows@example.net
+        type: string
+        custom: []
+      currency:
+        name: currency
+        description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
+        required: false
+        example: qar
+        type: string
+        custom: []
+      nationality_id:
+        name: nationality_id
+        description: ''
+        required: false
+        example: 12
+        type: integer
+        custom: []
+      residence_id:
+        name: residence_id
+        description: ''
+        required: false
+        example: 7
+        type: integer
+        custom: []
+      addresse:
+        name: addresse
+        description: ''
+        required: false
+        example: nulla
+        type: string
+        custom: []
+      avatar:
+        name: avatar
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      lang:
+        name: lang
+        description: 'Must be one of <code>en</code> or <code>ar</code>.'
+        required: false
+        example: en
+        type: string
+        custom: []
+      sex:
+        name: sex
+        description: 'Must be one of <code>male</code> or <code>female</code>.'
+        required: false
+        example: male
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"state":true,"code":"200","message":"user profile successfly updated","execution":"0.264 seconds","data":[]}'
+        headers: []
+        description: '200, profile updated'
     responseFields: []

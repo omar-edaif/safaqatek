@@ -17,23 +17,23 @@ class LevelsSeeder extends Seeder
         UserLevels::insert(
             [
                 [
-                    'name'              => 'BRONZE',
-                    'name_en'           => 'برونزي',
+                    'name_en'              => 'BRONZE',
+                    'name_ar'           => 'برونزي',
                     'purchase_number'   => config('settings.level.BRONZE'),
                 ],
                 [
-                    'name'              => 'SILVER',
-                    'name_en'           => 'فضي',
+                    'name_en'              => 'SILVER',
+                    'name_ar'           => 'فضي',
                     'purchase_number'   => config('settings.level.SILVER'),
                 ],
                 [
-                    'name'              => 'GOLD',
-                    'name_en'           => 'ذهبي',
+                    'name_en'              => 'GOLD',
+                    'name_ar'           => 'ذهبي',
                     'purchase_number'   => config('settings.level.GOLD'),
                 ],
                 [
-                    'name'              => 'PLATINUM',
-                    'name_en'           => 'بلاتيني',
+                    'name_en'              => 'PLATINUM',
+                    'name_ar'           => 'بلاتيني',
                     'purchase_number'   => config('settings.level.PLATINUM'),
                 ]
             ]

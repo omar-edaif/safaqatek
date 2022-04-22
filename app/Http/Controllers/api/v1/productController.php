@@ -24,11 +24,12 @@ class productController extends Controller
      *
      * this route is called when to get get specific quained of product
      *
-     * @authenticated
+     *
      * @urlParam lang string required  The language. Example: en
      *
      *
      */
+
     public function products()
     {
         $data = Product::withSum('inOrders', 'quantity')->with('isFavorite')->orderBy('closing_at')->paginate();

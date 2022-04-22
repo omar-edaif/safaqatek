@@ -23,17 +23,19 @@ class DatabaseSeeder extends Seeder
         ]);
         \App\Models\Slider::factory(3)->create();
 
-        \App\Models\User::factory(10)->create();
         \App\Models\User::create(
             [
                 'username' => 'jaafar',
                 'phone' => '+9630936950834',
                 'email' => 'admin@gmail.com',
+                'nationality_id' => 1,
+                'residence_id' => 4,
                 'password' => bcrypt('admin123'),
                 'remember_token' => \Str::random(10),
             ]
         );
 
+        \App\Models\User::factory(10)->create();
 
 
         \App\Models\ProductCategories::create(['name_en' => 'motors', 'name_ar' => 'محركات']);

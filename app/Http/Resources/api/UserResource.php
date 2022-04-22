@@ -17,14 +17,15 @@ class UserResource extends JsonResource
         return [
             'username' => $this->username,
             'email' => $this->email,
-            'nationality' => $this->nationality,
-            'residence' => $this->residence,
+            'nationality' => $this->nationality()->pluck('name_' . app()->getLocale() . ' as name')->values()->first() ?? "",
+            'residence' => $this->residence()->pluck('name_' . app()->getLocale() . ' as name')->values()->first() ?? "",
             'currency' => $this->currency,
-            'level' => 1,
+            'addresse' => $this->addresse ?: '',
             'phone' => $this->phone,
             'avatar' => $this->avatar,
             'lang' => $this->lang,
             'sex' => $this->sex,
+            'purchases' => $this->orders()->count(),
         ];
     }
 }

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "d42ed7fb-2add-4900-8dff-6a2be3e8c71b",
+        "_postman_id": "2880eb3e-c968-410c-81cc-6ed585878a97",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"xhill@example.com\",\"password\":\"est\"}"
+                            "raw": "{\"email\":\"dare.diana@example.com\",\"password\":\"dolorem\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -178,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "delectus",
+                                    "value": "possimus",
                                     "description": ""
                                 }
                             ]
@@ -284,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"dsamvdnipol\",\"email\":\"maud.langworth@example.org\",\"password\":\"mfqwudk\",\"phone\":\"et\"}"
+                            "raw": "{\"username\":\"eatgaf\",\"email\":\"eryn.hagenes@example.net\",\"password\":\"xxalmybt\",\"phone\":\"quia\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -341,7 +341,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"state\":true,\"code\":\"200\",\"message\":\"password was changed successfully\",\"execution\":\"0.349 seconds\",\"data\":{\"id\":36,\"token\":\"36|yAhv3yRnNyhJ9lwaPDA4uqVnc0nsGbeiqfR8jeK4\"}}",
+                            "body": "{\"data\":{\"username\":\"jaafar\",\"email\":\"admin@gmail.com\",\"nationality\":\"Kingdom of Saudi Arabia\",\"residence\":\"Sultanate of Oman\",\"currency\":\"aed\",\"addresse\":\"\",\"phone\":\"+9630936950834\",\"avatar\":null,\"lang\":\"en\",\"sex\":\"male\",\"purchases\":5}}",
                             "name": "profile"
                         }
                     ]
@@ -376,7 +376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"amount\":\"repellat\",\"payment_id\":\"est\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"repellat\",\"lng\":\"qui\"}"
+                            "raw": "{\"amount\":\"mollitia\",\"payment_id\":\"ut\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"et\",\"lng\":\"perferendis\"}"
                         },
                         "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response."
                     },
@@ -401,7 +401,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "repellendus",
+                                    "value": "modi",
                                     "description": ""
                                 }
                             ]
@@ -441,7 +441,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "assumenda",
+                                    "value": "sint",
                                     "description": ""
                                 }
                             ]
@@ -468,21 +468,15 @@
                             "name": "wishlists are exist"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "product management",
-            "description": "\nAPIs for managing product",
-            "item": [
+                },
                 {
-                    "name": "get product",
+                    "name": "user profile update",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/:lang\/product",
+                            "path": "api\/v1\/:lang\/user\/profile\/update",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/profile\/update",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -503,11 +497,27 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
-                        "description": "this route is called when to get get specific quained of product"
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"sit\",\"email\":\"marjolaine.barrows@example.net\",\"currency\":\"qar\",\"nationality_id\":12,\"residence_id\":7,\"addresse\":\"nulla\",\"lang\":\"en\",\"sex\":\"male\"}"
+                        },
+                        "description": "send the field user wont update"
                     },
-                    "response": []
-                },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"state\":true,\"code\":\"200\",\"message\":\"user profile successfly updated\",\"execution\":\"0.264 seconds\",\"data\":[]}",
+                            "name": "profile updated"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "product management",
+            "description": "\nAPIs for managing product",
+            "item": [
                 {
                     "name": "add product to wishlist",
                     "request": {
@@ -598,7 +608,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "ipsam",
+                                    "value": "eum",
                                     "description": ""
                                 }
                             ]
@@ -625,6 +635,42 @@
                             "name": "winners"
                         }
                     ]
+                },
+                {
+                    "name": "get product",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/product",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "this route is called when to get get specific quained of product",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         },
@@ -695,7 +741,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ea\",\"email\":\"brenden.pacocha@example.net\",\"Inquiry_message\":\"assumenda\"}"
+                            "raw": "{\"name\":\"architecto\",\"email\":\"npredovic@example.net\",\"Inquiry_message\":\"quibusdam\"}"
                         },
                         "description": "this route is called to save users Queries"
                     },

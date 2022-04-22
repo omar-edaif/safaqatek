@@ -137,7 +137,7 @@ class Exceptions
             $error['error']       =   $errorMessage;
         } elseif ($this->exception instanceof AuthenticationException) {
             $error['code']    = HttpCodes::UNAUTHENTICATED;
-            $error['error'] = trans('api.failed.unauthenticated');
+            $error['error'] = __('auth.unauthenticated', [], auth()->user()->lang ?? 'en');
         } elseif ($this->exception instanceof NotFoundHttpException || $this->exception instanceof RouteNotFoundException) {
             $error['code']    = HttpCodes::NOT_FOUND;
             $error['error'] = trans('api.failed.route_not_found');

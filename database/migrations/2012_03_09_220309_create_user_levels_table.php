@@ -15,7 +15,7 @@ class CreateUserLevelsTable extends Migration
     {
         Schema::create('user_levels', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name_ar');
             $table->string('name_en');
             $table->integer('purchase_number');
         });
