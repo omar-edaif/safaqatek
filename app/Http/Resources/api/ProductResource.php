@@ -23,7 +23,7 @@ class ProductResource extends JsonResource
             "award_image" => url('public' . $this->award_image),
             "description" => $this["description_" . app()->getLocale()],
             "quantity" => $this->quantity,
-            "sold_out" =>  intval($this->in_orders_sum_quantity) ?: 0,
+            "sold_out" =>  intval($this->sold_out) ?: 0,
             'copon_per_unit' => $this->copon_per_unit,
             'price' => $this->price,
             'currency' => auth()->user()->currency ?? 'aed',

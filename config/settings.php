@@ -44,6 +44,11 @@ return
                 'value_en' => '1',
                 'value_ar' => ''
             ],
+            [
+                'key' => 'show_prize_details',
+                'value_en' => '1',
+                'value_ar' => ''
+            ]
 
         ]
     ];

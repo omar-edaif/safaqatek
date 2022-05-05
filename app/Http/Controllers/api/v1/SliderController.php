@@ -20,7 +20,7 @@ class SliderController extends Controller
      *
      * this route is called when to get sliders
      *
-     * @authenticated
+     *
      * @urlParam lang The language. Example: en
      *
      */

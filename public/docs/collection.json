@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "2880eb3e-c968-410c-81cc-6ed585878a97",
+        "_postman_id": "fdda7514-dd16-447f-863c-9cd894f5f9b1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"dare.diana@example.com\",\"password\":\"dolorem\"}"
+                            "raw": "{\"email\":\"mafalda31@example.net\",\"password\":\"beatae\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -178,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "possimus",
+                                    "value": "ipsa",
                                     "description": ""
                                 }
                             ]
@@ -284,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"eatgaf\",\"email\":\"eryn.hagenes@example.net\",\"password\":\"xxalmybt\",\"phone\":\"quia\"}"
+                            "raw": "{\"username\":\"yauryhm\",\"email\":\"prosacco.nils@example.com\",\"password\":\"mg\",\"phone\":\"sunt\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -376,7 +376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"amount\":\"mollitia\",\"payment_id\":\"ut\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"et\",\"lng\":\"perferendis\"}"
+                            "raw": "{\"amount\":\"laudantium\",\"payment_id\":\"laborum\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"in\",\"lng\":\"voluptatum\"}"
                         },
                         "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response."
                     },
@@ -401,7 +401,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "modi",
+                                    "value": "cumque",
                                     "description": ""
                                 }
                             ]
@@ -441,7 +441,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "sint",
+                                    "value": "sequi",
                                     "description": ""
                                 }
                             ]
@@ -499,7 +499,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"sit\",\"email\":\"marjolaine.barrows@example.net\",\"currency\":\"qar\",\"nationality_id\":12,\"residence_id\":7,\"addresse\":\"nulla\",\"lang\":\"en\",\"sex\":\"male\"}"
+                            "raw": "{\"username\":\"nesciunt\",\"email\":\"renner.delta@example.net\",\"currency\":\"sar\",\"nationality_id\":3,\"residence_id\":16,\"addresse\":\"eius\",\"lang\":\"ar\",\"sex\":\"female\"}"
                         },
                         "description": "send the field user wont update"
                     },
@@ -608,7 +608,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "eum",
+                                    "value": "dolore",
                                     "description": ""
                                 }
                             ]
@@ -642,8 +642,21 @@
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/v1\/:lang\/product",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product",
+                            "query": [
+                                {
+                                    "key": "is_close",
+                                    "value": "",
+                                    "description": "The show only available products  .",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "sold_out_filter",
+                                    "value": "1",
+                                    "description": "filter by sold out .",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product?is_close=&sold_out_filter=1",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -707,7 +720,10 @@
                             }
                         ],
                         "body": null,
-                        "description": "this route is called to get all settings"
+                        "description": "this route is called to get all settings",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 },
@@ -741,7 +757,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"architecto\",\"email\":\"npredovic@example.net\",\"Inquiry_message\":\"quibusdam\"}"
+                            "raw": "{\"name\":\"necessitatibus\",\"email\":\"winfield16@example.org\",\"Inquiry_message\":\"consequuntur\"}"
                         },
                         "description": "this route is called to save users Queries"
                     },
@@ -782,7 +798,10 @@
                             }
                         ],
                         "body": null,
-                        "description": "this route is called when to get sliders"
+                        "description": "this route is called when to get sliders",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 }

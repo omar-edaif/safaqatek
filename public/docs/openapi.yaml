@@ -79,11 +79,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: dare.diana@example.com
+                  example: mafalda31@example.net
                 password:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: beatae
               required:
                 - email
                 - password
@@ -310,7 +310,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: possimus
+        example: ipsa
         required: true
         schema:
           type: string
@@ -449,19 +449,19 @@ paths:
                 username:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: eatgaf
+                  example: yauryhm
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: eryn.hagenes@example.net
+                  example: prosacco.nils@example.com
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: xxalmybt
+                  example: mg
                 phone:
                   type: string
                   description: ''
-                  example: quia
+                  example: sunt
               required:
                 - username
                 - email
@@ -658,11 +658,11 @@ paths:
                 amount:
                   type: string
                   description: ''
-                  example: mollitia
+                  example: laudantium
                 payment_id:
                   type: string
                   description: ''
-                  example: ut
+                  example: laborum
                 cart:
                   type: object
                   description: 'The Customer purchases  exempele [{"id":1,"quantity":2}] .'
@@ -678,11 +678,11 @@ paths:
                 lat:
                   type: string
                   description: 'The location lat .'
-                  example: et
+                  example: in
                 lng:
                   type: string
                   description: 'The location long .'
-                  example: perferendis
+                  example: voluptatum
               required:
                 - amount
                 - payment_id
@@ -772,7 +772,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: modi
+        example: cumque
         required: true
         schema:
           type: string
@@ -846,7 +846,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: sint
+        example: sequi
         required: true
         schema:
           type: string
@@ -917,27 +917,27 @@ paths:
                 username:
                   type: string
                   description: ''
-                  example: sit
+                  example: nesciunt
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: marjolaine.barrows@example.net
+                  example: renner.delta@example.net
                 currency:
                   type: string
                   description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
-                  example: qar
+                  example: sar
                 nationality_id:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 3
                 residence_id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 16
                 addresse:
                   type: string
                   description: ''
-                  example: nulla
+                  example: eius
                 avatar:
                   type: string
                   description: ''
@@ -945,11 +945,11 @@ paths:
                 lang:
                   type: string
                   description: 'Must be one of <code>en</code> or <code>ar</code>.'
-                  example: en
+                  example: ar
                 sex:
                   type: string
                   description: 'Must be one of <code>male</code> or <code>female</code>.'
-                  example: male
+                  example: female
     parameters:
       -
         in: path
@@ -1203,7 +1203,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: eum
+        example: dolore
         required: true
         schema:
           type: string
@@ -1212,6 +1212,26 @@ paths:
       summary: 'get product'
       description: 'this route is called when to get get specific quained of product'
       parameters:
+        -
+          in: query
+          name: is_close
+          description: 'The show only available products  .'
+          example: false
+          required: false
+          schema:
+            type: boolean
+            description: 'The show only available products  .'
+            example: false
+        -
+          in: query
+          name: sold_out_filter
+          description: 'filter by sold out .'
+          example: true
+          required: false
+          schema:
+            type: boolean
+            description: 'filter by sold out .'
+            example: true
         -
           in: header
           name: Content-Type
@@ -1246,13 +1266,6 @@ paths:
       parameters:
         -
           in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -1268,6 +1281,7 @@ paths:
       responses: {  }
       tags:
         - 'setting management'
+      security: []
     parameters:
       -
         in: path
@@ -1322,15 +1336,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: architecto
+                  example: necessitatibus
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: npredovic@example.net
+                  example: winfield16@example.org
                 Inquiry_message:
                   type: string
                   description: ''
-                  example: quibusdam
+                  example: consequuntur
               required:
                 - name
                 - email
@@ -1357,13 +1371,6 @@ paths:
       parameters:
         -
           in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-        -
-          in: header
           name: Content-Type
           description: ''
           example: application/json
@@ -1379,6 +1386,7 @@ paths:
       responses: {  }
       tags:
         - 'slider management'
+      security: []
     parameters:
       -
         in: path

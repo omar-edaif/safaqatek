@@ -27,12 +27,24 @@ class productController extends Controller
      *
      * @urlParam lang string required  The language. Example: en
      *
+     * @queryParam  is_close boolean The show only available products  .
+     * @queryParam  sold_out_filter boolean filter by sold out .
      *
      */
 
-    public function products()
+    public function products(Request $request)
     {
-        $data = Product::withSum('inOrders', 'quantity')->with('isFavorite')->orderBy('closing_at')->paginate();
+
+        $data = Product::where('closing_at', boolval($request->input('is_close')) ? '<' : '>=', now())
+            ->withSum('inOrders as sold_out', 'quantity')
+            ->with('isFavorite')
+            ->orderBy('closing_at')
+            ->paginate(20);
+        $data   = $data->map(function ($product) {
+            $product->sold_out_percent =  $product->sold_out * 100 / $product->quantity;
+            return $product;
+        });
+        return $data;
         return  ProductResource::collection($data);
     }
     /**

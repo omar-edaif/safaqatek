@@ -34,14 +34,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: dare.diana@example.com
+        example: mafalda31@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: dolorem
+        example: beatae
         type: string
         custom: []
     responses:
@@ -158,7 +158,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: possimus
+        example: ipsa
         type: string
         custom: []
     queryParameters: []
@@ -235,28 +235,28 @@ endpoints:
         name: username
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: eatgaf
+        example: yauryhm
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: eryn.hagenes@example.net
+        example: prosacco.nils@example.com
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: xxalmybt
+        example: mg
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: quia
+        example: sunt
         type: string
         custom: []
     responses:
@@ -328,14 +328,14 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: mollitia
+        example: laudantium
         type: string
         custom: []
       payment_id:
         name: payment_id
         description: ''
         required: true
-        example: ut
+        example: laborum
         type: string
         custom: []
       cart:
@@ -359,14 +359,14 @@ endpoints:
         name: lat
         description: 'The location lat .'
         required: false
-        example: et
+        example: in
         type: string
         custom: []
       lng:
         name: lng
         description: 'The location long .'
         required: false
-        example: perferendis
+        example: voluptatum
         type: string
         custom: []
     responses:
@@ -394,7 +394,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: modi
+        example: cumque
         type: string
         custom: []
     queryParameters: []
@@ -424,7 +424,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: sint
+        example: sequi
         type: string
         custom: []
     queryParameters: []
@@ -463,42 +463,42 @@ endpoints:
         name: username
         description: ''
         required: false
-        example: sit
+        example: nesciunt
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: false
-        example: marjolaine.barrows@example.net
+        example: renner.delta@example.net
         type: string
         custom: []
       currency:
         name: currency
         description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
         required: false
-        example: qar
+        example: sar
         type: string
         custom: []
       nationality_id:
         name: nationality_id
         description: ''
         required: false
-        example: 12
+        example: 3
         type: integer
         custom: []
       residence_id:
         name: residence_id
         description: ''
         required: false
-        example: 7
+        example: 16
         type: integer
         custom: []
       addresse:
         name: addresse
         description: ''
         required: false
-        example: nulla
+        example: eius
         type: string
         custom: []
       avatar:
@@ -512,14 +512,14 @@ endpoints:
         name: lang
         description: 'Must be one of <code>en</code> or <code>ar</code>.'
         required: false
-        example: en
+        example: ar
         type: string
         custom: []
       sex:
         name: sex
         description: 'Must be one of <code>male</code> or <code>female</code>.'
         required: false
-        example: male
+        example: female
         type: string
         custom: []
     responses:

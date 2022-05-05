@@ -18,8 +18,13 @@ class Product extends Model
     protected $dates = ['closing_at'];
 
     protected $casts = [
-        'closing_at' => 'date:m/d/Y',
-        'created_at' => 'date:m/d/Y',
+        'closing_at'        => 'date:m/d/Y',
+        'created_at'        => 'date:m/d/Y',
+        'quantity'          => 'integer',
+        'copon_per_unit'    => 'integer',
+        'price'             => 'double',
+        'sold_out'          => 'integer'
+
     ];
     /**
      * Get the category of Product

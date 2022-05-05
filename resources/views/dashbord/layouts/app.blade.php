@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ /*app()->getLocale()*/ 'ar' }}">
+<html lang="{{ app()->getLocale() }}">
 
 <head>
 
@@ -12,20 +12,19 @@
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico">
-    @if (app()->getLocale() !== 'en')
-        <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-        <!-- Bootstrap Css -->
-    @else
-        <link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
-        <link href="/assets/css/app-rtl.min.css?v={{ Str::random(10) . rand(1, 1000) }}" rel="stylesheet"
-            type="text/css" />
-        <link href="/assets/css/style.css?v={{ Str::random(10) . rand(1, 1000) }}" rel="stylesheet" type="text/css" />
-    @endif()
+
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Css -->
+
+    {{-- <link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" /> --}}
+    {{-- <link href="/assets/css/app-rtl.min.css?v={{ Str::random(10) . rand(1, 1000) }}" rel="stylesheet"type="text/css" /> --}}
+    {{-- <link href="/assets/css/style.css?v={{ Str::random(10) . rand(1, 1000) }}" rel="stylesheet" type="text/css" /> --}}
+
 
     <!-- Icons Css -->
     <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />

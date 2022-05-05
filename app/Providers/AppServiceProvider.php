@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Fluent;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 
@@ -28,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
         Schema::defaultStringLength(191);
+        // app()->setLocale('ar');
     }
 }

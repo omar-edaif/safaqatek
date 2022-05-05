@@ -26,7 +26,7 @@ class SettingController extends Controller
      *
      * this route is called to get all settings
      *
-     * @authenticated
+     *
      * @urlParam lang The language. Example: en
      *
      */
@@ -45,8 +45,9 @@ class SettingController extends Controller
                 })
                 ->put('support_phone', $allsettins->where("key", "support_phone")->first()->value_en)
                 // Product donation is allowed
-                ->put('donate_option', boolval($allsettins->where("key", "donate_option")->first()->value_en)),
-
+                ->put('donate_option', boolval($allsettins->where("key", "donate_option")->first()->value_en))
+                // Show prize details
+                ->put('show_prize_details', boolval($allsettins->where("key", "show_prize_details")->first()->value_en)),
 
 
             'prouduct_categories' => ProductCategories::all(['id', "name_" . app()->getLocale() . ' as name', 'image']),
