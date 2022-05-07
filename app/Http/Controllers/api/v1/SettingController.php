@@ -47,7 +47,7 @@ class SettingController extends Controller
                 // Product donation is allowed
                 ->put('donate_option', boolval($allsettins->where("key", "donate_option")->first()->value_en))
                 // Show prize details
-                ->put('show_prize_details', boolval($allsettins->where("key", "show_prize_details")->first()->value_en)),
+                ->put('showPrizeDetails', boolval($allsettins->where("key", "showPrizeDetails")->first()->value_en)),
 
 
             'prouduct_categories' => ProductCategories::all(['id', "name_" . app()->getLocale() . ' as name', 'image']),

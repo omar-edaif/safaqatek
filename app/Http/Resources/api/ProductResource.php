@@ -28,6 +28,7 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'currency' => auth()->user()->currency ?? 'aed',
             'isFavorite' => boolval($this->isFavorite),
+            'isParticipate' => boolval($this->isParticipate),
             "closing_at" => $this->closing_at->format('m/d/Y'),
             "created_at" => $this->created_at->format('m/d/Y'),
 

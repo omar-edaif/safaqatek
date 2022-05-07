@@ -68,4 +68,9 @@ class Product extends Model
     {
         return $this->hasOne(UserWishlist::class)->whereUserId(auth()->id());
     }
+
+    public function isParticipate()
+    {
+        return $this->hasMany(Coupon::class)->whereUserId(auth()->id());
+    }
 }

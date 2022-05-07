@@ -45,7 +45,7 @@ return
                 'value_ar' => ''
             ],
             [
-                'key' => 'show_prize_details',
+                'key' => 'showPrizeDetails',
                 'value_en' => '1',
                 'value_ar' => ''
             ]

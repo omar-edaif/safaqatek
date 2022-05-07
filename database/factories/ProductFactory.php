@@ -26,7 +26,7 @@ class ProductFactory extends Factory
             'quantity' => rand(100, 400),
             'price' => rand(100, 400),
             'copon_per_unit' => rand(1, 3),
-            'closing_at' => now()->addDay(rand(10, 50)),
+            'closing_at' => now()->addDay(rand(-50, 50)),
         ];
     }
 }

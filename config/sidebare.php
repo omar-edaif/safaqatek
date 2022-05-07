@@ -51,14 +51,14 @@ return [
         'name_en' => "products",
         'name_ar' => "المنتوجات",
         'icon' => 'bx bx-store',
-        'route' => 'dashbord.users.index',
+        'route' => 'dashbord.products.index',
         'is_namespace' => false,
     ],
     [
         'name_en' => "orders",
         'name_ar' => "الطلبات",
         'icon' => 'bx bx-receipt ',
-        'route' => 'dashbord.users.index',
+        'route' => 'dashbord.products.orders',
         'is_namespace' => false,
     ],
     [

@@ -36,37 +36,45 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th scope="col" style="width: 70px;">#</th>
-                                        <th scope="col">{{ __('username') }}</th>
-                                        <th scope="col">{{ __('email') }}</th>
-                                        <th scope="col">{{ __('phone') }}</th>
-                                        <th scope="col">{{ __('status') }}</th>
+                                        <th scope="col">{{ __('name') }}</th>
+                                        <th scope="col">{{ __('award name') }}</th>
+                                        <th scope="col">{{ __('price') }}
+                                            <span class="font-size-10 text-muted">(aed)</span>
+                                        </th>
+                                        <th scope="col">{{ __('quantity') }}</th>
+                                        <th scope="col">{{ __('close in') }}</th>
                                         <th scope="col">{{ __('action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users as $user)
+                                    @foreach ($products as $product)
                                         <tr>
                                             <td>
                                                 <div class="avatar-xs">
                                                     <span class="avatar-title avatar-sm rounded-circle">
-                                                        <img class="avatar-sm rounded" src="{{ asset($user->avatar) }}"
-                                                            alt="avatar">
+                                                        <img class="avatar-sm rounded" src="{{ asset($product->image) }}"
+                                                            alt="product image">
                                                     </span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <h5 class="font-size-14 mb-1"><a href="javascript: void(0);"
-                                                        class="text-dark">{{ $user->username }}</a>
+                                                        class="text-dark">{{ $product->{'name_' . app()->getLocale()} }}</a>
                                                 </h5>
-                                                <p class="text-muted mb-0">costomeer</p>
                                             </td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->phone }}</td>
-
+                                            <td>
+                                                <h5 class="font-size-14 mb-1"><a href="javascript: void(0);"
+                                                        class="text-dark">{{ $product->{'award_name_' . app()->getLocale()} }}</a>
+                                                </h5>
+                                            </td>
+                                            <td class="text-dark">{{ $product->price }}</td>
+                                            <td class="text-dark">{{ $product->quantity }}</td>
                                             <td>
                                                 <span
-                                                    class=" border  badge-soft-success px-1 rounded border-2 border-success ">
-                                                    active
+                                                    @if ($product->closing_at->gte(now())) class=" border  badge-soft-success px-1 rounded border-2 border-success "
+                                                @else
+                                                class=" border  badge-soft-danger px-1 rounded border-2 border-danger " @endif>
+                                                    {{ $product->closing_at->format('d M y') }}
                                                 </span>
                                             </td>
                                             <td>
@@ -79,10 +87,7 @@
                                                         <a href="/user/edit/109" title="Edite"><i
                                                                 class="bx bx-user-circle"></i></a>
                                                     </li>
-                                                    <li class="list-inline-item px-2">
-                                                        <a href="/user/block/109" title="Block    "><i
-                                                                class="bx bx-block"></i></a>
-                                                    </li>
+
 
                                                 </ul>
                                             </td>

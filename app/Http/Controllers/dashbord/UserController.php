@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        User::where('role', User::CUSTOMER)->paginate(20);
-        return view('dashbord.index');
+        $users = User::where('role', User::CUSTOMER)->paginate(20);
+        return view('dashbord.users.index', compact('users'));
     }
 }

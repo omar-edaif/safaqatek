@@ -34,17 +34,13 @@ class productController extends Controller
 
     public function products(Request $request)
     {
-
-        $data = Product::where('closing_at', boolval($request->input('is_close')) ? '<' : '>=', now())
-            ->withSum('inOrders as sold_out', 'quantity')
+        $data = Product::where('closing_at', filter_var($request->input('is_close'), FILTER_VALIDATE_BOOL) ? '<' : '>=', now())
             ->with('isFavorite')
+            ->withSum('inOrders as sold_out', 'quantity')
+            ->withExists('isParticipate as isParticipate')
             ->orderBy('closing_at')
             ->paginate(20);
-        $data   = $data->map(function ($product) {
-            $product->sold_out_percent =  $product->sold_out * 100 / $product->quantity;
-            return $product;
-        });
-        return $data;
+
         return  ProductResource::collection($data);
     }
     /**
@@ -92,7 +88,7 @@ class productController extends Controller
      * product winners
      *
      * @response 200 scenario="winners" {"data":[{"username":"jaafar","url":"https://www.youtube.com/watch?v=iWwY6K5Vjyo","award_name_en":"Mr.","award_name_ar":"أسم الجائزة بالعربي","announced_on":"April 14, 2022","is_current_user":false},{"username":"jaafar","url":"https://www.youtube.com/watch?v=iWwY6K5Vjyo","award_name_en":"Ms.","award_name_ar":"أسم الجائزة بالعربي","announced_on":"April 14, 2022","is_current_user":false},{"username":"jaafar","url":"https://www.youtube.com/watch?v=iWwY6K5Vjyo","award_name_en":"Mr.","award_name_ar":"أسم الجائزة بالعربي","announced_on":"April 14, 2022","is_current_user":false}],"links":{"first":"http://safaqatek.test/api/v1/aut/product/winners?page=1","last":"http://safaqatek.test/api/v1/aut/product/winners?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http://safaqatek.test/api/v1/aut/product/winners?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http://safaqatek.test/api/v1/aut/product/winners","per_page":20,"to":3,"total":3}}
-     * @authenticated
+     *
      *
      */
 

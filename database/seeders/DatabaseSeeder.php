@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             LevelsSeeder::class,
             SettingsSeeder::class,
             CurrenciesSeeder::class,
-            CountriesSeeder::class
+            CountriesSeeder::class,
+            ProductCategoriesSeeder::class
         ]);
         \App\Models\Slider::factory(3)->create();
 
@@ -36,9 +37,6 @@ class DatabaseSeeder extends Seeder
         );
 
         \App\Models\User::factory(10)->create();
-
-
-        \App\Models\ProductCategories::create(['name_en' => 'motors', 'name_ar' => 'محركات']);
 
         \App\Models\Product::factory(10)->create();
 

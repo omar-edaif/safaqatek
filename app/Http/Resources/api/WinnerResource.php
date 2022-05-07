@@ -18,7 +18,8 @@ class WinnerResource extends JsonResource
             'username' => $this->user->username,
             'url'  => $this->url,
             'award_name' => $this->award['award_name_' . app()->getLocale()],
-            'announced_on' => $this->created_at->format('F j, Y'),
+            'announced_on' => $this->created_at->format('h:i A, d F Y'),
+            'coupon' => $this->coupon,
             'is_current_user' => auth()->id() == $this->user->id
 
         ];

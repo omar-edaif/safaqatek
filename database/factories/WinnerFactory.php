@@ -16,6 +16,8 @@ class WinnerFactory extends Factory
         return [
             'user_id'        => rand(1, 10),
             'product_id'     => rand(1, 10),
+            'coupon'         => generateKey(),
+            'created_at'   => now()->addDay(rand(-100, 100)),
             'url'            => "https://www.youtube.com/watch?v=iWwY6K5Vjyo",
         ];
     }

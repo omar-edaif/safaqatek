@@ -25,6 +25,7 @@ Route::prefix('v1/{lang}')->group(function () {
 
     Route::prefix('product')->group(function () {
         Route::get('/', [productController::class, 'products']);
+        Route::get('/winners', [productController::class, 'winners']);
     });
 
 
@@ -58,7 +59,6 @@ Route::prefix('v1/{lang}')->group(function () {
         Route::prefix('product')->group(function () {
             Route::get('/wishlist/add/{id}', [productController::class, 'addToWishlist']);
             Route::get('/wishlist/delete/{id}', [productController::class, 'deleteFromWishlist']);
-            Route::get('/winners', [productController::class, 'winners']);
         });
     });
 });

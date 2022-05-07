@@ -23,3 +23,10 @@ if (!function_exists('generateKey')) {
         return  \Str::upper(\Str::random(1)) . '-' . $current_date_time;
     }
 }
+if (!function_exists('defaultImage')) {
+
+    function defaultImage()
+    {
+        return 'image';
+    }
+}

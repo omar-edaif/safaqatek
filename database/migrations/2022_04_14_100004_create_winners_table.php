@@ -17,6 +17,7 @@ class CreateWinnersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('product_id')->constrained('products');
+            $table->string('coupon', 20);
             $table->string('url', 70);
             $table->timestamps();
         });
