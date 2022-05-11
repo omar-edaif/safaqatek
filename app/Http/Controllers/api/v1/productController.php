@@ -19,6 +19,12 @@ use Illuminate\Http\Request;
 class productController extends Controller
 {
 
+    public function __construct()
+    {
+        if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+            $this->middleware('auth:sanctum');
+        }
+    }
     /**
      * get product
      *
@@ -34,6 +40,7 @@ class productController extends Controller
 
     public function products(Request $request)
     {
+
         $data = Product::where('closing_at', filter_var($request->input('is_close'), FILTER_VALIDATE_BOOL) ? '<' : '>=', now())
             ->with('isFavorite')
             ->withSum('inOrders as sold_out', 'quantity')

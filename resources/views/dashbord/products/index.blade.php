@@ -14,11 +14,11 @@
                             </div>
                         </form>
                         <div class="col d-flex justify-content-end mx-3">
-                            <button type="button"
+                            <a type="button" href="{{ route('dashbord.products.create') }}"
                                 class="btn btn-success waves-effect waves-light d-block mx-1 font-size-14 ">
                                 <i class=" bx bx-add-to-queue  font-size-16 align-middle me-2"></i>
                                 create
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -84,8 +84,8 @@
                                                             title="Delete"><i class="bx bx-trash-alt "></i></a>
                                                     </li>
                                                     <li class="list-inline-item px-2">
-                                                        <a href="/user/edit/109" title="Edite"><i
-                                                                class="bx bx-user-circle"></i></a>
+                                                        <a href="{{ route('dashbord.products.edit', ['id' => $product->id]) }}"
+                                                            title="Edit"><i class=" bx bx-pencil"></i></a>
                                                     </li>
 
 
@@ -97,6 +97,7 @@
                             </table>
                         </div>
 
+                        {{ $products->links() }}
                     </div>
                 </div>
             </div>

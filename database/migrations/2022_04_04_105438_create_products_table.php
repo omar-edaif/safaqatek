@@ -30,7 +30,9 @@ class CreateProductsTable extends Migration
             $table->string('award_image')->nullable();
             $table->string('description_ar')->nullable();
             $table->string('description_en')->nullable();
-            $table->integer('copon_per_unit')->default(1);
+            $table->string('award_description_en')->nullable();
+            $table->string('award_description_ar')->nullable();
+            $table->integer('coupon_per_unit')->default(1);
             $table->integer('quantity');
             $table->double('price');
             $table->timestamp('closing_at');

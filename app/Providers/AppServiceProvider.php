@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Fluent;
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
         Schema::defaultStringLength(191);
-        // app()->setLocale('ar');
+
+
+        Paginator::useBootstrap();
     }
 }
