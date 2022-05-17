@@ -138,7 +138,7 @@
                                     <div class="mb-3">
                                         <label for="closing_at">{{ __('closing at') }}</label>
                                         <input required placeholder="{{ __('closing at') }}" id="closing_at"
-                                            value="{{ old('closing_at') }}" name="closing_at" type="date"
+                                            value="{{ old('closing_at') ?? '' }}" name="closing_at" type="datetime-local"
                                             class="form-control">
                                     </div>
                                 </div>

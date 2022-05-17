@@ -32,14 +32,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: mafalda31@example.net
+        example: ullrich.kaylah@example.com
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: beatae
+        example: dolores
         type: string
         custom: []
     responses:
@@ -156,7 +156,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: ipsa
+        example: aliquam
         type: string
         custom: []
     queryParameters: []
@@ -233,28 +233,28 @@ endpoints:
         name: username
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: yauryhm
+        example: yofzlsdugmslij
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: prosacco.nils@example.com
+        example: marion80@example.net
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: mg
+        example: ''
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: sunt
+        example: saepe
         type: string
         custom: []
     responses:
@@ -326,14 +326,14 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: laudantium
+        example: delectus
         type: string
         custom: []
       payment_id:
         name: payment_id
         description: ''
         required: true
-        example: laborum
+        example: quo
         type: string
         custom: []
       cart:
@@ -357,14 +357,14 @@ endpoints:
         name: lat
         description: 'The location lat .'
         required: false
-        example: in
+        example: nam
         type: string
         custom: []
       lng:
         name: lng
         description: 'The location long .'
         required: false
-        example: voluptatum
+        example: at
         type: string
         custom: []
     responses:
@@ -392,7 +392,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: cumque
+        example: dignissimos
         type: string
         custom: []
     queryParameters: []
@@ -422,7 +422,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: sequi
+        example: velit
         type: string
         custom: []
     queryParameters: []
@@ -461,42 +461,42 @@ endpoints:
         name: username
         description: ''
         required: false
-        example: nesciunt
+        example: quasi
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: false
-        example: renner.delta@example.net
+        example: upton.kiarra@example.com
         type: string
         custom: []
       currency:
         name: currency
         description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
         required: false
-        example: sar
+        example: omr
         type: string
         custom: []
       nationality_id:
         name: nationality_id
         description: ''
         required: false
-        example: 3
+        example: 10
         type: integer
         custom: []
       residence_id:
         name: residence_id
         description: ''
         required: false
-        example: 16
+        example: 14
         type: integer
         custom: []
       addresse:
         name: addresse
         description: ''
         required: false
-        example: eius
+        example: omnis
         type: string
         custom: []
       avatar:
@@ -510,14 +510,14 @@ endpoints:
         name: lang
         description: 'Must be one of <code>en</code> or <code>ar</code>.'
         required: false
-        example: ar
+        example: en
         type: string
         custom: []
       sex:
         name: sex
         description: 'Must be one of <code>male</code> or <code>female</code>.'
         required: false
-        example: female
+        example: male
         type: string
         custom: []
     responses:
@@ -526,4 +526,78 @@ endpoints:
         content: '{"state":true,"code":"200","message":"user profile successfly updated","execution":"0.264 seconds","data":[]}'
         headers: []
         description: '200, profile updated'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/{lang}/user/notification'
+    metadata:
+      title: 'save notifications'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      lang:
+        name: lang
+        description: ''
+        required: true
+        example: quis
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'The title of notification .'
+        required: false
+        example: eveniet
+        type: string
+        custom: []
+      body:
+        name: body
+        description: 'The body of notifcation.'
+        required: false
+        example: quo
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: 'scenario="coupons are exist'
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/{lang}/user/notification'
+    metadata:
+      title: 'get notifications'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      lang:
+        name: lang
+        description: ''
+        required: true
+        example: assumenda
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: 'scenario="coupons are exist'
+        headers: []
+        description: '200'
     responseFields: []

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "fdda7514-dd16-447f-863c-9cd894f5f9b1",
+        "_postman_id": "c0a48392-914f-4dda-8149-0ce3ff58ceef",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"mafalda31@example.net\",\"password\":\"beatae\"}"
+                            "raw": "{\"email\":\"ullrich.kaylah@example.com\",\"password\":\"dolores\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -178,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "ipsa",
+                                    "value": "aliquam",
                                     "description": ""
                                 }
                             ]
@@ -284,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"yauryhm\",\"email\":\"prosacco.nils@example.com\",\"password\":\"mg\",\"phone\":\"sunt\"}"
+                            "raw": "{\"username\":\"yofzlsdugmslij\",\"email\":\"marion80@example.net\",\"password\":\"\",\"phone\":\"saepe\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -376,7 +376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"amount\":\"laudantium\",\"payment_id\":\"laborum\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"in\",\"lng\":\"voluptatum\"}"
+                            "raw": "{\"amount\":\"delectus\",\"payment_id\":\"quo\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"nam\",\"lng\":\"at\"}"
                         },
                         "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response."
                     },
@@ -401,7 +401,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "cumque",
+                                    "value": "dignissimos",
                                     "description": ""
                                 }
                             ]
@@ -441,7 +441,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "sequi",
+                                    "value": "velit",
                                     "description": ""
                                 }
                             ]
@@ -499,7 +499,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"nesciunt\",\"email\":\"renner.delta@example.net\",\"currency\":\"sar\",\"nationality_id\":3,\"residence_id\":16,\"addresse\":\"eius\",\"lang\":\"ar\",\"sex\":\"female\"}"
+                            "raw": "{\"username\":\"quasi\",\"email\":\"upton.kiarra@example.com\",\"currency\":\"omr\",\"nationality_id\":10,\"residence_id\":14,\"addresse\":\"omnis\",\"lang\":\"en\",\"sex\":\"male\"}"
                         },
                         "description": "send the field user wont update"
                     },
@@ -509,6 +509,89 @@
                             "code": 200,
                             "body": "{\"state\":true,\"code\":\"200\",\"message\":\"user profile successfly updated\",\"execution\":\"0.264 seconds\",\"data\":[]}",
                             "name": "profile updated"
+                        }
+                    ]
+                },
+                {
+                    "name": "save notifications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/notification",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/notification",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "quis",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"eveniet\",\"body\":\"quo\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "scenario=\"coupons are exist",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "get notifications",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/notification",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/notification",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "assumenda",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "scenario=\"coupons are exist",
+                            "name": ""
                         }
                     ]
                 }
@@ -608,7 +691,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "dolore",
+                                    "value": "necessitatibus",
                                     "description": ""
                                 }
                             ]
@@ -625,7 +708,10 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -645,23 +731,65 @@
                             "query": [
                                 {
                                     "key": "is_close",
-                                    "value": "",
+                                    "value": "1",
                                     "description": "The show only available products  .",
-                                    "disabled": true
+                                    "disabled": false
                                 },
                                 {
                                     "key": "sold_out_filter",
-                                    "value": "1",
+                                    "value": "",
                                     "description": "filter by sold out .",
-                                    "disabled": false
+                                    "disabled": true
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product?is_close=&sold_out_filter=1",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product?is_close=1&sold_out_filter=",
                             "variable": [
                                 {
                                     "id": "lang",
                                     "key": "lang",
                                     "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "this route is called when to get get specific quained of product",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "get current product",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/product\/current\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product\/current\/:id",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
                                     "description": "The language."
                                 }
                             ]
@@ -757,7 +885,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"necessitatibus\",\"email\":\"winfield16@example.org\",\"Inquiry_message\":\"consequuntur\"}"
+                            "raw": "{\"name\":\"enim\",\"email\":\"rutherford.eleonore@example.org\",\"Inquiry_message\":\"expedita\"}"
                         },
                         "description": "this route is called to save users Queries"
                     },

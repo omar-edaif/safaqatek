@@ -44,7 +44,7 @@
 
         @include('dashbord.layouts.sidebare')
 
-        <div class="main-content">
+        <div class="main-content p-2 mb-3">
 
             @yield('content')
 
@@ -52,7 +52,7 @@
         <!-- end main content-->
 
 
-        <footer class="footer">
+        <footer class="footer bg-primary bg-soft ">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">

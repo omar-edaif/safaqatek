@@ -25,8 +25,8 @@
         const awardImage = document.querySelector('#award_image');
 
         FilePond.registerPlugin(
-            FilePondPluginImagePreview,
-            FilePondPluginFilePoster
+            FilePondPluginFilePoster,
+            FilePondPluginImagePreview
         );
         const pondproduct = FilePond.create(productImage, {
             server: {
@@ -36,7 +36,7 @@
                 }
             },
             allowImagePreview: true,
-            labelIdle: `{{ __('Drag & Drop your product image or') }}<span class="filepond--label-action"> {{ __('browser') }} <span/>`
+
         });
 
         const pond = FilePond.create(awardImage, {
@@ -101,8 +101,9 @@
                                             type="number" class="form-control">
                                     </div>
                                     <div class="mb-3">
-
-                                        <input required type="file" id="image" name="image" class="my-pond" id="">
+                                        <label for="old-image">{{ 'old image of product' }} </label>
+                                        <img id="old-image" class="img-fluid d-block mx-auto"
+                                            src="{{ asset($product->image) }}" data-holder-rendered="true" width="400">
                                     </div>
                                 </div>
 
@@ -142,7 +143,10 @@
                                         <label for="closing_at">{{ __('closing at') }}</label>
                                         <input required placeholder="{{ __('closing at') }}" id="closing_at"
                                             value="{{ old('closing_at') ?? $product->closing_at }}" name="closing_at"
-                                            type="date" class="form-control">
+                                            type="datetime-local" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="file" id="image" name="image" class="my-pond" id="">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 justify-content-center position-relative">
@@ -177,10 +181,12 @@
                                             rows="5">{{ old('award_description_en') ?? $product->award_description_en }}</textarea>
                                     </div>
                                     <div class="mb-3">
-
-                                        <input required type="file" id="award_image" name="award_image"
-                                            class="my-pond" id="">
+                                        <label for="old-image">{{ 'old image of product' }} </label>
+                                        <img id="old-image" class="img-fluid d-block mx-auto"
+                                            src="{{ asset($product->award_image) }}" data-holder-rendered="true"
+                                            width="400">
                                     </div>
+
                                 </div>
 
                                 <div class="col-sm-6">
@@ -195,6 +201,9 @@
                                         <textarea placeholder="{{ __('English Award Description') }}" name="award_description_ar" class="form-control"
                                             id="metadescription_ar"
                                             rows="5">{{ old('award_description_ar') ?? $product->award_description_ar }}</textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="file" id="award_image" name="award_image" class="my-pond" id="">
                                     </div>
                                 </div>
                             </div>

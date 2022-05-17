@@ -9,7 +9,8 @@
                     <div class="card p-3">
                         <form class="app-search d-none d-lg-block mx-3">
                             <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" name="search" @if (request()->get('search')) autofocus @endif
+                                    value="{{ request()->get('search') }}" class="form-control" placeholder="Search...">
                                 <span class="bx bx-search-alt"></span>
                             </div>
                         </form>
@@ -42,6 +43,7 @@
                                             <span class="font-size-10 text-muted">(aed)</span>
                                         </th>
                                         <th scope="col">{{ __('quantity') }}</th>
+                                        <th scope="col">{{ __('sold out') }}</th>
                                         <th scope="col">{{ __('close in') }}</th>
                                         <th scope="col">{{ __('action') }}</th>
                                     </tr>
@@ -58,17 +60,18 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-14 mb-1"><a href="javascript: void(0);"
+                                                <h5 class="font-size-14 mb-1"><a
                                                         class="text-dark">{{ $product->{'name_' . app()->getLocale()} }}</a>
                                                 </h5>
                                             </td>
                                             <td>
-                                                <h5 class="font-size-14 mb-1"><a href="javascript: void(0);"
+                                                <h5 class="font-size-14 mb-1"><a
                                                         class="text-dark">{{ $product->{'award_name_' . app()->getLocale()} }}</a>
                                                 </h5>
                                             </td>
                                             <td class="text-dark">{{ $product->price }}</td>
                                             <td class="text-dark">{{ $product->quantity }}</td>
+                                            <td class="text-dark">{{ $product->sold_out }}</td>
                                             <td>
                                                 <span
                                                     @if ($product->closing_at->gte(now())) class=" border  badge-soft-success px-1 rounded border-2 border-success "
@@ -80,8 +83,14 @@
                                             <td>
                                                 <ul class="list-inline font-size-20 contact-links mb-0">
                                                     <li class="list-inline-item px-2">
-                                                        <a class="delete" href="/user/admins/delete/109"
-                                                            title="Delete"><i class="bx bx-trash-alt "></i></a>
+                                                        <form method="POST" id="form_delete"
+                                                            action="{{ route('dashbord.products.delete', ['id' => $product->id]) }}">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <a class="delete" role='button'
+                                                                onclick="document.getElementById('form_delete').submit()"
+                                                                title="Delete"><i class="bx bx-trash-alt "></i></a>
+                                                        </form>
                                                     </li>
                                                     <li class="list-inline-item px-2">
                                                         <a href="{{ route('dashbord.products.edit', ['id' => $product->id]) }}"

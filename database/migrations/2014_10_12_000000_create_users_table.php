@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->enum('sex', ['male', 'female']);
             $table->string('role', 10)->default(User::CUSTOMER);
             $table->timestamp('email_verified_at')->nullable();
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

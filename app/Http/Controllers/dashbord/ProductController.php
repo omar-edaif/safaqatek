@@ -10,12 +10,21 @@ use App\Models\ProductCategories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Stmt\Return_;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::orderByDesc('closing_at')->paginate(20);
+        $products = Product::orderByDesc('closing_at')
+            ->withCount('inOrders as sold_out')
+            ->where(function ($query) use ($request) {
+                if (!$request->input('search')) return $query;
+
+                return $query->where('name_en', 'like', '%' . $request->input('search') . '%')
+                    ->orWhere('award_name_en', 'like', '%' . $request->input('search') . '%');
+            })
+            ->paginate(20);
         return view('dashbord.products.index', compact('products'));
     }
     public function orders()
@@ -32,19 +41,18 @@ class ProductController extends Controller
     public function store(ProductStoreRequest $request)
     {
 
-        $folder  = uniqid() . '_' . now()->timestamp;
-        $productImageSource = Storage::getDriver()->getAdapter()->applyPathPrefix(explode('||', $request->image)[0]);
-        $awardImageSource = Storage::getDriver()->getAdapter()->applyPathPrefix(explode('||', $request->award_image)[0]);
-        $path_dest = Storage::getDriver()->getAdapter()->applyPathPrefix('public/images/products/' . $folder);
-
-        File::move($productImageSource, $path_dest);
-        File::move($awardImageSource, $path_dest);
+        $productImageTmpPath = explode('||', $request->image)[0];
+        $awardImageTmpPath = explode('||', $request->award_image)[0];
+        $productImageName = explode('||', $request->image)[1];
+        $awardImageName = explode('||', $request->award_image)[1];
+        $productImageSource = Storage::getDriver()->getAdapter()->applyPathPrefix($productImageTmpPath);
+        $awardImageSource = Storage::getDriver()->getAdapter()->applyPathPrefix($awardImageTmpPath);
 
         Product::create([
             "name_en" => $request->name_en,
             "name_ar" => $request->name_ar,
-            "image"   => 'storage/images/products/' . $folder . explode('||', $request->image)[1],
-            "award_image"   => 'storage/images/products/' . $folder . explode('||', $request->award_image)[1],
+            "image"   => str_replace('public', 'storage', Storage::putFile('public/images/products', $productImageSource . $productImageName)),
+            "award_image"   => str_replace('public', 'storage', Storage::putFile('public/images/products', $awardImageSource . $awardImageName)),
             "description_en" => $request->description_en,
             "description_ar" => $request->description_ar,
             "product_category_id" => $request->category_id,
@@ -68,9 +76,10 @@ class ProductController extends Controller
 
         return view('dashbord.products.edit', compact('product', 'categories'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $product =  Product::findOrFail($id);
+
+        $product = Product::findOrFail($request->route('id'));
         $product->update([
             "name_en" => $request->name_en,
             "name_ar" => $request->name_ar,
@@ -88,6 +97,46 @@ class ProductController extends Controller
         ]);
 
 
+
+        if ($request->input('image')) {
+
+            $productImageTmpPath = explode('||', $request->image)[0];
+
+            $productImageName = explode('||', $request->image)[1];
+
+            $productImageSource = Storage::getDriver()->getAdapter()->applyPathPrefix($productImageTmpPath);
+
+            $product->image =   str_replace('public', 'storage', Storage::putFile('public/images/products', $productImageSource . $productImageName));
+
+            $product->save();
+        }
+
+        if ($request->input('award_image')) {
+
+
+            $awardImageTmpPath = explode('||', $request->award_image)[0];
+
+            $awardImageName = explode('||', $request->award_image)[1];
+
+            $awardImageSource = Storage::getDriver()->getAdapter()->applyPathPrefix($awardImageTmpPath);
+
+            $product->award_image = str_replace('public', 'storage', Storage::putFile('public/images/products', $awardImageSource . $awardImageName));
+
+            $product->save();
+        }
+
+
+
+
+
         return redirect()->route('dashbord.products.index')->with('updated', __('the product was updated'));
+    }
+    public function delete($id)
+    {
+        $product  =  Product::findOrFail($id);
+
+        $product->delete();
+
+        return redirect()->route('dashbord.products.index')->with('deleted', __('the product was deleted'));
     }
 }

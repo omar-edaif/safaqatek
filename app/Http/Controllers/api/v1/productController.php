@@ -51,6 +51,31 @@ class productController extends Controller
         return  ProductResource::collection($data);
     }
     /**
+     * get current product
+     *
+     * this route is called when to get get specific quained of product
+     *
+     *
+     * @urlParam lang string required  The language. Example: en
+     * @urlParam id integer required  The language. Example: 1
+     *
+     *
+     *
+     *
+     */
+
+    public function product(Request $request)
+    {
+
+        $data = Product::whereId($request->route('id'))
+            ->with('isFavorite')
+            ->withSum('inOrders as sold_out', 'quantity')
+            ->withExists('isParticipate as isParticipate')
+            ->get();
+
+        return  ProductResource::collection($data);
+    }
+    /**
      * add product to wishlist
      *
      * this route is called when the user wants to add a product to the Wish List

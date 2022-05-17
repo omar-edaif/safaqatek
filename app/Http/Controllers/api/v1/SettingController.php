@@ -52,7 +52,9 @@ class SettingController extends Controller
 
             'prouduct_categories' => ProductCategories::all(['id', "name_" . app()->getLocale() . ' as name', 'image']),
 
-            'currencies' => ['aed', 'sar', 'kwd', 'qar', 'omr']
+            'currencies' => ['aed', 'sar', 'kwd', 'qar', 'omr'],
+
+            'stripe_key' => env('STRIPE_KEY')
         ]]);
     }
     /**

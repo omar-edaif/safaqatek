@@ -9,10 +9,13 @@ use App\Http\Requests\user\LoginUserRequest;
 use App\Http\Requests\user\PurchaseRequest;
 use App\Http\Requests\user\RegisterUserRequest;
 use App\Http\Resources\api\CouponResource;
+use App\Http\Resources\api\NotificationResource;
 use App\Http\Resources\api\OrderResource;
+use App\Http\Resources\api\ProductResource;
 use App\Http\Resources\api\UserResource;
 use App\Http\Resources\api\WishlisResource;
 use App\Models\Coupon;
+use App\Models\Notification;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -297,7 +300,7 @@ class AuthApiController extends Controller
         try {
 
             $payment = auth()->user()->charge(
-                $request->input('amount'),
+                ($request->input('amount') * 100),
                 $request->input('payment_id'),
                 ['currency' => auth()->user()->currency ?? 'AED']
             );
@@ -348,11 +351,58 @@ class AuthApiController extends Controller
     public function coupons()
     {
 
-        $coupon = Coupon::whereUserId(auth()->id())->with('product:id,name_en,name_ar,image,price,closing_at')->latest()->get();
+        $coupon = Coupon::whereUserId(auth()->id())->with('product')->latest()->get();
 
         return CouponResource::collection($coupon);
     }
 
+
+    /**
+     *  save notifications
+     *
+
+     * @authenticated
+     *
+     *
+     * @bodyParam title string The title of notification .
+     * @bodyParam body string The body of notifcation.
+     */
+
+
+    public function notificationCreate(Request $request)
+    {
+
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+
+        ]);
+
+        return Notification::create([
+            'user_id' => auth()->id(),
+            'title' => request('title'),
+            'body' => request('body'),
+        ]);
+    }
+
+
+
+    /**
+     * get notifications
+     *
+     * @authenticated
+     *
+     */
+
+    public function notifications(Request $request)
+    {
+        $notification =  Notification::select('title', 'body', 'created_at')
+            ->whereUserId(auth()->id())
+            ->latest()
+            ->simplePaginate(20);
+
+        return NotificationResource::collection($notification);
+    }
     /**
      * user wishlist
      *
@@ -364,9 +414,9 @@ class AuthApiController extends Controller
     public function wishLists()
     {
         $userWishlist    =    User::select('id')->whereId(auth()->id())
-            ->with('wishlists:id,name_en,name_ar,image,quantity,award_name_ar,award_name_en,price', 'wishlists.inOrders')
+            ->with('wishlists')
             ->first();
 
-        return WishlisResource::collection($userWishlist->wishlists);
+        return ProductResource::collection($userWishlist->wishlists);
     }
 }
