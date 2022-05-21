@@ -16,6 +16,7 @@ class CreateCurrenciesTable extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('code', 3);
+            $table->string('name_ar', 20);
             $table->boolean('active')->default(true);
         });
     }

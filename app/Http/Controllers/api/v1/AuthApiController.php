@@ -102,7 +102,8 @@ class AuthApiController extends Controller
 
 
         $user = User::create([
-            'username'  => $request->username,
+            'firstname'  => $request->firstname,
+            'lastname'  => $request->lastname,
             'email'     => $request->email,
             'phone'     => $request->phone,
             'password'  => bcrypt($request->password)
@@ -133,7 +134,7 @@ class AuthApiController extends Controller
     public function login(LoginUserRequest $request)
     {
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::whereEmail(request('email'))->orWhere('phone', request('email'))->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
 
@@ -249,7 +250,9 @@ class AuthApiController extends Controller
      *
      * @urlParam lang The language. Example: en
      *
+     * @bodyParam phone string  The phone of user  . Example: +9941310113
      *
+     * @bodyParam allow_notifications boolean  allow notifecations for user
      * @authenticated
      */
 
@@ -257,16 +260,18 @@ class AuthApiController extends Controller
     {
         $user = User::findOrFail(auth()->id());
 
-        $request->input('nationality_id')   ?       $user->nationality_id   =   $request->input('nationality_id') :   false;
-        $request->input('username')         ?       $user->username     =   $request->input('username') :   false;
-        $request->input('email')            ?       $user->email        =   $request->input('email')   :   false;
-        $request->input('residence_id')     ?       $user->residence_id =   $request->input('residence_id') :   false;
-        $request->input('addresse')         ?       $user->addresse     =   $request->input('addresse') :   false;
-        $request->input('currency')         ?       $user->currency     =   $request->input('currency') :   false;
-        $request->input('phone')            ?       $user->phone        =   $request->input('phone')   :   false;
-        $request->input('avatar')           ?       $user->avatar       =   $request->input('avatar') :   false;
-        $request->input('lang')             ?       $user->lang         =   $request->input('lang') :   false;
-        $request->input('sex')              ?       $user->sex          =   $request->input('sex')   :   false;
+        request('nationality_id')                   ?       $user->nationality_id   =   request('nationality_id') :   false;
+        request('firstname')                         ?       $user->firstname         =   request('firstname') :   false;
+        request('lastname')                         ?       $user->lastname         =   request('lastname') :   false;
+        request('email')                            ?       $user->email            =   request('email')   :   false;
+        request('residence_id')                     ?       $user->residence_id     =   request('residence_id') :   false;
+        request('addresse')                         ?       $user->addresse         =   request('addresse') :   false;
+        request('currency')                         ?       $user->currency         =   request('currency') :   false;
+        request('phone')                            ?       $user->phone            =   request('phone')   :   false;
+        request('avatar')                           ?       $user->avatar           =   str_replace('public', 'storage',  request('avatar')->storePublicly('avatars')) :   false;
+        request('lang')                             ?       $user->lang             =   request('lang') :   false;
+        request('sex')                              ?       $user->sex              =   request('sex')   :   false;
+        request('allow_notifications')              ?       $user->allow_notifications  =  boolval(request('allow_notifications'))  :   false;
 
         $user->save();
 
@@ -296,42 +301,39 @@ class AuthApiController extends Controller
 
     public function purchase(PurchaseRequest $request)
     {
-
         try {
 
             $payment = auth()->user()->charge(
-                ($request->input('amount') * 100),
-                $request->input('payment_id'),
+                (request('amount') * 100),
+                request('payment_id'),
                 ['currency' => auth()->user()->currency ?? 'AED']
             );
 
             $payment = $payment->asStripePaymentIntent();
 
-            $order = auth()->user()->orders()
-                ->create([
-                    'transaction_id' =>  $payment->charges->data[0]->id,
-                    'amount' => $payment->charges->data[0]->amount,
-                    'lng'    => $request->input('lng'),
-                    'lat'    => $request->input('lat'),
-                    'currency'    => auth()->user()->currency ?? 'AED',
-                    'is_donate'   => $request->input('is_donate') ?? false
-                ]);
+            $order = auth()->user()->orders()->create([
+                'transaction_id' =>  $payment->charges->data[0]->id,
+                'amount' => $payment->charges->data[0]->amount / 100,
+                'lng'    => request('lng'),
+                'lat'    => request('lat'),
+                'currency'    => auth()->user()->currency ?? 'AED',
+                'is_donate'   => request('is_donate') ?? false
+            ]);
 
-            foreach (json_decode($request->input('cart'), true) as $item) {
+            foreach (json_decode(request('cart'), true) as $item) {
                 $order->products()
                     ->attach($item['id'], ['quantity' => $item['quantity']]);
-                $copon_per_unit = Product::whereId($item['id'])->pluck('copon_per_unit')->first();
+                $copon_per_unit = Product::whereId($item['id'])->pluck('coupon_per_unit')->first();
 
-                auth()->user()->coupons()
-                    ->create([
-                        'product_id' => $item['id'],
-                        'order_id' => $order->id,
-                        'key' => generateKey(),
-                        'participate_with' =>  $item['quantity'] * $copon_per_unit
-                    ]);
+                auth()->user()->coupons()->create([
+                    'product_id' => $item['id'],
+                    'order_id' => $order->id,
+                    'key' => generateKey(),
+                    'participate_with' =>  $item['quantity'] * $copon_per_unit
+                ]);
             }
 
-            $order->load('products:id,name_en,name_ar,price', 'coupons', 'coupons.product:id,name_en,name_ar,image,price,closing_at');
+            $order->load('products:id,name_en,name_ar,price', 'coupons.product:id,name_en,name_ar,image,price,closing_at,created_at');
             return new OrderResource($order);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);
@@ -351,7 +353,10 @@ class AuthApiController extends Controller
     public function coupons()
     {
 
-        $coupon = Coupon::whereUserId(auth()->id())->with('product')->latest()->get();
+        $coupon = Coupon::whereUserId(auth()->id())
+            ->with('product')
+            ->withExists('iswinner as isWinner')
+            ->latest()->get();
 
         return CouponResource::collection($coupon);
     }

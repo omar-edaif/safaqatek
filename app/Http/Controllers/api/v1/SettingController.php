@@ -4,8 +4,10 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContuctUsRequest;
+use App\Http\Resources\api\countryResource;
 use App\Http\Resources\api\settingsresource;
 use App\Models\Country;
+use App\Models\Currency;
 use App\Models\ProductCategories;
 use App\Models\Queries;
 use App\Models\UserLevels;
@@ -32,27 +34,29 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $allsettins  =   DB::table('settings')->get();
+        $allSettings  =   DB::table('settings')->get();
+        $categoryAllPrize = ['id' => 0, 'name' => __('all prizes'), 'image' => ''];
+
         return response()->json(['data' => [
             'levels' => UserLevels::all(["name_" . app()->getLocale() . ' as name', 'purchase_number']),
 
-            'countries' => Country::whereActive(true)->get(['id', "name_" . app()->getLocale() . ' as name']),
+            'countries' => countryResource::collection(Country::whereActive(true)->get()),
 
-            'setting' =>   $allsettins
+            'setting' =>   $allSettings
                 ->except('support_phone', 'donate_option')
                 ->mapWithKeys(function ($item, $key) {
                     return [$item->key =>   $item->{'value_' . app()->getLocale()}];
                 })
-                ->put('support_phone', $allsettins->where("key", "support_phone")->first()->value_en)
+                ->put('support_phone', $allSettings->where("key", "support_phone")->first()->value_en)
                 // Product donation is allowed
-                ->put('donate_option', boolval($allsettins->where("key", "donate_option")->first()->value_en))
+                ->put('donate_option', boolval($allSettings->where("key", "donate_option")->first()->value_en))
                 // Show prize details
-                ->put('showPrizeDetails', boolval($allsettins->where("key", "showPrizeDetails")->first()->value_en)),
+                ->put('showPrizeDetails', boolval($allSettings->where("key", "showPrizeDetails")->first()->value_en)),
 
 
-            'prouduct_categories' => ProductCategories::all(['id', "name_" . app()->getLocale() . ' as name', 'image']),
+            'prouduct_categories' => ProductCategories::all(['id', "name_" . app()->getLocale() . ' as name', 'image'])->prepend($categoryAllPrize),
 
-            'currencies' => ['aed', 'sar', 'kwd', 'qar', 'omr'],
+            'currencies' => Currency::whereActive(true)->pluck('code'),
 
             'stripe_key' => env('STRIPE_KEY')
         ]]);

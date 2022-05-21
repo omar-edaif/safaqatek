@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "c0a48392-914f-4dda-8149-0ce3ff58ceef",
+        "_postman_id": "fc4de0c8-da9d-4282-ac50-08c9d5e8d5d9",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"ullrich.kaylah@example.com\",\"password\":\"dolores\"}"
+                            "raw": "{\"email\":\"odit\",\"password\":\"qui\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -178,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "aliquam",
+                                    "value": "temporibus",
                                     "description": ""
                                 }
                             ]
@@ -284,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"yofzlsdugmslij\",\"email\":\"marion80@example.net\",\"password\":\"\",\"phone\":\"saepe\"}"
+                            "raw": "{\"firstname\":\"xhqslmub\",\"lastname\":\"bcybbhcwzltwip\",\"email\":\"slittle@example.net\",\"password\":\"hlvxz\",\"phone\":\"itaque\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -376,7 +376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"amount\":\"delectus\",\"payment_id\":\"quo\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"nam\",\"lng\":\"at\"}"
+                            "raw": "{\"amount\":\"ipsam\",\"payment_id\":\"sit\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"qui\",\"lng\":\"optio\"}"
                         },
                         "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response."
                     },
@@ -401,7 +401,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "dignissimos",
+                                    "value": "et",
                                     "description": ""
                                 }
                             ]
@@ -441,7 +441,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "velit",
+                                    "value": "sint",
                                     "description": ""
                                 }
                             ]
@@ -499,7 +499,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"quasi\",\"email\":\"upton.kiarra@example.com\",\"currency\":\"omr\",\"nationality_id\":10,\"residence_id\":14,\"addresse\":\"omnis\",\"lang\":\"en\",\"sex\":\"male\"}"
+                            "raw": "{\"firstname\":\"id\",\"lastname\":\"voluptatum\",\"email\":\"nikki.zulauf@example.com\",\"currency\":\"aed\",\"nationality_id\":11,\"residence_id\":14,\"addresse\":\"est\",\"lang\":\"en\",\"sex\":\"male\",\"phone\":\"+9941310113\",\"allow_notifications\":false}"
                         },
                         "description": "send the field user wont update"
                     },
@@ -524,7 +524,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "quis",
+                                    "value": "ipsum",
                                     "description": ""
                                 }
                             ]
@@ -542,18 +542,11 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"eveniet\",\"body\":\"quo\"}"
+                            "raw": "{\"title\":\"aliquam\",\"body\":\"non\"}"
                         },
                         "description": ""
                     },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "scenario=\"coupons are exist",
-                            "name": ""
-                        }
-                    ]
+                    "response": []
                 },
                 {
                     "name": "get notifications",
@@ -567,7 +560,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "assumenda",
+                                    "value": "voluptatem",
                                     "description": ""
                                 }
                             ]
@@ -586,14 +579,7 @@
                         "body": null,
                         "description": ""
                     },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "scenario=\"coupons are exist",
-                            "name": ""
-                        }
-                    ]
+                    "response": []
                 }
             ]
         },
@@ -691,7 +677,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "necessitatibus",
+                                    "value": "quo",
                                     "description": ""
                                 }
                             ]
@@ -736,13 +722,19 @@
                                     "disabled": false
                                 },
                                 {
+                                    "key": "category",
+                                    "value": "11",
+                                    "description": "filter by category .",
+                                    "disabled": false
+                                },
+                                {
                                     "key": "sold_out_filter",
                                     "value": "",
                                     "description": "filter by sold out .",
                                     "disabled": true
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product?is_close=1&sold_out_filter=",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product?is_close=1&category=11&sold_out_filter=",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -885,7 +877,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"enim\",\"email\":\"rutherford.eleonore@example.org\",\"Inquiry_message\":\"expedita\"}"
+                            "raw": "{\"name\":\"vero\",\"email\":\"ward51@example.net\",\"Inquiry_message\":\"autem\"}"
                         },
                         "description": "this route is called to save users Queries"
                     },

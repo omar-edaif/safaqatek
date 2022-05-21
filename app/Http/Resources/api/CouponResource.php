@@ -19,7 +19,7 @@ class CouponResource extends JsonResource
             "key" => $this->key,
             "participate_with" => $this->participate_with,
             "created_at" => $this->created_at->format('m/d/Y h:m:s'),
-
+            "isWinner" => $this->isWinner,
             'product' => [
                 "id" => $this->product->id,
                 "name" => $this->product["name_" . app()->getLocale()],

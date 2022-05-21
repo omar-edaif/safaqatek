@@ -34,6 +34,7 @@ class productController extends Controller
      * @urlParam lang string required  The language. Example: en
      *
      * @queryParam  is_close boolean The show only available products  .
+     * @queryParam  category integer filter by category .
      * @queryParam  sold_out_filter boolean filter by sold out .
      *
      */
@@ -42,6 +43,7 @@ class productController extends Controller
     {
 
         $data = Product::where('closing_at', filter_var($request->input('is_close'), FILTER_VALIDATE_BOOL) ? '<' : '>=', now())
+            ->when(request('category'), fn ($query) => $query->where('product_category_id', request('category')))
             ->with('isFavorite')
             ->withSum('inOrders as sold_out', 'quantity')
             ->withExists('isParticipate as isParticipate')
@@ -126,7 +128,7 @@ class productController extends Controller
 
     public function winners()
     {
-        $winners  =   Winner::with('user:id,username', 'award:id,award_name_ar,award_name_en')->paginate(20);
+        $winners  =   Winner::with('user:id,firstname,lastname', 'award:id,award_name_ar,award_name_en')->paginate(20);
         return WinnerResource::collection($winners);
     }
 }

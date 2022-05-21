@@ -27,7 +27,7 @@ class ProductResource extends JsonResource
             "sold_out" =>  intval($this->sold_out) ?: 0,
             'copon_per_unit' => $this->coupon_per_unit,
             'price' => $this->price,
-            'currency' => auth()->user()->currency ?? 'aed',
+            'currency' => getCurrency(auth()->guard('sanctum')->user()->currency ?? 'aed'),
             'isFavorite' => boolval($this->isFavorite),
             'isParticipate' => boolval($this->isParticipate),
             "closing_at" => $this->closing_at->format('m/d/Y'),

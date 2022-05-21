@@ -30,16 +30,16 @@ endpoints:
     bodyParameters:
       email:
         name: email
-        description: 'Must be a valid email address.'
+        description: ''
         required: true
-        example: ullrich.kaylah@example.com
+        example: odit
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: dolores
+        example: qui
         type: string
         custom: []
     responses:
@@ -156,7 +156,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: aliquam
+        example: temporibus
         type: string
         custom: []
     queryParameters: []
@@ -229,32 +229,39 @@ endpoints:
         custom: []
     queryParameters: []
     bodyParameters:
-      username:
-        name: username
+      firstname:
+        name: firstname
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: yofzlsdugmslij
+        example: xhqslmub
+        type: string
+        custom: []
+      lastname:
+        name: lastname
+        description: 'Must not be greater than 15 characters.'
+        required: true
+        example: bcybbhcwzltwip
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: marion80@example.net
+        example: slittle@example.net
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: ''
+        example: hlvxz
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: saepe
+        example: itaque
         type: string
         custom: []
     responses:
@@ -326,14 +333,14 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: delectus
+        example: ipsam
         type: string
         custom: []
       payment_id:
         name: payment_id
         description: ''
         required: true
-        example: quo
+        example: sit
         type: string
         custom: []
       cart:
@@ -357,14 +364,14 @@ endpoints:
         name: lat
         description: 'The location lat .'
         required: false
-        example: nam
+        example: qui
         type: string
         custom: []
       lng:
         name: lng
         description: 'The location long .'
         required: false
-        example: at
+        example: optio
         type: string
         custom: []
     responses:
@@ -392,7 +399,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: dignissimos
+        example: et
         type: string
         custom: []
     queryParameters: []
@@ -422,7 +429,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: velit
+        example: sint
         type: string
         custom: []
     queryParameters: []
@@ -457,32 +464,39 @@ endpoints:
         custom: []
     queryParameters: []
     bodyParameters:
-      username:
-        name: username
+      firstname:
+        name: firstname
         description: ''
         required: false
-        example: quasi
+        example: id
+        type: string
+        custom: []
+      lastname:
+        name: lastname
+        description: ''
+        required: false
+        example: voluptatum
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: false
-        example: upton.kiarra@example.com
+        example: nikki.zulauf@example.com
         type: string
         custom: []
       currency:
         name: currency
         description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
         required: false
-        example: omr
+        example: aed
         type: string
         custom: []
       nationality_id:
         name: nationality_id
         description: ''
         required: false
-        example: 10
+        example: 11
         type: integer
         custom: []
       residence_id:
@@ -496,7 +510,7 @@ endpoints:
         name: addresse
         description: ''
         required: false
-        example: omnis
+        example: est
         type: string
         custom: []
       avatar:
@@ -519,6 +533,20 @@ endpoints:
         required: false
         example: male
         type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'The phone of user  .'
+        required: false
+        example: '+9941310113'
+        type: string
+        custom: []
+      allow_notifications:
+        name: allow_notifications
+        description: 'allow notifecations for user'
+        required: false
+        example: false
+        type: boolean
         custom: []
     responses:
       -
@@ -545,7 +573,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: quis
+        example: ipsum
         type: string
         custom: []
     queryParameters: []
@@ -554,22 +582,17 @@ endpoints:
         name: title
         description: 'The title of notification .'
         required: false
-        example: eveniet
+        example: aliquam
         type: string
         custom: []
       body:
         name: body
         description: 'The body of notifcation.'
         required: false
-        example: quo
+        example: non
         type: string
         custom: []
-    responses:
-      -
-        status: 200
-        content: 'scenario="coupons are exist'
-        headers: []
-        description: '200'
+    responses: []
     responseFields: []
   -
     httpMethods:
@@ -589,15 +612,10 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: assumenda
+        example: voluptatem
         type: string
         custom: []
     queryParameters: []
     bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: 'scenario="coupons are exist'
-        headers: []
-        description: '200'
+    responses: []
     responseFields: []

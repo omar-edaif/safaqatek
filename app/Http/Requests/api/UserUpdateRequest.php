@@ -25,7 +25,8 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'string',
+            'firstname' => 'string',
+            'lastname' => 'string',
             'email' => 'unique:users,email||email',
             'currency' => 'in:' . implode(',', Currency::whereActive(true)->pluck('code')->toArray()),
             'nationality_id'   => 'integer',

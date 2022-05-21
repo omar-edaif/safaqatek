@@ -9,7 +9,8 @@
                     <div class="card p-3">
                         <form class="app-search d-none d-lg-block mx-3">
                             <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" name="search" @if (request()->get('search')) autofocus @endif
+                                    value="{{ request()->get('search') }}" class="form-control" placeholder="Search...">
                                 <span class="bx bx-search-alt"></span>
                             </div>
                         </form>
@@ -28,11 +29,13 @@
                             <table class="table align-middle table-nowrap table-hover">
                                 <thead class="table-light">
                                     <tr>
-                                        <th scope="col">{{ __('transaction_id') }}</th>
+                                        <th scope="col">{{ __('transaction id') }}</th>
                                         <th scope="col">{{ __('amount') }}</th>
                                         <th scope="col">{{ __('user') }}</th>
-                                        <th scope="col">{{ __('product') }}</th>
+                                        <th scope="col">{{ __('created at') }}</th>
                                         <th scope="col">{{ __('donate') }}</th>
+                                        <th scope="col">{{ __('delivered') }}</th>
+                                        <th scope="col">{{ __('action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,7 +49,9 @@
                                             <td>
                                                 <h5 class="font-size-14 mb-1"><a
                                                         class="text-dark">{{ $order->amount }}<span
-                                                            class="font-size-10 text-muted">({{ $order->currency }})</span></a>
+                                                            class="font-size-10 text-muted">
+                                                            ({{ $order->currency }})
+                                                        </span></a>
                                                 </h5>
                                             </td>
                                             <td>
@@ -55,7 +60,7 @@
                                                         id="page-header-product-dropdown" data-bs-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false">
 
-                                                        {{ $order->user->username }}
+                                                        {{ $order->user->firstname . ' ' . $order->user->lastname }}
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 "
                                                         aria-labelledby="page-header-notifications-dropdown"
@@ -128,7 +133,11 @@
                                                 {{-- <a class="text-primary"></a> --}}
                                                 </h5>
                                             </td>
-                                            <td class="text-primary">{{ $order->product }}</td>
+
+                                            <td> <span
+                                                    class="badge-soft-primary px-2 rounded shadow-sm ">{{ $order->created_at->format('d-m-y h:m:s A') }}</span>
+                                            </td>
+
 
                                             <td>
 
@@ -144,12 +153,42 @@
 
                                                 </span>
                                             </td>
+                                            <td>
+
+                                                @if ($order->is_donate)
+                                                    <span
+                                                        class=" border  badge-soft-success px-1 rounded border-2 border-success ">
+                                                        yes
+                                                    @else
+                                                        <span
+                                                            class=" border  badge-soft-danger px-1 rounded border-2 border-danger ">
+                                                            no
+                                                @endif
+
+                                                </span>
+                                            </td>
+                                            <td class="text-dark">
+                                                <ul class="list-inline font-size-20 contact-links mb-0">
+                                                    <li class="list-inline-item px-2">
+                                                        <a href="https://maps.google.com/?q=30.28882, -9.588312"
+                                                            title="location"><i class="bx bx-map"></i></a>
+
+                                                    </li>
+                                                    <li class="list-inline-item px-2">
+                                                        <a href="" title="Edit"><i class=" bx bx-pencil"></i></a>
+                                                    </li>
+
+                                                    <li class="list-inline-item px-2">
+                                                        <a href="" title="orders"><i class=" bx bx-receipt "></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-
+                        {{ $orders->links() }}
                     </div>
                 </div>
             </div>

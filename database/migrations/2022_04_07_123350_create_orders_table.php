@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('currency');
             $table->string('transaction_id');
             $table->boolean('is_donate')->default(0);
+            $table->boolean('is_delivered')->default(0);
             $table->timestamps();
         });
     }

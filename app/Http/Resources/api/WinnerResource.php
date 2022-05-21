@@ -15,7 +15,8 @@ class WinnerResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'username' => $this->user->username,
+            'firstname' => $this->user->firstname,
+            'lastname' => $this->user->lastname,
             'url'  => $this->url,
             'award_name' => $this->award['award_name_' . app()->getLocale()],
             'announced_on' => $this->created_at->format('h:i A, d F Y'),

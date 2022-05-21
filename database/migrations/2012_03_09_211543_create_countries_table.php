@@ -17,6 +17,11 @@ class CreateCountriesTable extends Migration
             $table->id();
             $table->string('name_ar');
             $table->string('name_en');
+            $table->string('code', 2);
+            $table->integer('dialCode');
+            $table->integer('maxLength');
+            $table->integer('minLength');
+            $table->string('flag');
             $table->boolean('active')->default(1);
         });
     }

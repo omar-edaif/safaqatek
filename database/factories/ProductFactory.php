@@ -14,10 +14,10 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'product_category_id' => 1,
-            'name_en' => $this->faker->title(),
+            'product_category_id' => rand(1, 3),
+            'name_en' => $this->faker->name(),
             'name_ar' => 'الاسم ',
-            'award_name_en' => $this->faker->title(),
+            'award_name_en' => $this->faker->name(),
             'award_name_ar' => 'أسم الجائزة بالعربي',
             'image' => '/images/product/product_0' . rand(0, 1) . '.jpg',
             'award_image' => '/images/product/product_0' . rand(0, 1) . '.jpg',

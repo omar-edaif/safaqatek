@@ -29,7 +29,7 @@ class ProductController extends Controller
     }
     public function orders()
     {
-        $orders =  Order::with('user')->withCount('products as product')->paginate(20);
+        $orders =  Order::with('user')->withCount('products as product')->latest()->paginate(20);
         return view('dashbord.products.orders', compact('orders'));
     }
     public function create()

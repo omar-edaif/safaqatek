@@ -78,12 +78,12 @@ paths:
               properties:
                 email:
                   type: string
-                  description: 'Must be a valid email address.'
-                  example: ullrich.kaylah@example.com
+                  description: ''
+                  example: odit
                 password:
                   type: string
                   description: ''
-                  example: dolores
+                  example: qui
               required:
                 - email
                 - password
@@ -310,7 +310,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: aliquam
+        example: temporibus
         required: true
         schema:
           type: string
@@ -446,24 +446,29 @@ paths:
             schema:
               type: object
               properties:
-                username:
+                firstname:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: yofzlsdugmslij
+                  example: xhqslmub
+                lastname:
+                  type: string
+                  description: 'Must not be greater than 15 characters.'
+                  example: bcybbhcwzltwip
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: marion80@example.net
+                  example: slittle@example.net
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: ''
+                  example: hlvxz
                 phone:
                   type: string
                   description: ''
-                  example: saepe
+                  example: itaque
               required:
-                - username
+                - firstname
+                - lastname
                 - email
                 - password
                 - phone
@@ -658,11 +663,11 @@ paths:
                 amount:
                   type: string
                   description: ''
-                  example: delectus
+                  example: ipsam
                 payment_id:
                   type: string
                   description: ''
-                  example: quo
+                  example: sit
                 cart:
                   type: object
                   description: 'The Customer purchases  exempele [{"id":1,"quantity":2}] .'
@@ -678,11 +683,11 @@ paths:
                 lat:
                   type: string
                   description: 'The location lat .'
-                  example: nam
+                  example: qui
                 lng:
                   type: string
                   description: 'The location long .'
-                  example: at
+                  example: optio
               required:
                 - amount
                 - payment_id
@@ -772,7 +777,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: dignissimos
+        example: et
         required: true
         schema:
           type: string
@@ -846,7 +851,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: velit
+        example: sint
         required: true
         schema:
           type: string
@@ -914,22 +919,26 @@ paths:
             schema:
               type: object
               properties:
-                username:
+                firstname:
                   type: string
                   description: ''
-                  example: quasi
+                  example: id
+                lastname:
+                  type: string
+                  description: ''
+                  example: voluptatum
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: upton.kiarra@example.com
+                  example: nikki.zulauf@example.com
                 currency:
                   type: string
                   description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
-                  example: omr
+                  example: aed
                 nationality_id:
                   type: integer
                   description: ''
-                  example: 10
+                  example: 11
                 residence_id:
                   type: integer
                   description: ''
@@ -937,7 +946,7 @@ paths:
                 addresse:
                   type: string
                   description: ''
-                  example: omnis
+                  example: est
                 avatar:
                   type: string
                   description: ''
@@ -950,6 +959,14 @@ paths:
                   type: string
                   description: 'Must be one of <code>male</code> or <code>female</code>.'
                   example: male
+                phone:
+                  type: string
+                  description: 'The phone of user  .'
+                  example: '+9941310113'
+                allow_notifications:
+                  type: boolean
+                  description: 'allow notifecations for user'
+                  example: false
     parameters:
       -
         in: path
@@ -991,14 +1008,7 @@ paths:
           example: application/json
           schema:
             type: string
-      responses:
-        200:
-          description: ''
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 'scenario="coupons are exist'
+      responses: {  }
       tags:
         - 'User management'
       requestBody:
@@ -1011,11 +1021,11 @@ paths:
                 title:
                   type: string
                   description: 'The title of notification .'
-                  example: eveniet
+                  example: aliquam
                 body:
                   type: string
                   description: 'The body of notifcation.'
-                  example: quo
+                  example: non
     get:
       summary: 'get notifications'
       description: ''
@@ -1041,14 +1051,7 @@ paths:
           example: application/json
           schema:
             type: string
-      responses:
-        200:
-          description: ''
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: 'scenario="coupons are exist'
+      responses: {  }
       tags:
         - 'User management'
     parameters:
@@ -1056,7 +1059,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: quis
+        example: ipsum
         required: true
         schema:
           type: string
@@ -1292,7 +1295,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: necessitatibus
+        example: quo
         required: true
         schema:
           type: string
@@ -1311,6 +1314,16 @@ paths:
             type: boolean
             description: 'The show only available products  .'
             example: true
+        -
+          in: query
+          name: category
+          description: 'filter by category .'
+          example: 11
+          required: false
+          schema:
+            type: integer
+            description: 'filter by category .'
+            example: 11
         -
           in: query
           name: sold_out_filter
@@ -1465,15 +1478,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: enim
+                  example: vero
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: rutherford.eleonore@example.org
+                  example: ward51@example.net
                 Inquiry_message:
                   type: string
                   description: ''
-                  example: expedita
+                  example: autem
               required:
                 - name
                 - email

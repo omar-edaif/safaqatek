@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create(
             [
-                'username' => 'jaafar',
+                'firstname' => 'jaafar',
+                'lastname' => 'es',
                 'phone' => '+9630936950834',
                 'email' => 'admin@gmail.com',
                 'nationality_id' => 1,

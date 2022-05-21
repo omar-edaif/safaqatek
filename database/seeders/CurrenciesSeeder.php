@@ -15,11 +15,12 @@ class CurrenciesSeeder extends Seeder
     public function run()
     {
         Currency::insert([
-            ['code' => "aed"],
-            ['code' => "sar"],
-            ['code' => "kwd"],
-            ['code' => "omr"],
-            ['code' => "qar"]
+            ['code' => "aed", 'name_ar' => 'الدرهم الاماراتي', 'active' => 1],
+            ['code' => "sar", 'name_ar' => 'الريال السعودي', 'active' => 0],
+            ['code' => "kwd", 'name_ar' => 'الدينار الكويتي', 'active' => 0],
+            ['code' => "omr", 'name_ar' => 'الدينار الكويتي', 'active' => 0],
+            ['code' => "qar", 'name_ar' => 'الريال القطري', 'active' => 0],
+            ['code' => "bhd", 'name_ar' => 'الدينار البحريني', 'active' => 0]
 
         ]);
     }

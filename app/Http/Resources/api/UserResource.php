@@ -15,17 +15,19 @@ class UserResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'username' => $this->username,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
             'email' => $this->email,
             'nationality' => $this->nationality()->pluck('name_' . app()->getLocale() . ' as name')->values()->first() ?? "",
             'residence' => $this->residence()->pluck('name_' . app()->getLocale() . ' as name')->values()->first() ?? "",
-            'currency' => $this->currency,
+            'currency' => getCurrency($this->currency),
             'addresse' => $this->addresse ?: '',
             'phone' => $this->phone,
             'avatar' => $this->avatar,
             'lang' => $this->lang,
             'sex' => $this->sex,
-            'purchases' => $this->orders()->count(),
+            'allow_notifications' => $this->allow_notifications,
+            'purchases' => (int) $this->purchases()->sum('quantity'),
         ];
     }
 }

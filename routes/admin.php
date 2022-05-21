@@ -14,6 +14,7 @@ Route::Delete('upload', [DashbordController::class, 'filedelete']);
 
 Route::as('users')->prefix('users')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('.index');
+    Route::delete('/delete/{id}', [UserController::class, 'delete'])->name('.delete');
 });
 
 
