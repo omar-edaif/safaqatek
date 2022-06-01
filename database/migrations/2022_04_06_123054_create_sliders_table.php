@@ -16,6 +16,7 @@ class CreateSlidersTable extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('image')->nullable();
             $table->boolean('active')->default(1);
         });
@@ -26,6 +27,7 @@ class CreateSlidersTable extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         Schema::dropIfExists('sliders');

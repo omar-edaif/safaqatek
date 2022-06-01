@@ -79,11 +79,11 @@ paths:
                 email:
                   type: string
                   description: ''
-                  example: odit
+                  example: perspiciatis
                 password:
                   type: string
                   description: ''
-                  example: qui
+                  example: ipsum
               required:
                 - email
                 - password
@@ -310,7 +310,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: temporibus
+        example: laboriosam
         required: true
         schema:
           type: string
@@ -449,29 +449,29 @@ paths:
                 firstname:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: xhqslmub
+                  example: hdmm
                 lastname:
                   type: string
                   description: 'Must not be greater than 15 characters.'
-                  example: bcybbhcwzltwip
+                  example: dabdhmwdabnz
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: slittle@example.net
-                password:
-                  type: string
-                  description: 'Must be at least 8 characters.'
-                  example: hlvxz
+                  example: psatterfield@example.net
                 phone:
                   type: string
                   description: ''
-                  example: itaque
+                  example: incidunt
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: gvqnrub
               required:
                 - firstname
                 - lastname
                 - email
-                - password
                 - phone
+                - password
       security: []
     parameters:
       -
@@ -663,11 +663,11 @@ paths:
                 amount:
                   type: string
                   description: ''
-                  example: ipsam
+                  example: deleniti
                 payment_id:
                   type: string
                   description: ''
-                  example: sit
+                  example: et
                 cart:
                   type: object
                   description: 'The Customer purchases  exempele [{"id":1,"quantity":2}] .'
@@ -676,18 +676,18 @@ paths:
                       id: 1
                       quantity: 2
                   properties: []
-                is_donate:
+                isDonate:
                   type: boolean
                   description: 'if user choise to donate.'
                   example: false
                 lat:
                   type: string
                   description: 'The location lat .'
-                  example: qui
+                  example: assumenda
                 lng:
                   type: string
                   description: 'The location long .'
-                  example: optio
+                  example: impedit
               required:
                 - amount
                 - payment_id
@@ -777,7 +777,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: et
+        example: consequatur
         required: true
         schema:
           type: string
@@ -851,7 +851,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: sint
+        example: blanditiis
         required: true
         schema:
           type: string
@@ -922,31 +922,31 @@ paths:
                 firstname:
                   type: string
                   description: ''
-                  example: id
+                  example: et
                 lastname:
                   type: string
                   description: ''
-                  example: voluptatum
+                  example: qui
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: nikki.zulauf@example.com
+                  example: marcel84@example.net
                 currency:
                   type: string
-                  description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
+                  description: 'Must be one of <code>aed</code> or <code>sar</code>.'
                   example: aed
                 nationality_id:
                   type: integer
                   description: ''
-                  example: 11
+                  example: 6
                 residence_id:
                   type: integer
                   description: ''
-                  example: 14
+                  example: 1
                 addresse:
                   type: string
                   description: ''
-                  example: est
+                  example: quas
                 avatar:
                   type: string
                   description: ''
@@ -954,7 +954,7 @@ paths:
                 lang:
                   type: string
                   description: 'Must be one of <code>en</code> or <code>ar</code>.'
-                  example: en
+                  example: ar
                 sex:
                   type: string
                   description: 'Must be one of <code>male</code> or <code>female</code>.'
@@ -1021,11 +1021,11 @@ paths:
                 title:
                   type: string
                   description: 'The title of notification .'
-                  example: aliquam
+                  example: aut
                 body:
                   type: string
                   description: 'The body of notifcation.'
-                  example: non
+                  example: illum
     get:
       summary: 'get notifications'
       description: ''
@@ -1059,10 +1059,61 @@ paths:
         in: path
         name: lang
         description: ''
-        example: ipsum
+        example: deleniti
         required: true
         schema:
           type: string
+  '/api/v1/{lang}/user/phone/check':
+    post:
+      summary: 'Check phone'
+      description: 'If  request have param '' phone '' exist and everything is okay, you''ll get a 200 OK response.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  description: 'The phone of user  .'
+                  example: '96648456952'
+              required:
+                - phone
+      security: []
+    parameters:
+      -
+        in: path
+        name: lang
+        description: 'Optional parameter. The language.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: en
   '/api/v1/{lang}/product/wishlist/add/{id}':
     get:
       summary: 'add product to wishlist'
@@ -1295,7 +1346,7 @@ paths:
         in: path
         name: lang
         description: ''
-        example: quo
+        example: necessitatibus
         required: true
         schema:
           type: string
@@ -1306,34 +1357,34 @@ paths:
       parameters:
         -
           in: query
-          name: is_close
+          name: sold_out
           description: 'The show only available products  .'
-          example: true
-          required: false
-          schema:
-            type: boolean
-            description: 'The show only available products  .'
-            example: true
-        -
-          in: query
-          name: category
-          description: 'filter by category .'
-          example: 11
-          required: false
-          schema:
-            type: integer
-            description: 'filter by category .'
-            example: 11
-        -
-          in: query
-          name: sold_out_filter
-          description: 'filter by sold out .'
           example: false
           required: false
           schema:
             type: boolean
-            description: 'filter by sold out .'
+            description: 'The show only available products  .'
             example: false
+        -
+          in: query
+          name: category
+          description: 'filter by category .'
+          example: 2
+          required: false
+          schema:
+            type: integer
+            description: 'filter by category .'
+            example: 2
+        -
+          in: query
+          name: closing_soon
+          description: 'filter by sold out .'
+          example: true
+          required: false
+          schema:
+            type: boolean
+            description: 'filter by sold out .'
+            example: true
         -
           in: header
           name: Content-Type
@@ -1478,15 +1529,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: vero
+                  example: consectetur
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: ward51@example.net
+                  example: dickinson.myrtle@example.com
                 Inquiry_message:
                   type: string
                   description: ''
-                  example: autem
+                  example: qui
               required:
                 - name
                 - email

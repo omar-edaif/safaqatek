@@ -32,14 +32,14 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: odit
+        example: perspiciatis
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: qui
+        example: ipsum
         type: string
         custom: []
     responses:
@@ -156,7 +156,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: temporibus
+        example: laboriosam
         type: string
         custom: []
     queryParameters: []
@@ -233,35 +233,35 @@ endpoints:
         name: firstname
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: xhqslmub
+        example: hdmm
         type: string
         custom: []
       lastname:
         name: lastname
         description: 'Must not be greater than 15 characters.'
         required: true
-        example: bcybbhcwzltwip
+        example: dabdhmwdabnz
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: slittle@example.net
-        type: string
-        custom: []
-      password:
-        name: password
-        description: 'Must be at least 8 characters.'
-        required: true
-        example: hlvxz
+        example: psatterfield@example.net
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: itaque
+        example: incidunt
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: gvqnrub
         type: string
         custom: []
     responses:
@@ -333,14 +333,14 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: ipsam
+        example: deleniti
         type: string
         custom: []
       payment_id:
         name: payment_id
         description: ''
         required: true
-        example: sit
+        example: et
         type: string
         custom: []
       cart:
@@ -353,8 +353,8 @@ endpoints:
             quantity: 2
         type: object
         custom: []
-      is_donate:
-        name: is_donate
+      isDonate:
+        name: isDonate
         description: 'if user choise to donate.'
         required: false
         example: false
@@ -364,14 +364,14 @@ endpoints:
         name: lat
         description: 'The location lat .'
         required: false
-        example: qui
+        example: assumenda
         type: string
         custom: []
       lng:
         name: lng
         description: 'The location long .'
         required: false
-        example: optio
+        example: impedit
         type: string
         custom: []
     responses:
@@ -399,7 +399,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: et
+        example: consequatur
         type: string
         custom: []
     queryParameters: []
@@ -429,7 +429,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: sint
+        example: blanditiis
         type: string
         custom: []
     queryParameters: []
@@ -468,26 +468,26 @@ endpoints:
         name: firstname
         description: ''
         required: false
-        example: id
+        example: et
         type: string
         custom: []
       lastname:
         name: lastname
         description: ''
         required: false
-        example: voluptatum
+        example: qui
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: false
-        example: nikki.zulauf@example.com
+        example: marcel84@example.net
         type: string
         custom: []
       currency:
         name: currency
-        description: 'Must be one of <code>aed</code>, <code>sar</code>, <code>kwd</code>, <code>omr</code>, or <code>qar</code>.'
+        description: 'Must be one of <code>aed</code> or <code>sar</code>.'
         required: false
         example: aed
         type: string
@@ -496,21 +496,21 @@ endpoints:
         name: nationality_id
         description: ''
         required: false
-        example: 11
+        example: 6
         type: integer
         custom: []
       residence_id:
         name: residence_id
         description: ''
         required: false
-        example: 14
+        example: 1
         type: integer
         custom: []
       addresse:
         name: addresse
         description: ''
         required: false
-        example: est
+        example: quas
         type: string
         custom: []
       avatar:
@@ -524,7 +524,7 @@ endpoints:
         name: lang
         description: 'Must be one of <code>en</code> or <code>ar</code>.'
         required: false
-        example: en
+        example: ar
         type: string
         custom: []
       sex:
@@ -573,7 +573,7 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: ipsum
+        example: deleniti
         type: string
         custom: []
     queryParameters: []
@@ -582,14 +582,14 @@ endpoints:
         name: title
         description: 'The title of notification .'
         required: false
-        example: aliquam
+        example: aut
         type: string
         custom: []
       body:
         name: body
         description: 'The body of notifcation.'
         required: false
-        example: non
+        example: illum
         type: string
         custom: []
     responses: []
@@ -612,10 +612,41 @@ endpoints:
         name: lang
         description: ''
         required: true
-        example: voluptatem
+        example: velit
         type: string
         custom: []
     queryParameters: []
     bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/{lang}/user/phone/check'
+    metadata:
+      title: 'Check phone'
+      description: 'If  request have param '' phone '' exist and everything is okay, you''ll get a 200 OK response.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      lang:
+        name: lang
+        description: 'The language.'
+        required: false
+        example: en
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      phone:
+        name: phone
+        description: 'The phone of user  .'
+        required: true
+        example: '96648456952'
+        type: string
+        custom: []
     responses: []
     responseFields: []

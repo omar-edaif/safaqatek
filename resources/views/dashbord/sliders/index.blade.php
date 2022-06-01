@@ -15,7 +15,7 @@
                             </div>
                         </form>
                         <div class="col d-flex justify-content-end mx-3">
-                            <a type="button" href="{{ route('dashbord.products.create') }}"
+                            <a type="button" href="{{ route('dashbord.sliders.create') }}"
                                 class="btn btn-success waves-effect waves-light d-block mx-1 font-size-14 ">
                                 <i class=" bx bx-add-to-queue  font-size-16 align-middle me-2"></i>
                                 create
@@ -36,65 +36,54 @@
                             <table class="table align-middle table-nowrap table-hover">
                                 <thead class="table-light">
                                     <tr>
-                                        <th scope="col" style="width: 70px;">#</th>
-                                        <th scope="col">{{ __('name') }}</th>
-                                        <th scope="col">{{ __('award name') }}</th>
-                                        <th scope="col">{{ __('price') }}
-                                            <span class="font-size-10 text-muted">(aed)</span>
-                                        </th>
-                                        <th scope="col">{{ __('quantity') }}</th>
-                                        <th scope="col">{{ __('sold out') }}</th>
-                                        <th scope="col">{{ __('close in') }}</th>
+
+                                        <th scope="col">{{ __('title') }}</th>
+                                        <th scope="col">{{ __('image') }}</th>
+                                        <th scope="col">{{ __('active') }}</th>
+
                                         <th scope="col">{{ __('action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $product)
+                                    @foreach ($sliders as $slider)
                                         <tr>
-                                            <td>
-                                                <div class="avatar-xs">
-                                                    <span class="avatar-title avatar-sm rounded-circle">
-                                                        <img class="avatar-sm rounded" src="{{ asset($product->image) }}"
-                                                            alt="product image">
-                                                    </span>
-                                                </div>
-                                            </td>
+
                                             <td>
                                                 <h5 class="font-size-14 mb-1"><a
-                                                        class="text-dark">{{ $product->{'name_' . app()->getLocale()} }}</a>
+                                                        class="text-dark">{{ $slider->title }}</a>
                                                 </h5>
                                             </td>
+
+                                            <td class="text-dark"><img src="{{ asset($slider->image) }}" alt=""></td>
                                             <td>
-                                                <h5 class="font-size-14 mb-1"><a
-                                                        class="text-dark">{{ $product->{'award_name_' . app()->getLocale()} }}</a>
-                                                </h5>
-                                            </td>
-                                            <td class="text-dark">{{ $product->price }}</td>
-                                            <td class="text-dark">{{ $product->quantity }}</td>
-                                            <td class="text-dark">{{ $product->sold_out }}</td>
-                                            <td>
-                                                <span
-                                                    @if ($product->closing_at->gte(now())) class=" border  badge-soft-success px-1 rounded border-2 border-success "
-                                                @else
-                                                class=" border  badge-soft-danger px-1 rounded border-2 border-danger " @endif>
-                                                    {{ $product->closing_at->format('d M y') }}
+
+                                                @if ($slider->active)
+                                                    <span
+                                                        class=" border  badge-soft-success px-1 rounded border-2 border-success ">
+                                                        yes
+                                                    @else
+                                                        <span
+                                                            class=" border  badge-soft-danger px-1 rounded border-2 border-danger ">
+                                                            no
+                                                @endif
+
                                                 </span>
                                             </td>
                                             <td>
                                                 <ul class="list-inline font-size-20 contact-links mb-0">
-                                                    <li class="list-inline-item px-2">
+                                                    <li class="list-inline-item px-2 ">
                                                         <form method="POST" id="form_delete"
-                                                            action="{{ route('dashbord.products.delete', ['id' => $product->id]) }}">
+                                                            action="{{ route('dashbord.sliders.delete', ['id' => $slider->id]) }}">
                                                             @csrf
                                                             @method('delete')
                                                             <a class="delete" role='button'
                                                                 onclick="$(this).parent().submit()" title="Delete"><i
-                                                                    class="bx bx-trash-alt "></i></a>
+                                                                    class="bx bx-trash-alt text-danger "></i></a>
                                                         </form>
                                                     </li>
                                                     <li class="list-inline-item px-2">
-                                                        <a href="{{ route('dashbord.products.edit', ['id' => $product->id]) }}"
-                                                            title="Edit"><i class=" bx bx-pencil"></i></a>
+                                                        <a href="{{ route('dashbord.sliders.edit', ['id' => $slider->id]) }}"
+                                                            title="Edit"><i class=" text-warning bx bx-pencil"></i></a>
                                                     </li>
 
 
@@ -106,7 +95,7 @@
                             </table>
                         </div>
 
-                        {{ $products->links() }}
+                        {{ $sliders->links() }}
                     </div>
                 </div>
             </div>

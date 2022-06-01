@@ -23,10 +23,13 @@ class UserResource extends JsonResource
             'currency' => getCurrency($this->currency),
             'addresse' => $this->addresse ?: '',
             'phone' => $this->phone,
-            'avatar' => $this->avatar,
+            'avatar' => $this->avatar ? asset($this->avatar) : '',
             'lang' => $this->lang,
             'sex' => $this->sex,
             'allow_notifications' => $this->allow_notifications,
+            'latitude' => $this->latitude ?? '',
+            'longitude' => $this->longitude ?? '',
+            'cards' => $this->paymentMethods() ?? '',
             'purchases' => (int) $this->purchases()->sum('quantity'),
         ];
     }

@@ -5,10 +5,12 @@ namespace App\Http\Controllers\api\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\api\ProductResource;
 use App\Http\Resources\api\WinnerResource;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\UserWishlist;
 use App\Models\Winner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group product management
@@ -33,22 +35,46 @@ class productController extends Controller
      *
      * @urlParam lang string required  The language. Example: en
      *
-     * @queryParam  is_close boolean The show only available products  .
+     * @queryParam  sold_out boolean The show only available products  .
      * @queryParam  category integer filter by category .
-     * @queryParam  sold_out_filter boolean filter by sold out .
+     * @queryParam  closing_soon boolean filter by sold out .
      *
      */
 
     public function products(Request $request)
     {
 
-        $data = Product::where('closing_at', filter_var($request->input('is_close'), FILTER_VALIDATE_BOOL) ? '<' : '>=', now())
-            ->when(request('category'), fn ($query) => $query->where('product_category_id', request('category')))
-            ->with('isFavorite')
+
+        $data = Product::where(
+            'products.quantity',
+            boolval(request('sold_out')) ? '=' : '>',
+            fn ($query) =>
+            $query->selectRaw('sum(quantity)')
+                ->from(with(new OrderProduct())->getTable())
+                ->whereColumn('order_product.product_id', 'products.id')
+                ->limit(1)
+
+        )
+            ->when(
+                boolval(request('sold_out')),
+                fn ($query) => $query,
+                fn ($query) => $query->where('products.closing_at', '>', now())
+
+            )
+            ->when(
+                request('category'),
+                fn ($query) => $query->where('product_category_id', request('category'))
+
+            )->when(
+                request('closing_soon'),
+                fn ($query) => $query->orderBy('sold_out', 'desc')->orderBy('closing_at')
+
+            )->with('isFavorite')
             ->withSum('inOrders as sold_out', 'quantity')
             ->withExists('isParticipate as isParticipate')
-            ->orderBy('closing_at')
             ->paginate(20);
+
+
 
         return  ProductResource::collection($data);
     }

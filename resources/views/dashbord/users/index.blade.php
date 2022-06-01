@@ -9,8 +9,8 @@
                     <div class="card p-3">
                         <form class="app-search d-none d-lg-block mx-3">
                             <div class="position-relative">
-                                <input type="text" class="form-control" value="{{ Request::get('search') }}" name="search"
-                                    placeholder="Search...">
+                                <input type="text" class="form-control" value="{{ Request::get('search') }}"
+                                    name="search" placeholder="Search...">
                                 <span class="bx bx-search-alt"></span>
                             </div>
                         </form>
@@ -73,8 +73,8 @@
                                                             @csrf
                                                             @method('delete')
                                                             <a class="delete" role='button'
-                                                                onclick="document.getElementById('form_delete').submit()"
-                                                                title="Delete"><i class="bx bx-trash-alt "></i></a>
+                                                                onclick="$(this).parent().submit()" title="Delete"><i
+                                                                    class="bx bx-trash-alt "></i></a>
                                                         </form>
                                                     </li>
                                                     {{-- <li class="list-inline-item px-2">

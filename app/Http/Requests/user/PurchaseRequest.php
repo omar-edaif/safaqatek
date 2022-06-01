@@ -28,7 +28,7 @@ class PurchaseRequest extends FormRequest
 
         return [
             'amount' => 'required',
-            'payment_id' => 'required',
+            'payment_id' => 'sometimes|required',
             'cart' => 'required||json',
 
         ];

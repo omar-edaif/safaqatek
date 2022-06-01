@@ -47,7 +47,10 @@ class Product extends Model
     {
         return $this->hasMany(OrderProduct::class);
     }
-
+    public function inWishlist()
+    {
+        return $this->hasOne(UserWishlist::class)->where('user_id', auth()->guard('sanctum')->id());
+    }
 
 
     /**
@@ -67,11 +70,11 @@ class Product extends Model
      */
     public function isFavorite()
     {
-        return $this->hasOne(UserWishlist::class)->whereUserId(auth()->id());
+        return $this->hasOne(UserWishlist::class)->whereUserId(auth()->guard('sanctum')->id());
     }
 
     public function isParticipate()
     {
-        return $this->hasMany(Coupon::class)->whereUserId(auth()->id());
+        return $this->hasMany(Coupon::class)->whereUserId(auth()->guard('sanctum')->id());
     }
 }

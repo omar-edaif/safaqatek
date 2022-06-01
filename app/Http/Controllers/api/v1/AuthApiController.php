@@ -169,6 +169,21 @@ class AuthApiController extends Controller
 
         return response()->json(['message' => 'you are logout now']);
     }
+    /**
+     * Check phone
+     *
+     *  If  request have param ' phone ' exist and everything is okay, you'll get a 200 OK response.
+     *
+     * @urlParam lang The language. Example: en
+     * @bodyParam phone string required The phone of user  . Example: 96648456952
+     *
+     */
+    public function checkPhone(Request $request)
+    {
+        $this->validate($request, ['phone' => 'required|unique:users,phone']);
+
+        return response(['accept' => true]);
+    }
 
 
 
@@ -252,6 +267,8 @@ class AuthApiController extends Controller
      *
      * @bodyParam phone string  The phone of user  . Example: +9941310113
      *
+     * @bodyParam latitude string
+     * @bodyParam longitude string
      * @bodyParam allow_notifications boolean  allow notifecations for user
      * @authenticated
      */
@@ -261,17 +278,19 @@ class AuthApiController extends Controller
         $user = User::findOrFail(auth()->id());
 
         request('nationality_id')                   ?       $user->nationality_id   =   request('nationality_id') :   false;
-        request('firstname')                         ?       $user->firstname         =   request('firstname') :   false;
+        request('firstname')                        ?       $user->firstname         =   request('firstname') :   false;
         request('lastname')                         ?       $user->lastname         =   request('lastname') :   false;
         request('email')                            ?       $user->email            =   request('email')   :   false;
         request('residence_id')                     ?       $user->residence_id     =   request('residence_id') :   false;
         request('addresse')                         ?       $user->addresse         =   request('addresse') :   false;
         request('currency')                         ?       $user->currency         =   request('currency') :   false;
         request('phone')                            ?       $user->phone            =   request('phone')   :   false;
-        request('avatar')                           ?       $user->avatar           =   str_replace('public', 'storage',  request('avatar')->storePublicly('avatars')) :   false;
+        request('latitude')                         ?       $user->latitude         =   request('latitude')   :   false;
+        request('longitude')                        ?       $user->longitude        =   request('longitude')   :   false;
+        request('avatar')                           ?       $user->avatar           =   str_replace('public', 'storage',  request('avatar')->storePublicly('public/avatars')) :   false;
         request('lang')                             ?       $user->lang             =   request('lang') :   false;
         request('sex')                              ?       $user->sex              =   request('sex')   :   false;
-        request('allow_notifications')              ?       $user->allow_notifications  =  boolval(request('allow_notifications'))  :   false;
+        isset($request->allow_notifications)       ?       $user->allow_notifications  =  boolval(request('allow_notifications'))  :   false;
 
         $user->save();
 
@@ -293,7 +312,7 @@ class AuthApiController extends Controller
      * @authenticated
      *
      * @bodyParam cart object required The Customer purchases  exempele [{"id":1,"quantity":2}] . Example: [{"id":1,"quantity":2}]
-     * @bodyParam is_donate boolean if user choise to donate. Example: false
+     * @bodyParam isDonate boolean if user choise to donate. Example: false
      * @bodyParam lat string The location lat .
      * @bodyParam lng string The location long .
      */
@@ -303,21 +322,27 @@ class AuthApiController extends Controller
     {
         try {
 
-            $payment = auth()->user()->charge(
+            auth()->user()->createOrGetStripeCustomer();
+
+            if (request('payment_id')) {
+                auth()->user()->updateDefaultPaymentMethod(request('payment_id'));
+            }
+
+            $payment = auth()->user()->invoiceFor(
+                env('APP_NAME') . ' payment',
                 (request('amount') * 100),
-                request('payment_id'),
                 ['currency' => auth()->user()->currency ?? 'AED']
             );
 
-            $payment = $payment->asStripePaymentIntent();
+
 
             $order = auth()->user()->orders()->create([
-                'transaction_id' =>  $payment->charges->data[0]->id,
-                'amount' => $payment->charges->data[0]->amount / 100,
+                'transaction_id' =>  $payment->charge,
+                'amount' => $payment->amount_paid / 100,
                 'lng'    => request('lng'),
                 'lat'    => request('lat'),
                 'currency'    => auth()->user()->currency ?? 'AED',
-                'is_donate'   => request('is_donate') ?? false
+                'is_donate'   => request('isDonate') ?? false
             ]);
 
             foreach (json_decode(request('cart'), true) as $item) {
@@ -329,7 +354,7 @@ class AuthApiController extends Controller
                     'product_id' => $item['id'],
                     'order_id' => $order->id,
                     'key' => generateKey(),
-                    'participate_with' =>  $item['quantity'] * $copon_per_unit
+                    'participate_with' =>  $item['quantity'] * $copon_per_unit * (request('isDonate') ? 2 : 1)
                 ]);
             }
 
@@ -418,10 +443,12 @@ class AuthApiController extends Controller
 
     public function wishLists()
     {
-        $userWishlist    =    User::select('id')->whereId(auth()->id())
-            ->with('wishlists')
-            ->first();
 
-        return ProductResource::collection($userWishlist->wishlists);
+        $wishlist     =  Product::whereHas('inWishlist')
+            ->withSum('inOrders as sold_out', 'quantity')
+            ->withExists(['isParticipate as isParticipate', 'isFavorite as isFavorite'])
+            ->get();
+
+        return ProductResource::collection($wishlist);
     }
 }

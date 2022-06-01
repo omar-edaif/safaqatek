@@ -15,6 +15,7 @@ Route::prefix('v1/{lang}')->group(function () {
             //   Route::get('/{provider}', [AuthApiController::class, 'redirectToProvider']);
         });
         Route::post('/phone', [AuthApiController::class, 'phone']);
+        Route::post('/phone/check', [AuthApiController::class, 'checkPhone']);
         Route::post('/register', [AuthApiController::class, 'register']);
         Route::post('/login', [AuthApiController::class, 'login']);
         Route::post('/new/password', [AuthApiController::class, 'newPassword']);

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "safaqatok api vertion 1",
-        "_postman_id": "fc4de0c8-da9d-4282-ac50-08c9d5e8d5d9",
+        "_postman_id": "db5b51e1-b3c4-4f32-a006-33b42bb4f861",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"odit\",\"password\":\"qui\"}"
+                            "raw": "{\"email\":\"perspiciatis\",\"password\":\"ipsum\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -178,7 +178,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "temporibus",
+                                    "value": "laboriosam",
                                     "description": ""
                                 }
                             ]
@@ -284,7 +284,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"firstname\":\"xhqslmub\",\"lastname\":\"bcybbhcwzltwip\",\"email\":\"slittle@example.net\",\"password\":\"hlvxz\",\"phone\":\"itaque\"}"
+                            "raw": "{\"firstname\":\"hdmm\",\"lastname\":\"dabdhmwdabnz\",\"email\":\"psatterfield@example.net\",\"phone\":\"incidunt\",\"password\":\"gvqnrub\"}"
                         },
                         "description": "If  data was valid and everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with status 422 with validation error if exist  .",
                         "auth": {
@@ -376,7 +376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"amount\":\"ipsam\",\"payment_id\":\"sit\",\"cart\":[{\"id\":1,\"quantity\":2}],\"is_donate\":false,\"lat\":\"qui\",\"lng\":\"optio\"}"
+                            "raw": "{\"amount\":\"deleniti\",\"payment_id\":\"et\",\"cart\":[{\"id\":1,\"quantity\":2}],\"isDonate\":false,\"lat\":\"assumenda\",\"lng\":\"impedit\"}"
                         },
                         "description": "If  request have param ' cart and payment_id and amount ' exist and everything is okay, you'll get a 201 OK response."
                     },
@@ -401,7 +401,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "et",
+                                    "value": "consequatur",
                                     "description": ""
                                 }
                             ]
@@ -441,7 +441,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "sint",
+                                    "value": "blanditiis",
                                     "description": ""
                                 }
                             ]
@@ -499,7 +499,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"firstname\":\"id\",\"lastname\":\"voluptatum\",\"email\":\"nikki.zulauf@example.com\",\"currency\":\"aed\",\"nationality_id\":11,\"residence_id\":14,\"addresse\":\"est\",\"lang\":\"en\",\"sex\":\"male\",\"phone\":\"+9941310113\",\"allow_notifications\":false}"
+                            "raw": "{\"firstname\":\"et\",\"lastname\":\"qui\",\"email\":\"marcel84@example.net\",\"currency\":\"aed\",\"nationality_id\":6,\"residence_id\":1,\"addresse\":\"quas\",\"lang\":\"ar\",\"sex\":\"male\",\"phone\":\"+9941310113\",\"allow_notifications\":false}"
                         },
                         "description": "send the field user wont update"
                     },
@@ -524,7 +524,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "ipsum",
+                                    "value": "deleniti",
                                     "description": ""
                                 }
                             ]
@@ -542,7 +542,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"aliquam\",\"body\":\"non\"}"
+                            "raw": "{\"title\":\"aut\",\"body\":\"illum\"}"
                         },
                         "description": ""
                     },
@@ -560,7 +560,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "voluptatem",
+                                    "value": "velit",
                                     "description": ""
                                 }
                             ]
@@ -578,6 +578,45 @@
                         ],
                         "body": null,
                         "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Check phone",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/:lang\/user\/phone\/check",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/user\/phone\/check",
+                            "variable": [
+                                {
+                                    "id": "lang",
+                                    "key": "lang",
+                                    "value": "en",
+                                    "description": "The language."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"phone\":\"96648456952\"}"
+                        },
+                        "description": "If  request have param ' phone ' exist and everything is okay, you'll get a 200 OK response.",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 }
@@ -677,7 +716,7 @@
                                 {
                                     "id": "lang",
                                     "key": "lang",
-                                    "value": "quo",
+                                    "value": "necessitatibus",
                                     "description": ""
                                 }
                             ]
@@ -716,25 +755,25 @@
                             "path": "api\/v1\/:lang\/product",
                             "query": [
                                 {
-                                    "key": "is_close",
-                                    "value": "1",
+                                    "key": "sold_out",
+                                    "value": "",
                                     "description": "The show only available products  .",
-                                    "disabled": false
+                                    "disabled": true
                                 },
                                 {
                                     "key": "category",
-                                    "value": "11",
+                                    "value": "2",
                                     "description": "filter by category .",
                                     "disabled": false
                                 },
                                 {
-                                    "key": "sold_out_filter",
-                                    "value": "",
+                                    "key": "closing_soon",
+                                    "value": "1",
                                     "description": "filter by sold out .",
-                                    "disabled": true
+                                    "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product?is_close=1&category=11&sold_out_filter=",
+                            "raw": "{{baseUrl}}\/api\/v1\/:lang\/product?sold_out=&category=2&closing_soon=1",
                             "variable": [
                                 {
                                     "id": "lang",
@@ -877,7 +916,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"vero\",\"email\":\"ward51@example.net\",\"Inquiry_message\":\"autem\"}"
+                            "raw": "{\"name\":\"consectetur\",\"email\":\"dickinson.myrtle@example.com\",\"Inquiry_message\":\"qui\"}"
                         },
                         "description": "this route is called to save users Queries"
                     },

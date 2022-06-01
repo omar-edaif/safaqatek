@@ -14,6 +14,7 @@ class SliderFactory extends Factory
     public function definition()
     {
         return [
+            'title' => $this->faker->name(),
             'image' => '/images/sliders/slider_00.jpg',
             'active' => rand(0, 1)
 

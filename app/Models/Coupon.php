@@ -20,7 +20,7 @@ class Coupon extends Model
      */
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class,);
+        return $this->belongsTo(Product::class);
     }
     /**
      * Get the user associated with the Coupon

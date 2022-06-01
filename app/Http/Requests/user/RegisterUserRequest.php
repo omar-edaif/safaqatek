@@ -28,8 +28,8 @@ class RegisterUserRequest extends FormRequest
             'firstname' => 'required|string|max:15',
             'lastname' => 'required|string|max:15',
             'email'    => 'required|email|unique:users',
+            'phone'    => 'required|string|unique:users',
             'password' => 'required|min:8',
-            'phone'    => 'required|string'
         ];
     }
 }

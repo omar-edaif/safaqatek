@@ -69,6 +69,21 @@ return [
         'is_namespace' => false,
     ],
     [
+        'name_en' => "config",
+        'name_ar' => 'التكوين',
+        'is_namespace' => true,
+    ],
+    [
+        'name_en' => "sliders",
+        'name_ar' => "الشرائح",
+        'icon' => 'bx bx-trophy ',
+        'route' => 'dashbord.sliders.index',
+        'is_namespace' => false,
+    ],
+
+
+
+    [
         'name_en' => "settings",
         'name_ar' => 'الإعدادات',
         'is_namespace' => true,

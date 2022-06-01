@@ -45,7 +45,7 @@ class DashbordController extends Controller
 
         foreach (request()->allFiles() as $file) {
             $File = $file->storepublicly($folder);
-            return ($folder . '||' . str_replace($folder, '', $File));
+            return ($folder);
         }
         return '';
     }

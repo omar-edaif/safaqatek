@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('addresse')->nullable();
             $table->string('currency')->default('aed');
             $table->boolean('allow_notifications')->default(1);
+            $table->string('latitude', 30)->nullable();
+            $table->string('longitude', 30)->nullable();
             $table->string('phone');
             $table->string('avatar')->nullable();
             $table->string('password');

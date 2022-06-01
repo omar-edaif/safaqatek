@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = Product::orderByDesc('closing_at')
-            ->withCount('inOrders as sold_out')
+            ->withSum('inOrders as sold_out', 'quantity')
             ->where(function ($query) use ($request) {
                 if (!$request->input('search')) return $query;
 

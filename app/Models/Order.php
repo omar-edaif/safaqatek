@@ -14,7 +14,7 @@ class Order extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class)
+        return $this->belongsToMany(Product::class)->withTrashed()
             ->withPivot('quantity');
     }
     public function coupons()
@@ -29,6 +29,6 @@ class Order extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 }
